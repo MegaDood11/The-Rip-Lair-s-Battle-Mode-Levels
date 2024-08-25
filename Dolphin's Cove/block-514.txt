@@ -1,0 +1,6 @@
+lightoffsetx = 0
+lightoffsety = 0
+lightradius = 64
+lightbrightness = 1
+lightcolor = white
+lightflicker = false
