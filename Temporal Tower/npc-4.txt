@@ -1,0 +1,9 @@
+width=48
+height=44
+gfxwidth=88
+gfxheight=52
+gfxoffsety=8
+noyoshi=1
+speed=0.5
+nofireball=1
+noiceball=1

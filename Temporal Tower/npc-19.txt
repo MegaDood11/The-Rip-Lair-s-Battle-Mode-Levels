@@ -1,0 +1,10 @@
+width=40
+height=44
+gfxwidth=40
+gfxheight=44
+framestyle=1
+frames=2
+playerblocktop=0
+npcblocktop=0
+jumphurt=1
+nogravity=1

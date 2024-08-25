@@ -1,0 +1,7 @@
+width=32
+height=32
+gfxwidth=54
+gfxheight=52
+gfxoffsety=10
+frames=2
+framespeed=12

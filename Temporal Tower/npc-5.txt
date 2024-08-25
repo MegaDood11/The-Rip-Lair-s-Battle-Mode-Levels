@@ -1,0 +1,7 @@
+width=34
+height=34
+gfxwidth=82
+gfxheight=48
+noyoshi=1
+nofireball=1
+noiceball=1

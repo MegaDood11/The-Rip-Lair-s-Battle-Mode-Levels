@@ -1,0 +1,6 @@
+width=110
+height=24
+gfxwidth=110
+gfxheight=56
+gfxoffsety=8
+nofireball=1

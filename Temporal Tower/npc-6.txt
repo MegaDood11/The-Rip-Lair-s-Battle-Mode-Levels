@@ -1,0 +1,10 @@
+width=84
+height=86
+gfxwidth=84
+gfxheight=86
+frames=1
+noblockcollision=1
+nohurt=1
+noyoshi=1
+nofireball=1
+noiceball=1
