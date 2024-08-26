@@ -1,0 +1,15 @@
+gfxheight=64
+width=32
+height=64
+playerblocktop=0
+npcblock=0
+jumphurt=1
+speed=0
+noyoshi=1
+nofireball=1
+nogravity=1
+noiceball=1
+frames=4
+framestyle=0
+nohammer=1
+noshell=1

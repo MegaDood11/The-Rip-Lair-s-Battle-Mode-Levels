@@ -1,0 +1,46 @@
+[background2]
+; Name that will appear in the editor
+name = "SMB3 Pipes"
+; Backdrop fill color
+fill-color = black
+
+
+; Add layers here, for example:
+
+[Layer2011x]
+name = "2011x"
+depth = 99
+img = "background-2011x.png"
+alignY = BOTTOM
+parallaxX = 0
+parallaxY = 0
+y = -172
+frames = 3
+priority = -5
+
+[Layer1]
+depth = 100
+img = "background2-5.png"
+repeatX = true
+repeatY = true
+
+[LayerFire]
+name = "Fire"
+depth = 30
+img = "background-fire.png"
+repeatX = true
+alignY = BOTTOM
+
+[LayerFire2]
+name = "Fire2"
+depth = 40
+img = "background-fire2.png"
+repeatX = true
+alignY = BOTTOM
+y = -80
+
+[Layer2]
+img = "background-curtains.png"
+parallaxX = 0
+parallaxY = 0
+priority = -4
