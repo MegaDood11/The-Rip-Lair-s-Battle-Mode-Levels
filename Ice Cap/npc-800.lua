@@ -33,6 +33,8 @@ local sampleNPCSettings = {
 	nohurt=true,
 	nogravity = true,
 	noblockcollision = true,
+	nofireball=true,
+	noiceball=true,
 	noyoshi= true,
 	foreground = true
 }
@@ -89,7 +91,7 @@ function sampleNPC.onTickNPC(v)
 	
 	--Execute main AI. This template just jumps when it touches the ground.
 	for _,p in ipairs(Player.get()) do
-		if p.x > v.x and p.x < v.x + v.width - 2 and p.y > v.y - p.height - 12 and p.speedY > 0 then
+		if p.x + p.width > v.x and p.x < v.x + v.width - 2 and p.y > v.y - p.height - 12 and p.y + p.height / 2 < v.y + v.height and p.speedY > 0 then
 			p.speedY = -8
 			SFX.play(icechunk_break)
 			v:kill(HARM_TYPE_OFFSCREEN)
