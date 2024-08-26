@@ -2,7 +2,7 @@ HEAD
 TL:"Dolphin's Cove";CPID:"SMBX2";
 HEAD_END
 SECTION
-SC:0;L:-202368;R:-195872;T:-201536;B:-200000;MZ:24;MF:"Dolphin's Cove/1-23 Cosmic Cove Galaxy.mp3";BG:38;XTRA:"{\n    \"darkness\"\: {\n        \"ambient\"\: \"#6767c5ff\"\,\n        \"enableDarkness\"\: true\,\n        \"playerlight\"\: {\n            \"enabled\"\: true\n        }\n    }\,\n    \"effects\"\: {\n        \"screenEffects\"\: 3\n    }\n}\n";
+SC:0;L:-202368;R:-195872;T:-201536;B:-200000;MZ:24;MF:"Dolphin's Cove/Cosmic Cove Galaxy.ogg";BG:38;XTRA:"{\n    \"darkness\"\: {\n        \"ambient\"\: \"#6767c5ff\"\,\n        \"enableDarkness\"\: true\,\n        \"playerlight\"\: {\n            \"enabled\"\: true\n        }\n    }\,\n    \"effects\"\: {\n        \"screenEffects\"\: 3\n    }\n}\n";
 SECTION_END
 STARTPOINT
 ID:1;X:-199708;Y:-200214;D:1;
