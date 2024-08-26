@@ -1,6 +1,7 @@
 Credits:
-Sednuair - SMW extended cave tileset (recolored by Inferno_Guy)
+Sednaiur - SMW extended cave tileset (recolored by Inferno_Guy)
 Sleepy - parallax background
 Core - spike block
 Unknown - lamp, cave background layers
 LinkStormz - water bgo
+Dolphin fixes - Megadood & Murphmario
