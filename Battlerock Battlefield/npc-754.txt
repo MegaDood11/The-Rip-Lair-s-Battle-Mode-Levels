@@ -1,0 +1,5 @@
+wanderFrames = 4
+chaseFrames = 4
+springFrames = 4
+springFrSpeed = 5
+springDelay = 70

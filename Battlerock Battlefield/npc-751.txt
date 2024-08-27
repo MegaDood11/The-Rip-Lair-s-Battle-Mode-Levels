@@ -1,0 +1,2 @@
+wanderFrames = 3
+chaseFrames = 3

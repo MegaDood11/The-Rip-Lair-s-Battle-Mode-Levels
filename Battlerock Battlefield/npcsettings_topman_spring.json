@@ -1,0 +1,34 @@
+{
+	"style" : "groupbox",
+	"title" : "Topman Settings",
+	"layout": [
+		{
+			"control": "combobox",
+			"name": "color",
+			"title": "Color of the Topman",
+			"tooltip": "The color of this Topman.",
+			"elements": ["Red", "Orange", "Yellow", "Green", "Blue", "Blue Alt", "Pink", "White", "White Alt"],
+			"value-default": 0
+		},
+		{
+			"control": "spinbox",
+			"name": "boost",
+			"title": "Boost",
+			"tooltip": "Boost given to player when not holding the jump keys.",
+			"type": "double",
+			"value-default": -7.5,
+			"value-min": -999,
+			"value-max": 999
+		},
+		{
+			"control": "spinbox",
+			"name": "boostTurbo",
+			"title": "Boost Turbo",
+			"tooltip": "Boost given to player when holding the jump keys.",
+			"type": "double",
+			"value-default": -15.5,
+			"value-min": -999,
+			"value-max": 999
+		}
+	]
+}

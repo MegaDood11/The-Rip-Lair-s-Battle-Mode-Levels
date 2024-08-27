@@ -1,0 +1,14 @@
+{
+	"style" : "groupbox",
+	"title" : "Topman Settings",
+	"layout": [
+		{
+			"control": "combobox",
+			"name": "color",
+			"title": "Color of the Topman",
+			"tooltip": "The color of this Topman.",
+			"elements": ["Red", "Orange", "Yellow", "Green", "Blue", "Blue Alt", "Pink", "White", "White Alt"],
+			"value-default": 0
+		}
+	]
+}
