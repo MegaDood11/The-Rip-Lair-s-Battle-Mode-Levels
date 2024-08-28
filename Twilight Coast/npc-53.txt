@@ -1,0 +1,2 @@
+gfxwidth=40
+gfxheight=40
