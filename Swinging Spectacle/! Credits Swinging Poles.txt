@@ -1,0 +1,12 @@
+Swinging Poles (and the cool anglerfish guy) made by "Master" of Disaster
+
+I'm pretty happy with how this turned out, so don't make me sad by selling it as your own
+
+All 5 vanilla characters are fully supported!
+
+changelog v1.1:
+- Added multiplayer support
+- changed naming convention for swinging spritesheet ([character index]-[costume name, all caps]-on-pole.png)
+- if no spritesheet for a character costume is found, it uses a sprite from the normal spritesheet instead
+- you can now customize how much you accelerate when swinging. Default is a little higher than before
+- when swinging on a pole, you now show the starman effect and I-frame blinking
