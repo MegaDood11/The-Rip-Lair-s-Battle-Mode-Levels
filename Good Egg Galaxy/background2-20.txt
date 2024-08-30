@@ -1,0 +1,10 @@
+[1]
+img="background2-20.png"
+priority=-100
+alignY=BOTTOM
+repeatX=false
+repeatY=false
+parallaxX=0.25
+parallaxY=0.25
+fitX=true
+fitY=true
