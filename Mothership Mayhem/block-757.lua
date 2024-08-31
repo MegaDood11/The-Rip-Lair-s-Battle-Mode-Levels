@@ -61,7 +61,7 @@ function sampleBlock.onTickBlock(v)
 		if Colliders.collide(p, v) then
 			p.data.BumpedHeadOnAlienShip = p.data.BumpedHeadOnAlienShip - 0.05
 			p.speedY = p.data.BumpedHeadOnAlienShip
-			if p:mem(0x14A, FIELD_BOOL) then p.speedY = 8 p.data.BumpedHeadOnAlienShip = 3 end
+			if p:mem(0x14A, FIELD_BOOL) then p.speedY = 6 p.data.BumpedHeadOnAlienShip = 3 end
 		else
 			p.data.BumpedHeadOnAlienShip = 0
 		end
