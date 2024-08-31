@@ -1,0 +1,11 @@
+[1]
+name="BG"
+img="background2-20.png"
+repeatY=false
+repeatX=true
+priority=-100
+alignY=BOTTOM
+fitY=true
+parallaxX=0.2
+parallaxY=0.15
+speedX = 0.5
