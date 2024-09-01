@@ -1,0 +1,10 @@
+frames = 1
+framespeed = 8
+noshadows = false
+lightoffsetx = 0
+lightoffsety = 16
+lightradius = 128
+lightbrightness = 2
+lightcolor = #ffff9f
+lightflicker = false
+priority = -85
