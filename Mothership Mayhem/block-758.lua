@@ -59,16 +59,16 @@ function sampleBlock.onTickBlock(v)
 	for i=1,#t do
 		local p = t[i]
 		if Colliders.collide(p, v) then
-			p.data.BumpedHeadOnAlienShip = p.data.BumpedHeadOnAlienShip + 0.1
-			p.speedY = p.data.BumpedHeadOnAlienShip
+			p.data.BumpedHeadOnAlienShip = p.data.BumpedHeadOnAlienShip + 0.025
+			p.speedY = math.max(p.data.BumpedHeadOnAlienShip, 0.2)
 		else
-			p.data.BumpedHeadOnAlienShip = 1
+			p.data.BumpedHeadOnAlienShip = 0
 		end
 	end
 	
 	for _,n in ipairs(NPC.get()) do
 		if Colliders.collide(n, v) and n.id ~= 675 then
-			n.speedY = n.speedY + 0.5
+			n.speedY = n.speedY + 0.25
 			if n.id == 17 then n.y = n.y + 3 end
 			if n.collidesBlockUp then n.speedY = 8 end
 		end
