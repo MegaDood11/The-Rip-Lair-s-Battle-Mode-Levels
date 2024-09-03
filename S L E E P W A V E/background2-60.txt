@@ -1,0 +1,21 @@
+fill-color = #0000c7
+
+[Sky]
+img=59
+
+repeatX=true
+alignY=BOTTOM
+
+parallaxX=0.25
+parallaxY=0.25
+depth=100
+
+[BG2]
+img=76
+
+repeatX=true
+alignY=BOTTOM
+
+parallaxX=0.7
+parallaxY=1
+depth=80
