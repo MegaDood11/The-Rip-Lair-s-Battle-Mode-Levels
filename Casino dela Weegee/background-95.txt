@@ -1,0 +1,3 @@
+frames=2
+framespeed=12
+grid=16

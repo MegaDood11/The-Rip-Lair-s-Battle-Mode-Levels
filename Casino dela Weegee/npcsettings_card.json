@@ -1,0 +1,74 @@
+{
+	"style": "groupbox",
+	"title": "Card Settings",
+	"layout": [
+		{
+			"control": "checkbox",
+			"name": "playerTrigger",
+			"title": "Triggered by Players?",
+			"tooltip": "Whether or not this <b>Card</b> is triggered by players touching it.",
+			"text-visible": false,
+			"value-default": true
+		},
+		{
+			"control": "checkbox",
+			"name": "projectileTrigger",
+			"title": "Triggered by Projectiles?",
+			"tooltip": "Whether or not this <b>Card</b> is triggered by player projectiles and thrown NPCs touching it.",
+			"text-visible": false,
+			"value-default": true
+		},
+		{
+			"control": "checkbox",
+			"name": "npcTrigger",
+			"title": "Triggered by NPCs?",
+			"tooltip": "Whether or not this <b>Card</b> is triggered by NPCs and NPC projectiles touching it.<br>Specifically, this is the opposite behavior of the above field, and will be triggered by any non-thrown NPC (other than another <b>Card</b>) that touches it.",
+			"text-visible": false,
+			"value-default": false
+		},
+		{
+			"control": "spinBox",
+			"name": "timeTrigger",
+			"title": "Timer Trigger",
+			"tooltip": "The amount of frames before this <b>Card</b> is triggered by a timer automatically. Set to -1 to disable.",
+			"type": "int",
+			"value-min": -1,
+			"value-max": 36000,
+			"value-default": -1
+		},
+		{
+			"control": "comboBox",
+			"name": "revealFace",
+			"title": "Face to Reveal",
+			"tooltip": "What to show when the <b>Card</b> is revealed.<br><i>Contents</i> will show the NPC that the <b>Card</b> contains.<br>If set to <i>Contents</i> without a contained NPC, the <b>Card</b> displays as <i>Blank</i>.",
+			"elements": ["Contents", "Blank", "Question Mark", "Bowser Face", "Coin Symbol"],
+			"value-default": 0
+		},
+		{
+			"control": "spinBox",
+			"name": "coins",
+			"title": "Coin Contents",
+			"tooltip": "The amount of coins gained directly when the <b>Card</b> is revealed.",
+			"type": "int",
+			"value-min": 0,
+			"value-max": 100,
+			"value-default": 0
+		},
+		{
+			"control": "comboBox",
+			"name": "score",
+			"title": "Score Contents",
+			"tooltip": "The amount of score gained directly when the <b>Card</b> is revealed.",
+			"elements": ["0 points", "10 points", "100 points", "200 points", "400 points", "800 points", "1000 points", "2000 points", "4000 points", "8000 points", "1UP", "2UP", "3UP", "5UP"],
+			"value-default": 0
+		},
+		{
+			"control": "checkbox",
+			"name": "respawn",
+			"title": "Respawn",
+			"tooltip": "Whether or not this <b>Card</b> should return itself to its default state instead of despawning, allowing it to be triggered again.",
+			"text-visible": false,
+			"value-default": false
+		}
+	]
+}
