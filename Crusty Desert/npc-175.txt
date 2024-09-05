@@ -1,0 +1,4 @@
+jumphurt=true
+spinjumpsafe=true
+gfxheight=48
+height=32

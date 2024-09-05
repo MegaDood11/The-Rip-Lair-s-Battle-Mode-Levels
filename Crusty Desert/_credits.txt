@@ -1,0 +1,6 @@
+Background - Gregor + Gamma V
+Tileset - bonglorio
+Palm Tree - Gamma V
+Rocks - Gamma V
+
+Music - https://www.smwcentral.net/?p=section&a=details&id=8221
