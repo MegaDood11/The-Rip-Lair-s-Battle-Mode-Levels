@@ -1,0 +1,22 @@
+fill-color = #006000
+
+[Layer1]
+img=forest1.png
+
+repeatX=true
+alignY=BOTTOM
+
+parallaxX=0.5
+depth=90
+fitY=true
+
+[Layer2]
+img=forest2.png
+
+repeatX=true
+alignY=BOTTOM
+
+parallaxX=0.25
+parallaxY=0.25
+depth=100
+fitY=true
