@@ -152,27 +152,15 @@ npcManager.registerHarmTypes(npcID,
 );
 
 --Custom local definitions below
-local function roadkillPlayer(p,v)
+local function roadkillPlayer(p)
 	p:kill()
 	p:mem(0x140,FIELD_WORD,1)
-	local thud = SFX.create{
-		x = v.x + v.width*0.5,
-		y = v.y + v.height*0.5,
-		falloffRadius = 2560,
-		sound = Misc.resolveFile("Todd-Way Street/thud.ogg"),
-		parent = v,
-		source = SFX.SOURCE_CIRCLE,
-		sourceRadius = 2560,
-		volume = 0.75,
-		play = true,
-		loops = 1,
-	}
 end
 
 
 function annihilatePlayerCommand.onReceive(sourcePlayerIdx, playerIdx)
 	local p = Player(playerIdx)
-	roadkillPlayer(p,culprit)
+	roadkillPlayer(p)
 end
 
 
@@ -244,7 +232,6 @@ function killerTaxi.onTickNPC(v)
 			volume = 2,
 			play = true,
 			loops = 1,
-			
 		}
 		driveTimer = 0
 	elseif cooldown == 65 then
@@ -286,6 +273,18 @@ function killerTaxi.onTickNPC(v)
 				annihilatePlayerCommand:send(0,p.idx)
 			end
 			roadkillPlayer(p,v)
+			local thud = SFX.create{
+				x = v.x + v.width*0.5,
+				y = v.y + v.height*0.5,
+				falloffRadius = 2560,
+				sound = Misc.resolveFile("Todd-Way Street/thud.ogg"),
+				parent = v,
+				source = SFX.SOURCE_CIRCLE,
+				sourceRadius = 2560,
+				volume = 0.75,
+				play = true,
+				loops = 1,
+			}
 		end	
 	end
 end
