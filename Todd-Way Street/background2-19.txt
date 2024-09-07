@@ -1,0 +1,106 @@
+fill-color=0x222034
+
+;Each layer is a parallax layer
+[Layer 1]
+depth=INFINITE
+img="paralxMOON.png"
+
+;; Uncomment other fields as necessary
+
+repeatX=false
+repeatY=false
+
+; Overrides scroll properties of "depth"
+; fitX=false
+; fitY=false
+
+; x=0
+; y=0
+
+; speedX=0
+; speedY=0
+
+; frames=1
+; framespeed=8
+; startingFrame=1
+
+; Overrides scrolling properties of "depth"
+; priority=-100
+
+; color=white
+; opacity=1
+
+alignX=CENTER
+alignY=CENTER
+
+; marginLeft=0
+; marginRight=0
+; marginTop=0
+; marginBottom=0
+
+; padX=0
+; padY=0
+
+; Overrides scrolling properties of "depth"
+; parallaxX=0
+; parallaxY=0
+
+; maxParallaxX=0
+; maxParallaxY=0
+
+; hidden=false
+; debug=false
+[Layer 2]
+depth=INFINITE
+img="paralxCLOUDBIG.png"
+
+repeatX=true
+repeatY=false
+
+speedX=0.05
+
+; Overrides scrolling properties of "depth"
+priority=-100
+
+alignX=CENTER
+alignY=CENTER
+
+; Overrides scrolling properties of "depth"
+parallaxX=0.05
+; parallaxY=0
+[Layer 3]
+depth=INFINITE
+img="paralxCLOUDMEDIUM.png"
+
+repeatX=true
+repeatY=false
+
+speedX=-0.05
+
+; Overrides scrolling properties of "depth"
+priority=-100
+
+alignX=CENTER
+alignY=CENTER
+
+; Overrides scrolling properties of "depth"
+parallaxX=0.05
+; parallaxY=0
+[Layer 4]
+depth=INFINITE
+img="paralxCLOUDSMALL.png"
+
+repeatX=true
+repeatY=false
+
+speedX= 0.085
+
+; Overrides scrolling properties of "depth"
+priority=-100
+
+alignX=CENTER
+alignY=CENTER
+
+; Overrides scrolling properties of "depth"
+parallaxX=0.05
+; parallaxY=0

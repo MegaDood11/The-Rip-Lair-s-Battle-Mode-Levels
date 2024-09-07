@@ -1,0 +1,5 @@
+gfxheight=96
+height=80
+frames=3
+framestyle=0
+grid=16

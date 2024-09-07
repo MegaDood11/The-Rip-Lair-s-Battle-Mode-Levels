@@ -1,0 +1,4 @@
+gfxwidth=96
+gfxheight=66
+frames=4
+framestyle=0

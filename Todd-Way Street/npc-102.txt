@@ -1,0 +1,4 @@
+gfxoffsety=6
+gfxwidth=64
+gfxheight=96
+height=64
