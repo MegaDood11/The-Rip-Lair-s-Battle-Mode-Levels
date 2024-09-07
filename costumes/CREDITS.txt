@@ -1,11 +1,17 @@
-SMB3 Toads
+=SMB3 Toads - GlacialSiren484=
+Ported and edited by Sleepy Dee
 
-SMB3 Peach
+=SMB3 Peach - Izzy Rae=
+Ported and edited/expanding upon by Sleepy Dee and Squishy Rex
 
-SMB3 Waluigi
+=SMB3 Waluigi - CouchTomato=
+Ported and edited by Sleepy Dee
 
-SMB3 Wario
+=SMW Toadette - GlacialSiren484=
+Ported and edited by Sleepy Dee
+SMW Costume base by MrDoubleA
 
-SMW Waluigi
-
-TO BE WRITTEN
+=SMW Waluigi - Igotanewaccountomg=
+Ported and edited by Sleepy Dee
+Tanooki edits by Cheesy Nacho
+SMW Costume base by MrDoubleA
