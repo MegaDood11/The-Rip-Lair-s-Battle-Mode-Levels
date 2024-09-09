@@ -2,7 +2,7 @@
 local battleGeneral = require("scripts/battleGeneral")
 local battleTimer = require("scripts/battleTimer")
 local blockRespawning = require("scripts/blockRespawning")
-blockRespawning.defaultRespawnTime = 64*15
+blockRespawning.defaultRespawnTime = 64*25
 
 
 function battleGeneral.musicShouldBeSpedUp()

@@ -17,7 +17,7 @@ local startingDirection = RNG.irandomEntry{-1,1}
 local driveTimer = 450
 local cooldown = 650
 local vroomSFX = nil
-local culprit = nil
+local hitPlayers = {}
 
 local driveLength = 415
 
@@ -153,7 +153,20 @@ npcManager.registerHarmTypes(npcID,
 
 --Custom local definitions below
 local function roadkillPlayer(p)
-	p:kill()
+	--p.forcedState = 0
+	--p.powerup = 1
+	p.keys.run = KEYS_UP
+	p.keys.altRun = KEYS_UP
+	p:harm()
+	if p.powerup > 1 then
+		--p:mem(0x138,FIELD_FLOAT,12 * startingDirection)
+		p:mem(0x11C,FIELD_WORD,0)
+		p.speedX = 12 * startingDirection
+		p.speedY = -12
+		p:mem(0x3C,FIELD_BOOL,true)
+		hitPlayers[p.idx] = true
+	end
+	--battlePlayer.harmPlayer(p, battlePlayer.HARM_TYPE.NORMAL)
 	p:mem(0x140,FIELD_WORD,1)
 end
 
@@ -164,14 +177,25 @@ function annihilatePlayerCommand.onReceive(sourcePlayerIdx, playerIdx)
 end
 
 
-
-
-
 --Register events
 function killerTaxi.onInitAPI()
+	registerEvent(killerTaxi,"onTick")
 	npcManager.registerEvent(npcID, killerTaxi, "onTickNPC")
 	--npcManager.registerEvent(npcID, killerTaxi, "onDrawNPC")
 end
+
+function killerTaxi.onTick()
+	for i,p in ipairs(Player.get()) do
+		if hitPlayers[p.idx] then
+			p.keys.jump = KEYS_UP
+			p.keys.altJump = KEYS_UP
+			if p:isGroundTouching() and math.abs(p.speedX) < 7 then
+				hitPlayers[p.idx] = nil
+			end
+		end
+	end
+end
+
 
 function killerTaxi.onTickNPC(v)
 	--Don't act during time freeze
@@ -267,12 +291,13 @@ function killerTaxi.onTickNPC(v)
 	
 	-- harming the player who got hit isn't enough, I want them dead on the floor
 	for i,p in ipairs(Player.getIntersecting(v.x + leftOffset,v.y - 2,v.x+v.width+rightOffset,v.y+v.height)) do
-		if math.abs(v.speedX) > 2 and p.deathTimer == 0 and not p:mem(0x13C,FIELD_BOOL) and p:mem(0x140,FIELD_WORD) <= 0 and battlePlayer.getPlayerIsActive(p) then
+		if math.abs(v.speedX) > 2 and (p.forcedState == 0 or p.forcedState == FORCEDSTATE_SWALLOWED) 
+		and p.deathTimer == 0 and not p:mem(0x13C,FIELD_BOOL) 
+		and p:mem(0x140,FIELD_WORD) <= 0 and battlePlayer.getPlayerIsActive(p) then
 			if onlinePlay.currentMode ~= onlinePlay.MODE_OFFLINE then
-				culprit = v
 				annihilatePlayerCommand:send(0,p.idx)
 			end
-			roadkillPlayer(p,v)
+			roadkillPlayer(p)
 			local thud = SFX.create{
 				x = v.x + v.width*0.5,
 				y = v.y + v.height*0.5,
