@@ -1,7 +1,0 @@
-gfxwidth=46
-gfxheight=38
-width=46
-height=38
-frames=4
-framespeed=6
-name="Ruff Puff"
