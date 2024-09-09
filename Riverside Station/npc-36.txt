@@ -1,0 +1,11 @@
+gfxoffsety=0
+gfxheight=40
+height=40
+npcblock=0
+jumphurt=1
+speed=1.7
+noblockcollision=1
+nofireball=1
+nogravity=1
+noiceball=1
+name="Spiky Parabuzzy"
