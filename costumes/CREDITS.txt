@@ -16,5 +16,8 @@ Ported and edited by Sleepy Dee
 Tanooki edits by Cheesy Nacho
 SMW Costume base by MrDoubleA
 
-=SMB3 Rosalina - EvilMariobot, Lord Kibble=
+=SMB3 Rosalina - EvilMariobot, Lord Kibble
 Ported and edited by Sleepy Dee
+
+=SMW Sponge + Pretzel - CheesyNacho=
+Ported by CheesyNacho + MegaDood
