@@ -2,7 +2,7 @@
 Ported and edited by Sleepy Dee
 
 =SMB3 Peach - Izzy Rae=
-Ported and edited/expanding upon by Sleepy Dee and Squishy Rex
+Ported and expanded upon upon by Sleepy Dee and Squishy Rex
 
 =SMB3 Waluigi - CouchTomato=
 Ported and edited by Sleepy Dee
@@ -16,8 +16,15 @@ Ported and edited by Sleepy Dee
 Tanooki edits by Cheesy Nacho
 SMW Costume base by MrDoubleA
 
-=SMB3 Rosalina - EvilMariobot, Lord Kibble
-Ported and edited by Sleepy Dee
+=SMB3 Rosalina - Lord Kibble and EvilMariobot=
+Ported and edited/expanded upon by Sleepy Dee
 
-=SMW Sponge + Pretzel - CheesyNacho=
-Ported by CheesyNacho + MegaDood
+=SMB3 Sonic - megamario1500=
+Ported and edited/expanded upon by Sleepy Dee
+Hold sprites taken from Rodrig0
+
+=SMB3 Tails - megamario1500=
+Ported and edited/expanded upon by Sleepy Dee
+
+=SMB3 Knuckles - megamario1500=
+Ported and edited/expanded upon by Sleepy Dee
