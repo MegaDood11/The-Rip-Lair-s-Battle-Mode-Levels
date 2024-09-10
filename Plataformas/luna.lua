@@ -53,7 +53,7 @@ function onTick()
         if not layer3:isPaused() then
             local time = layer1MoveTime/math.pi/2
 
-            layer3.speedX = math.sin(layer3MoveTimer.value/time)*layer1MoveDistance/time*0.5
+            layer3.speedX = math.sin(layer2MoveTimer.value/time)*layer1MoveDistance/time*0.5
             layer3.pauseDuringEffect = false
             
             layer3MoveTimer.value = (layer3MoveTimer.value + 1) % layer1MoveTime
