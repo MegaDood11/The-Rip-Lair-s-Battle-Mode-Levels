@@ -1,0 +1,10 @@
+[1]
+onTick=TICK_KLAPTRAP
+frames=2
+framestyle=1
+framespeed=12
+lifetime=500
+gravity=0.3
+maxSpeedY=12
+speedX=1
+speedY=-5

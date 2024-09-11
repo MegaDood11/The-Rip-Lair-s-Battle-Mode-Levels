@@ -1,0 +1,10 @@
+[1]
+onTick=TICK_KRITTER
+frames=3
+framestyle=1
+framespeed=4
+lifetime=500
+gravity=0.3
+maxSpeedY=10
+speedX=1
+speedY=-5

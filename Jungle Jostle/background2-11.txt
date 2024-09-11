@@ -1,0 +1,36 @@
+[cloud2]
+depth = 12
+img = "cloud2.png"
+repeatX = true
+speedX = -0.25
+parallaxX = 0.05
+alignY = BOTTOM
+
+[cloud1]
+depth = 10
+img = "cloud1.png"
+repeatX = true
+parallaxX = 0.03
+alignY = BOTTOM
+speedX = -0.15
+
+[sky]
+depth=INFINITE
+img="sky.png"
+repeatX=true
+
+[mountains]
+depth=7
+img="mountains.png"
+repeatX=true
+parallaxX = 0.05
+alignY=BOTTOM
+
+[hills]
+depth=4
+img="jungle.png"
+repeatX=true
+parallaxX = 0.14
+alignY=BOTTOM
+
+alignY = BOTTOM
