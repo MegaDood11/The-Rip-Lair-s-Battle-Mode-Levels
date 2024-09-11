@@ -1,0 +1,145 @@
+{
+	"style" : "groupbox",
+	"title" : "Launch Barrel Settings",
+	"layout": [
+		{
+			"control": "spinbox",
+			"name": "startAngle",
+			"title": "Start Angle",
+			"tooltip": "Initial angle of the Launch Barrel in degrees.",
+			"type": "int",
+			"value-default": 0,
+			"value-min": -360,
+			"value-max": 360
+		},
+		{
+			"control": "spinbox",
+			"name": "rotSpeed",
+			"title": "Speed",
+			"tooltip": "Rotation speed of the Launch Barrel, in degrees per tick.",
+			"type": "double",
+			"value-default": 2,
+			"value-min": 0,
+			"value-max": 90
+		},
+		{
+			"control": "spinbox",
+			"name": "interval",
+			"title": "Interval",
+			"tooltip": "Rotation interval of the Launch Barrel, in degrees.",
+			"type": "int",
+			"value-default": 45,
+			"value-min": 1,
+			"value-max": 360
+		},
+		{
+			"control": "spinbox",
+			"name": "power",
+			"title": "Power",
+			"tooltip": "The force at which the player is shot out of the Launch Barrel.",
+			"type": "double",
+			"value-default": 15,
+			"value-min": 0,
+			"value-max": 100
+		},
+		{
+			"control": "spinBox",
+			"name": "flipTime",
+			"title": "Flip direction delay",
+			"type": "int",
+			"tooltip": "How long before a rotating barrel starts flipping in the opposite direction, in ticks.",
+			"value-default": 0,
+			"value-min": 0,
+			"value-max": 1000
+		},
+		{
+			"control": "spinBox",
+			"name": "counttimer",
+			"title": "Timer",
+			"type": "int",
+			"tooltip": "How long before the player is forced out of the cannon (the number initially displayed on the sprite).",
+			"value-default": 0,
+			"value-min": 0,
+			"value-max": 9
+		},
+		{
+			"control": "checkbox",
+			"name": "skullbarrel",
+			"title": "Destroyed on use?",
+			"tooltip": "Check to make the barrel explode when fired, this behaviour is intended for Skull Barrels.",
+			"text-visible": true,
+			"value-default": false
+		},
+		{
+			"control": "description",
+			"name": ".",
+			"text": "<br><b>------------Tracker Barrel Settings Below------------</b."
+		},
+		{
+			"control": "combobox",
+			"name": "trackerDir",
+			"title": "Tracker Barrel direction?",
+			"tooltip": "Setting one of these will make the <b>Tracker Barrel</b> specifically either move horizontally or vertically.",
+			"elements": ["Horizontal", "Vertical"],
+			"value-default": 0
+			
+		},
+		{
+			"control": "spinbox",
+			"name": "trackerSpeed",
+			"title": "Tracker Barrel speed",
+			"type": "double",
+			"tooltip": "Speed of a Tracker Barrel.",
+			"value-default": 5,
+			"value-min": 0.1,
+			"value-max": 20
+			
+		},
+		{
+			"control": "checkbox",
+			"name": "trackerTrueTrack",
+			"title": "Chase only after entered",
+			"tooltip": "If checked, the Tracker Barrel will not chase the player until they enter it.",
+			"text-visible": true,
+			"value-default": true
+			
+		},
+		{
+			"control": "description",
+			"name": ".",
+			"text": "<br><b>-------------------------------------------------------------------</b."
+		},
+		{
+			"control": "description",
+			"name": ".",
+			"text": "<br><b>---------------Boo Barrel Settings Below---------------</b."
+		},
+		{
+			"control": "spinbox",
+			"name": "visTime",
+			"title": "Time being visible",
+			"type": "int",
+			"tooltip": "How long a Boo Barrel stays visible for.",
+			"value-default": 48,
+			"value-min": 1,
+			"value-max": 1000
+			
+		},
+		{
+			"control": "spinbox",
+			"name": "invisTime",
+			"title": "Time being invisible",
+			"type": "int",
+			"tooltip": "How long a Boo Barrel stays inisible for.",
+			"value-default": 48,
+			"value-min": 1,
+			"value-max": 1000
+			
+		},
+		{
+			"control": "description",
+			"name": ".",
+			"text": "<br><b>-------------------------------------------------------------------</b."
+		}
+	]
+}
