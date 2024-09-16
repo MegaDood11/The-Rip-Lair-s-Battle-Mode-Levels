@@ -1,0 +1,7 @@
+yoshitonguebehaviour =6
+yoshimelonid = 961
+yoshimelonspeedx = 6.5
+yoshimelonsound = seedShot.ogg
+yoshimeloncooldown = 8.5
+yoshimeloncanhold = true
+yoshimelonshots = 20
