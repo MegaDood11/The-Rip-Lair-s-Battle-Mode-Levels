@@ -155,19 +155,31 @@ npcManager.registerHarmTypes(npcID,
 local function roadkillPlayer(p)
 	--p.forcedState = 0
 	--p.powerup = 1
+	--p:harm()
 	p.keys.run = KEYS_UP
 	p.keys.altRun = KEYS_UP
-	p:harm()
-	if p.powerup > 1 then
-		--p:mem(0x138,FIELD_FLOAT,12 * startingDirection)
-		p:mem(0x11C,FIELD_WORD,0)
-		p.speedX = 12 * startingDirection
-		p.speedY = -12
-		p:mem(0x3C,FIELD_BOOL,true)
-		hitPlayers[p.idx] = true
-	end
+	p:mem(0x154,FIELD_WORD,0)
+	p:mem(0x11C,FIELD_WORD,0)
+	
+	p.speedX = 12 * startingDirection --RNG.irandomEntry{-1,1}
+	p.speedY = -12
+	p:mem(0x3C,FIELD_BOOL,true)
+	hitPlayers[p.idx] = true
+	--end
+	local thud = SFX.create{
+		x = p.x + p.width*0.5,
+		y = p.y + p.height*0.5,
+		falloffRadius = 2560,
+		sound = Misc.resolveFile("Todd-Way Street/thud.ogg"),
+		parent = p,
+		source = SFX.SOURCE_CIRCLE,
+		sourceRadius = 2560,
+		volume = 0.75,
+		play = true,
+		loops = 1,
+	}
 	--battlePlayer.harmPlayer(p, battlePlayer.HARM_TYPE.NORMAL)
-	p:mem(0x140,FIELD_WORD,1)
+	--p:mem(0x140,FIELD_WORD,1)
 end
 
 
@@ -187,10 +199,13 @@ end
 function killerTaxi.onTick()
 	for i,p in ipairs(Player.get()) do
 		if hitPlayers[p.idx] then
+			p.keys.left = KEYS_UP
+			p.keys.right = KEYS_UP
 			p.keys.jump = KEYS_UP
 			p.keys.altJump = KEYS_UP
-			if p:isGroundTouching() and math.abs(p.speedX) < 7 then
+			if p:isGroundTouching() or p.speedY == 0 then
 				hitPlayers[p.idx] = nil
+				p:harm()
 			end
 		end
 	end
@@ -213,7 +228,8 @@ function killerTaxi.onTickNPC(v)
 
 	--Initialize
 	if not data.initialized then
-		v.direction = startingDirection
+		--v.direction = startingDirection
+		startingDirection = v.direction
 		if onlinePlay.currentMode == onlinePlay.MODE_OFFLINE and battlePlayer.getActivePlayerCount() > 1 then
 			driveLength = 429
 			--SFX.play(12)
@@ -270,10 +286,9 @@ function killerTaxi.onTickNPC(v)
 		v.animationTimer = 0
 	end
 	
+	driveTimer = driveTimer + 1
 	
 	if cooldown > 0 then return end
-	
-	driveTimer = driveTimer + 1
 	
 	if math.abs(v.speedX) < 2 then return end
 	if lunatime.tick() % 12 == 0 then
@@ -291,25 +306,13 @@ function killerTaxi.onTickNPC(v)
 	
 	-- harming the player who got hit isn't enough, I want them dead on the floor
 	for i,p in ipairs(Player.getIntersecting(v.x + leftOffset,v.y - 2,v.x+v.width+rightOffset,v.y+v.height)) do
-		if math.abs(v.speedX) > 2 and (p.forcedState == 0 or p.forcedState == FORCEDSTATE_SWALLOWED) 
-		and p.deathTimer == 0 and not p:mem(0x13C,FIELD_BOOL) 
+		if math.abs(v.speedX) > 2 and p.forcedState == 0 
+		and p.deathTimer == 0 and not p:mem(0x13C,FIELD_BOOL) and not hitPlayers[p.idx]
 		and p:mem(0x140,FIELD_WORD) <= 0 and battlePlayer.getPlayerIsActive(p) then
 			if onlinePlay.currentMode ~= onlinePlay.MODE_OFFLINE then
 				annihilatePlayerCommand:send(0,p.idx)
 			end
 			roadkillPlayer(p)
-			local thud = SFX.create{
-				x = v.x + v.width*0.5,
-				y = v.y + v.height*0.5,
-				falloffRadius = 2560,
-				sound = Misc.resolveFile("Todd-Way Street/thud.ogg"),
-				parent = v,
-				source = SFX.SOURCE_CIRCLE,
-				sourceRadius = 2560,
-				volume = 0.75,
-				play = true,
-				loops = 1,
-			}
 		end	
 	end
 end
