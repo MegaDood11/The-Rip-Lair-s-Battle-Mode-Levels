@@ -1,0 +1,26 @@
+[background2]
+name = "NSMBVs Bonus"
+fill-color = #28a0F8
+
+[Layer1]
+depth = 20
+img = "fbg_clouds.png"
+repeatX = true
+alignY = BOTTOM
+speedX = 0.5
+
+[Layer2]
+depth = 15
+x = -1000
+img = "fbg_bonusBlue.png"
+repeatX = true
+alignY = BOTTOM
+
+[Layer3]
+depth = 15
+x = -1000
+img = "fbg_bonusRed.png"
+repeatX = true
+alignY = BOTTOM
+
+
