@@ -1,0 +1,22 @@
+[background2]
+; Name that will appear in the editor
+name = "SMW Hills"
+; Backdrop fill color
+fill-color = 0xADC6CEFF
+
+
+; Add layers here, for example:
+
+[Layer1]
+depth = 100
+img = "background2-12.png"
+repeatX = true
+alignY = BOTTOM
+
+[Layer2]
+depth = 30
+img = "bg-fog.png"
+repeatX = true
+repeatY = true
+alignY = BOTTOM
+speedX = -0.6
