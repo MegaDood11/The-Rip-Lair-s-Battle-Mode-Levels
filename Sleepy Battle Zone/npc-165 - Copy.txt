@@ -1,0 +1,3 @@
+jumphurt=0
+npcblocktop=0
+cliffturn=1
