@@ -1,2 +1,3 @@
 gfxheight=32
 height=32
+gfxoffsety=2
