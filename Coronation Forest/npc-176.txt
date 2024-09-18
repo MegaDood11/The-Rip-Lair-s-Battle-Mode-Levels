@@ -1,0 +1,6 @@
+gfxoffsety=16
+gfxwidth=60
+gfxheight=64
+noblockcollision=1
+frames=1
+framestyle=1
