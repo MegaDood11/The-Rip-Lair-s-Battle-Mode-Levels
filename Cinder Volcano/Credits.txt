@@ -1,4 +1,4 @@
--Original level by 
+-Original level by TheCyVap and mindnomad
 -Music by vincells (https://www.youtube.com/watch?v=xoR4mrwloPI)
 
 -Spinies ripped by MegaDood, .lua code by Murphmario
