@@ -1,0 +1,25 @@
+{
+	"style" : "groupbox",
+	"title" : "Biddybud Speed",
+	"layout": [
+	
+		{
+			"control": "combobox",
+			"name": "color",
+			"title": "Color",
+			"elements": ["Red", "Green", "Yellow", "Blue", "Pink"],
+			"value-default": 0
+		},
+		{
+			"control": "spinBox",
+			"type": "double",
+			"name": "buddyspeed",
+			"title": "Speed",
+			"tooltip": "Alters the Biddybud's speed",
+			"value-default": 1.2,
+			"value-min": 0,
+			"value-max": 20,
+			"single-step": 0.5
+		}
+		]
+}

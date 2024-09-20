@@ -1,0 +1,11 @@
+[1]
+onTick=TICK_BIDDYBUD
+variants=5
+frames=2
+framestyle=1
+framespeed=10
+lifetime=500
+gravity=0.3
+maxSpeedY=12
+speedX=2
+speedY=-7
