@@ -1,12 +1,13 @@
-gbradley231 - Redrawn SMB3 Underwater Tileset
+gbradley231 - Redrawn SMB3 Underwater Tileset and Custom Rainbow Carpet Platform
 
 crazydev - Cumulus Clouds Tileset (cloud textures only)
 
 Gamma V - Rainbow + Clouds Background
  - Better BG Parallax by SuperAlex (edit by GDKeptr)
+
+h2643 - Relaxing Kirby sprites
+ - "Sleepy Dee" edit by Sleepy
  
 MegaDood - Flaptor and Biddybuds NPC
 
 SanS1m0n - SMW styled Grass NPC
-
-Unknown - Rainbow Ride Ship sprites
