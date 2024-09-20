@@ -4,6 +4,6 @@ NSMB Snow tileset - LumSht (imported by MegaDood)
 Brick Block - DynastyLobster
 SMW Bullet Bill - Redigit and Tonberry2k
 Background - Gamma V (imported by MurphMario)
-Spin Block - Master of Disaster
+Spin Block - Master of Disaster, sprites by JamesD28
 
 Music - Nintendo
