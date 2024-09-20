@@ -5,6 +5,6 @@
 -Lava Cave background by Majikn
 -Brown Cave blocks ripped by Redigit
 -Brick Block by DynastyLobster
--Spin Block by Master of Disaster
+-Spin Block by Master of Disaster, sprites by JamesD28
 -SMW styled SMB3 Bridge by h2643
 -SMW Cave BGOs by Valtteri
