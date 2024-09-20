@@ -1,0 +1,12 @@
+gbradley231 - Redrawn SMB3 Underwater Tileset
+
+crazydev - Cumulus Clouds Tileset (cloud textures only)
+
+Gamma V - Rainbow + Clouds Background
+ - Better BG Parallax by SuperAlex (edit by GDKeptr)
+ 
+MegaDood - Flaptor and Biddybuds NPC
+
+SanS1m0n - SMW styled Grass NPC
+
+Unknown - Rainbow Ride Ship sprites
