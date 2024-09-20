@@ -1,0 +1,5 @@
+gfxheight=36
+height=36
+cliffturn=1
+frames=2
+framestyle=1
