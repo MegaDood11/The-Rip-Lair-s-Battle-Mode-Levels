@@ -30,7 +30,7 @@ Ported and edited/expanded upon by Sleepy Dee
 Ported and edited/expanded upon by Sleepy Dee
 
 =SMW Reimu + Marisa - Kusamochi=
-Ported by MegaDood + KurtTheKing
+Ported by MegaDood + KurttheKing
 
 =SMW Red Toad - GlacialSiren484=
 Ported/Edited by Sleepy Dee and MrNameless
@@ -47,4 +47,4 @@ Anonymous for creating the character of John (tbh I don't know who he was made b
 SMW Costume base by MrDoubleA
 
 =SMW Reimu + Marisa - Kusamochi=
-Imported by MegaDood + KurtTheKing
+Imported by MegaDood + KurttheKing
