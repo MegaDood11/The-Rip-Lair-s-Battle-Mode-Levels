@@ -5,6 +5,8 @@ Car Driving & Beeping SFX - Gravity Sound (https://www.youtube.com/watch?v=qFobk
 
 Car Hit Sounds - Sound Library (https://www.youtube.com/watch?v=Yw7w_K3U-kg)
 
+Busy Street Sound Effects - Act 4 People (https://youtu.be/FeOrG8FrNko?feature=shared)
+
 -- SPRITES --
 Alfred Chicken (NES) - Ripped by Goemar (https://www.spriters-resource.com/nes/alfredchicken/sheet/32882/)
 Sam (Sam & Max: Hit The Road) - Ripped by Goemar (https://www.spriters-resource.com/ms_dos/sammaxhittheroad/sheet/64422/)
