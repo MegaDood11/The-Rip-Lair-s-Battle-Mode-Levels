@@ -1,10 +1,3 @@
---[[
-	This template can be used to make your own custom NPCs!
-	Copy it over into your level or episode folder and rename it to use an ID between 751 and 1000. For example: npc-751.lua
-	Please pay attention to the comments (lines with --) when making changes. They contain useful information!
-	Refer to the end of onTickNPC to see how to stop the NPC talking to you.
-]]
-
 
 --NPCManager is required for setting basic NPC properties
 local npcManager = require("npcManager")
@@ -13,14 +6,12 @@ local onlinePlay = require("scripts/onlinePlay")
 local battlePlayer = require("scripts/battlePlayer")
 local annihilatePlayerCommand = onlinePlay.createCommand("annihilatePlayer",onlinePlay.IMPORTANCE_MAJOR)
 
-local startingDirection = RNG.irandomEntry{-1,1}
-local driveTimer = 450
+local carDirection = onlinePlay.createVariable("carDirection","uint16",true,RNG.randomEntry{-1,1})
+local driveTimer = onlinePlay.createVariable("driveTimer","uint16",true,450)
+local driveLength = 415
 local cooldown = 650
 local vroomSFX = nil
 local hitPlayers = {}
-
-local driveLength = 415
-
 
 --Create the library table
 local killerTaxi = {}
@@ -30,7 +21,6 @@ local npcID = NPC_ID
 --Defines NPC config for our NPC. You can remove superfluous definitions.
 local killerTaxiSettings = {
 	id = npcID,
-
 	-- ANIMATION
 	--Sprite size
 	gfxwidth = 256,
@@ -45,7 +35,6 @@ local killerTaxiSettings = {
 	frames = 2,
 	framestyle = 1,
 	framespeed = 8, -- number of ticks (in-game frames) between animation frame changes
-
 	foreground = false, -- Set to true to cause built-in rendering to render the NPC to Priority -15 rather than -45
 
 	-- LOGIC
@@ -71,9 +60,6 @@ local killerTaxiSettings = {
 	noyoshi= true, -- If true, Yoshi, Baby Yoshi and Chain Chomp can eat this NPC
 
 	score = 9, -- Score granted when killed
-	--  1 = 10,    2 = 100,    3 = 200,  4 = 400,  5 = 800,
-	--  6 = 1000,  7 = 2000,   8 = 4000, 9 = 8000, 10 = 1up,
-	-- 11 = 2up,  12 = 3up,  13+ = 5-up, 0 = 0
 
 	--Various interactions
 	jumphurt = true, --If true, spiny-like (prevents regular jump bounces)
@@ -87,85 +73,22 @@ local killerTaxiSettings = {
 
 	grabside=false,
 	grabtop=false,
-
-	--Identity-related flags. Apply various vanilla AI based on the flag:
-	--iswalker = false,
-	--isbot = false,
-	--isvegetable = false,
-	--isshoe = false,
-	--isyoshi = false,
-	--isinteractable = false,
-	--iscoin = false,
-	--isvine = false,
-	--iscollectablegoal = false,
-	--isflying = false,
-	--iswaternpc = false,
-	--isshell = false,
-	
-	-- Various interactions
-	-- ishot = true,
-	-- iscold = true,
-	-- durability = -1, -- Durability for elemental interactions like ishot and iscold. -1 = infinite durability
-	-- weight = 2,
-	-- isstationary = true, -- gradually slows down the NPC
-	-- nogliding = true, -- The NPC ignores gliding blocks (1f0)
-
-	--Emits light if the Darkness feature is active:
-	--lightradius = 100,
-	--lightbrightness = 1,
-	--lightoffsetx = 0,
-	--lightoffsety = 0,
-	--lightcolor = Color.white,
-
-	--Define custom properties below
 }
 
 --Applies NPC settings
 npcManager.setNpcSettings(killerTaxiSettings)
 
---Register the vulnerable harm types for this NPC. The first table defines the harm types the NPC should be affected by, while the second maps an effect to each, if desired.
-npcManager.registerHarmTypes(npcID,
-	{
-		--HARM_TYPE_JUMP,
-		--HARM_TYPE_FROMBELOW,
-		--HARM_TYPE_NPC,
-		--HARM_TYPE_PROJECTILE_USED,
-		--HARM_TYPE_LAVA,
-		--HARM_TYPE_HELD,
-		--HARM_TYPE_TAIL,
-		--HARM_TYPE_SPINJUMP,
-		--HARM_TYPE_OFFSCREEN,
-		--HARM_TYPE_SWORD
-	}, 
-	{
-		--[HARM_TYPE_JUMP]=10,
-		--[HARM_TYPE_FROMBELOW]=10,
-		--[HARM_TYPE_NPC]=10,
-		--[HARM_TYPE_PROJECTILE_USED]=10,
-		--[HARM_TYPE_LAVA]={id=13, xoffset=0.5, xoffsetBack = 0, yoffset=1, yoffsetBack = 1.5},
-		--[HARM_TYPE_HELD]=10,
-		--[HARM_TYPE_TAIL]=10,
-		--[HARM_TYPE_SPINJUMP]=10,
-		--[HARM_TYPE_OFFSCREEN]=10,
-		--[HARM_TYPE_SWORD]=10,
-	}
-);
-
 --Custom local definitions below
 local function roadkillPlayer(p)
-	--p.forcedState = 0
-	--p.powerup = 1
-	--p:harm()
 	p.keys.run = KEYS_UP
 	p.keys.altRun = KEYS_UP
 	p:mem(0x154,FIELD_WORD,0)
 	p:mem(0x11C,FIELD_WORD,0)
-	
-	p.speedX = 12 * startingDirection --RNG.irandomEntry{-1,1}
+	p.speedX = 12 * carDirection.value --RNG.irandomEntry{-1,1}
 	p.speedY = -12
-	p:mem(0x3C,FIELD_BOOL,true)
+	p:harm()
+	--if p.powerup > 1 then p.forcedTimer = 999 end
 	hitPlayers[p.idx] = true
-	--end
 	local thud = SFX.create{
 		x = p.x + p.width*0.5,
 		y = p.y + p.height*0.5,
@@ -178,8 +101,6 @@ local function roadkillPlayer(p)
 		play = true,
 		loops = 1,
 	}
-	--battlePlayer.harmPlayer(p, battlePlayer.HARM_TYPE.NORMAL)
-	--p:mem(0x140,FIELD_WORD,1)
 end
 
 
@@ -203,9 +124,9 @@ function killerTaxi.onTick()
 			p.keys.right = KEYS_UP
 			p.keys.jump = KEYS_UP
 			p.keys.altJump = KEYS_UP
-			if p:isGroundTouching() or p.speedY == 0 then
+			p:mem(0x3C,FIELD_BOOL,true)
+			if p:isGroundTouching() and p.speedY == 0 then
 				hitPlayers[p.idx] = nil
-				p:harm()
 			end
 		end
 	end
@@ -220,19 +141,15 @@ function killerTaxi.onTickNPC(v)
 	
 	--If despawned
 	if v.despawnTimer <= 0 then
-		--Reset our properties, if necessary
-		
 		data.initialized = false
 		return
 	end
 
 	--Initialize
 	if not data.initialized then
-		--v.direction = startingDirection
-		startingDirection = v.direction
+		v.direction = carDirection.value
 		if onlinePlay.currentMode == onlinePlay.MODE_OFFLINE and battlePlayer.getActivePlayerCount() > 1 then
 			driveLength = 429
-			--SFX.play(12)
 		end
 		data.initialized = true
 	end
@@ -247,9 +164,9 @@ function killerTaxi.onTickNPC(v)
 	
 	local config = NPC.config[npcID]
 
-	if driveTimer < driveLength then
+	if driveTimer.value < driveLength then
 		v.speedX = config.speed * v.direction
-	elseif driveTimer >= driveLength and driveTimer < 450 then
+	elseif driveTimer.value >= driveLength and driveTimer.value < 450 then
 		v.speedX = v.speedX * 0.85
 		--v.x = math.lerp(v.x,v.spawnX,0.075)
 	elseif v.speedX ~= 0 then
@@ -259,8 +176,7 @@ function killerTaxi.onTickNPC(v)
 	end
 	v.despawnTimer = 180
 	cooldown = math.max(cooldown - 1, 0)
-	if cooldown <= 0 and driveTimer >= 450 then
-		--SFX.play("Todd-Way Street/vroom.ogg")
+	if cooldown <= 0 and driveTimer.value >= 450 then
 		vroomSFX = SFX.create{
 			x = v.x + v.width*0.5,
 			y = v.y + v.height*0.5,
@@ -273,9 +189,9 @@ function killerTaxi.onTickNPC(v)
 			play = true,
 			loops = 1,
 		}
-		driveTimer = 0
+		driveTimer.value = 0
 	elseif cooldown == 65 then
-		SFX.play("Todd-Way Street/honk-honk.ogg",5)
+		SFX.play("Todd-Way Street/honk-honk.ogg",1)
 	end
 	if cooldown > 65 then
 		local anim = 0
@@ -286,7 +202,7 @@ function killerTaxi.onTickNPC(v)
 		v.animationTimer = 0
 	end
 	
-	driveTimer = driveTimer + 1
+	driveTimer.value = driveTimer.value + 1
 	
 	if cooldown > 0 then return end
 	
@@ -318,7 +234,7 @@ function killerTaxi.onTickNPC(v)
 end
 
 function killerTaxi.onDrawNPC(v)
-	Text.print(driveTimer,100,100)
+	Text.print(driveTimer.value,100,100)
 	Text.print(cooldown,100,120)
 	Text.print(v.x,100,130)
 end
