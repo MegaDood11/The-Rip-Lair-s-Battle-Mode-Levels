@@ -1,0 +1,19 @@
+frames=1
+framespeed=8
+
+sizable = false
+passthrough = false
+pswitchable = false
+lava = false
+semisolid = false
+floorslope = 0
+ceilingslope = 0
+bumpable = false
+smashable = 0
+
+lightoffsetx = 0
+lightoffsety = 0
+lightradius = 128
+lightbrightness = 1
+lightcolor = white
+lightflicker = false
