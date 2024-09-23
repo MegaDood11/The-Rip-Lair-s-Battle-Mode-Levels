@@ -1,0 +1,13 @@
+Gate - YI Platforms and Lineguides (both imported by Murphmario)
+
+electro_kun - Green Pipes and Pipe Connectors
+
+FlagPole1UP - Grassy Tileset and Powerups (Imported by MegaDood)
+	- Parallax sky bg edited by GDKeptr
+	
+Kopejo - Custom styled ? Blocks and Brick Blocks (both imported by MegaDood)
+	   - Custom styled Coins (Imported by ArUFuhReel)
+	   
+Omega - Custom styled Goombas (Imported by MegaDood)
+
+Mit - Custom Koopa Troopas (Imported by MegaDood)
