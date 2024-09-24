@@ -1,0 +1,11 @@
+-- BATTLE ARENA Custom Stage - Block Buster --
+by FutureNyanCat / EleCyon (Cyon of Gaia)
+----------------------------------------------
+SUPPORTS ALL MODES! (Classic Battle, Star Catcher and Stone Carrier)
+
+CREDITS:
+- SMB3 Extended Wood Tileset - SuperSledgeBro (ported by DeviousQuacks23)
+- SMB3 Screenscrolling Pipes - FNC2002 + MegaDood + KBM-Quine (Coding help)
+
+MUSIC:
+- VecchiaZim - Happy Fake Mario Music ( https://www.smwcentral.net/?p=section&a=details&id=24157 )
