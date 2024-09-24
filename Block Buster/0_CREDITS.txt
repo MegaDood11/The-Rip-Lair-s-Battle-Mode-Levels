@@ -9,3 +9,13 @@ CREDITS:
 
 MUSIC:
 - VecchiaZim - Happy Fake Mario Music ( https://www.smwcentral.net/?p=section&a=details&id=24157 )
+
+---------------------------------------------
+CHANGELOG
+v1.1 - Improvement Release 1
+- Tweaked some parts of the stage to make them easier to jump around
+- Added an extra Stone spawn location
+- Donut Blocks will now respawn in a similar fashion to the SMW Donut Blocks
+- Stone can now interact with Donut Blocks, making Stone Carrier slightly more challenging
+
+v1.0 - Initial release (internal)
