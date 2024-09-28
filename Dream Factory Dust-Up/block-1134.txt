@@ -1,0 +1,3 @@
+framespeed=4
+floorslope=0
+semisolid=1
