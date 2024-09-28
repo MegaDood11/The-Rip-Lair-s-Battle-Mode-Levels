@@ -1,0 +1,6 @@
+priority=-85
+lightoffsety=-36
+lightradius=160
+lightbrightness=2
+lightflicker=true
+lightcolor=0xFFAA00

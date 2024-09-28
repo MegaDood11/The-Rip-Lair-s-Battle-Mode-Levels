@@ -1,0 +1,23 @@
+-- BATTLE ARENA Custom Stage - Dream Factory Dust-Up --
+by FutureNyanCat / EleCyon (Cyon of Gaia)
+----------------------------------------------
+A custom battle stage inspired by Super Mario Bros. 2, specifically the final level (World 7-2 / Dream Factory).
+SUPPORTS CLASSIC BATTLE AND STAR CATCHER ONLY!
+
+CREDITS:
+- SMB2 Expanded - Wart/Mamu's Palace - Sednaiur
+- SMB2 Expanded - Colorful Blocks - Sednaiur
+- SMB2 Expanded - Climbables, Misc - Sednaiur
+- SMB2 Expanded - Powerups, Enemies - Sednaiur + FNC2002 (Battle Arena Item GFX)
+- Enemy Randomizer - based on code for the Mushroom Block randomizer by Kate Bulka, modified by FNC2002
+
+MUSIC:
+- Uberbot27 - SMB2 Cavern Chaos ( https://www.newgrounds.com/audio/listen/42094 )
+
+---------------------------------------------
+CHANGELOG
+v1.0.1 - Hotfix release 1
+- Added missing credits for the enemy randomizer
+- Added missing player startpoints
+
+v1.0 - Initial release (internal)

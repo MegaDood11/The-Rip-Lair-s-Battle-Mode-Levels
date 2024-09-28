@@ -1,0 +1,14 @@
+fill-color=0x281818
+
+[Layer 1]
+depth=400
+img="bg2_52_layer4.png"
+repeatX=true
+repeatY=true
+frames=4
+framespeed=6
+startingFrame=1
+alignX=LEFT
+alignY=BOTTOM
+parallaxX=0.5
+parallaxY=0.8
