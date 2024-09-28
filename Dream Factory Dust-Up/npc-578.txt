@@ -1,0 +1,8 @@
+height=32
+width=32
+gfxheight=32
+gfxwidth=32
+gfxoffsety=0
+nofireball=1
+noyoshi=1
+harmlessgrab=1

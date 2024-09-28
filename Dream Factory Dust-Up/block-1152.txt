@@ -1,0 +1,2 @@
+floorslope=0
+semisolid=1

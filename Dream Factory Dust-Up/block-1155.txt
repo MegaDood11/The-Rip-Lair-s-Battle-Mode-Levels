@@ -1,0 +1,2 @@
+framespeed=4
+semisolid=1

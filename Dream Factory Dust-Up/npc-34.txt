@@ -1,0 +1,2 @@
+harmlessgrab=1
+harmlessthrown=1

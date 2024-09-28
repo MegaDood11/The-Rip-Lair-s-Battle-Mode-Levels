@@ -1,0 +1,5 @@
+gfxoffsety=0
+nofireball=1
+noyoshi=1
+warningdelay = 30
+explosiondelay = 100

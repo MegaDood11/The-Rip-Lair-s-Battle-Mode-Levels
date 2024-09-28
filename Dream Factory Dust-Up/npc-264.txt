@@ -1,0 +1,5 @@
+gfxoffsety=0
+frames=4
+framespeed=8
+harmlessgrab=1
+harmlessthrown=1

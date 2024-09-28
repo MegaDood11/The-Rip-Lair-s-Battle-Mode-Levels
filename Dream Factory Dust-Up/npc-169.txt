@@ -1,0 +1,3 @@
+gfxoffsety=0
+harmlessgrab=1
+harmlessthrown=1
