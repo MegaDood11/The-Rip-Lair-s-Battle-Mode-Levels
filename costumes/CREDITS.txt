@@ -29,6 +29,15 @@ Ported and edited/expanded upon by Sleepy Dee
 =SMB3 Knuckles - megamario1500=
 Ported and edited/expanded upon by Sleepy Dee
 
+=SMB3 Shadow - Apocalypse=
+Ported and edited/expanded upon by Sleepy Dee
+
+=SMB3 Amy Rose - Zig Sonar=
+Ported and edited/expanded upon by Sleepy Dee
+
+=SMB3 Garfield - Jon Gandee=
+Ported by MegaDood, converted to 16-bit by Sleepy Dee
+
 =SMW Reimu + Marisa - Kusamochi=
 Ported by MegaDood + KurttheKing
 
