@@ -1,0 +1,7 @@
+[1]
+frames = 1
+framestyle = 0
+rotation = -7.5
+speedX = -6
+xAlign = CENTER
+yAlign = CENTER

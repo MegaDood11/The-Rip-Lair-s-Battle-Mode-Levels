@@ -1,0 +1,9 @@
+gfxwidth=48
+gfxheight=48
+width=32
+height=32
+playerblocktop=0
+npcblock=0
+npcblocktop=0
+nofireball=0
+nofire=0

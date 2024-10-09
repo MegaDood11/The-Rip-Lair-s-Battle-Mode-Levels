@@ -1,0 +1,5 @@
+[1]
+image="background-999.png"
+frames=4
+framespeed=2
+lifetime=80
