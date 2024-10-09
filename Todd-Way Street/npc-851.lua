@@ -6,7 +6,7 @@ local onlinePlay = require("scripts/onlinePlay")
 local battlePlayer = require("scripts/battlePlayer")
 local annihilatePlayerCommand = onlinePlay.createCommand("annihilatePlayer",onlinePlay.IMPORTANCE_MAJOR)
 
-local carDirection = onlinePlay.createVariable("carDirection","uint16",true,RNG.randomEntry{-1,1})
+local carDirection = onlinePlay.createVariable("carDirection","sint8",true,RNG.randomEntry{-1,1})
 local driveTimer = onlinePlay.createVariable("driveTimer","uint16",true,450)
 local driveLength = 415
 local cooldown = 650
