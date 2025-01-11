@@ -2,7 +2,7 @@ HEAD
 TL:"Good Egg Galaxy.lvlx";CPID:"SMBX2";
 HEAD_END
 SECTION
-SC:0;L:-201408;R:-196960;T:-201440;B:-199008;MZ:24;MF:"Good Egg Galaxy/Good Egg Galaxy - Super Mario Galaxy.ogg";BG:20;XTRA:"{\n    \"effects\"\: {\n        \"weather\"\: 8\n    }\n}\n";
+SC:0;L:-201408;R:-196960;T:-201440;B:-199008;MZ:24;MF:"Good Egg Galaxy/Egg Planet - Super Mario Galaxy.ogg";BG:20;XTRA:"{\n    \"effects\"\: {\n        \"weather\"\: 8\n    }\n}\n";
 SECTION_END
 STARTPOINT
 ID:1;X:-199676;Y:-200182;D:1;
