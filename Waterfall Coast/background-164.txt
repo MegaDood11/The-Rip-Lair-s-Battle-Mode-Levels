@@ -1,0 +1,13 @@
+priority=-85
+frames=1
+framespeed=8
+width = 32
+height = 32
+
+;Darkness
+lightoffsetx = 0
+lightoffsety = 0
+lightradius = 128
+lightbrightness = 1
+lightcolor = white
+lightflicker = false
