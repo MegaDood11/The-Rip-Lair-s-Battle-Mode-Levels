@@ -1,0 +1,7 @@
+gfxwidth=88
+width=88
+gfxheight=172
+height=172
+frames=25
+framespeed=4
+framestyle=1

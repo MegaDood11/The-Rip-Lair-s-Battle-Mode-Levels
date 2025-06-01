@@ -1,0 +1,8 @@
+gfxwidth=24
+width=24
+gfxheight=44
+height=44
+nohurt=true
+speed=0
+frames=1
+framestyle=1

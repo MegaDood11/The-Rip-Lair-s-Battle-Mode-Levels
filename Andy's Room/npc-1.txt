@@ -1,0 +1,8 @@
+gfxwidth=184
+width=184
+gfxheight=108
+height=32
+nohurt=true
+speed=0
+frames=13
+framespeed=4

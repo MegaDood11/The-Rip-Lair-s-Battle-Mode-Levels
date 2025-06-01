@@ -1,0 +1,11 @@
+[1]
+import=AI_ARC
+frames = 1
+variants = 12
+lifetime = 500
+priority = -45
+gravity = 0.25
+speedX = 6
+xAlign=MID
+yAlign=MID
+rotation=8
