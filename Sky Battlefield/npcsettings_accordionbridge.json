@@ -1,0 +1,94 @@
+{
+	"style" : "groupbox",
+	"title" : "Accordion Bridge Settings",
+	"layout": [
+		{
+			"control": "itemSelect",
+			"name": "blockID",
+			"title": "Block",
+			"type": "block",
+			"tooltip": "Which block is used to form the bridge.",
+			"value-default": 0
+		},
+		{
+			"control": "spinBox",
+			"name": "startRotation",
+			"title": "Start Rotation",
+			"type": "double",
+			"tooltip": "The rotation (in degrees) that the platform starts at when spawned.",
+			"decimals": 2,
+			"value-default": 0,
+			"value-min": -360,
+			"value-max": 360
+		},
+		{
+			"control": "spinBox",
+			"name": "rotationChange",
+			"title": "Rotation Change",
+			"type": "double",
+			"tooltip": "The amount that the rotation changes (in degrees) each time it extends.",
+			"decimals": 2,
+			"value-default": 90,
+			"value-min": -360,
+			"value-max": 360
+		},
+		{
+			"control": "spinBox",
+			"name": "moveDuration",
+			"title": "Move Duration",
+			"type": "int",
+			"tooltip": "The amount of time it takes for the bridge to extend/retract (in frames).",
+			"value-default": 32,
+			"value-min": 1,
+			"value-max": 512
+		},
+		{
+			"control": "spinBox",
+			"name": "waitDuration",
+			"title": "Wait Duration",
+			"type": "int",
+			"tooltip": "The amount of time it waits after extending or retracting (in frames).",
+			"value-default": 64,
+			"value-min": 1,
+			"value-max": 512
+		},
+		{
+			"control": "spinBox",
+			"name": "amountLeft",
+			"title": "Amount on Left",
+			"type": "int",
+			"tooltip": "The number of blocks on the left side (at a 0 degree tilt).",
+			"value-default": 2,
+			"value-min": 0,
+			"value-max": 20
+		},
+		{
+			"control": "spinBox",
+			"name": "amountRight",
+			"title": "Amount on Right",
+			"type": "int",
+			"tooltip": "The number of blocks on the right side (at a 0 degree tilt).",
+			"value-default": 2,
+			"value-min": 0,
+			"value-max": 20
+		},
+		{
+			"control": "spinBox",
+			"name": "blockGap",
+			"title": "Block Gap",
+			"type": "int",
+			"tooltip": "The gap between each block (in pixels).",
+			"value-default": 0,
+			"value-min": -32,
+			"value-max": 256
+		},
+		{
+			"control": "checkBox",
+			"name": "startExtended",
+			"title": "Start Extended",
+			"tooltip": "If checked, the platform will spawn already extended.",
+			"value-default": false
+		}
+	]
+}
+
