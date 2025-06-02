@@ -1,0 +1,6 @@
+width=64
+height=64
+gfxwidth=64
+gfxheight=64
+name="Raving Piranha Plant"
+description="Pop up and down pipes to the beat of the music in Music sections."

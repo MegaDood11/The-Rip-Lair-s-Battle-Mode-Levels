@@ -1,0 +1,6 @@
+[1]
+frames = 7
+framespeed = 3
+xAlign = MID
+yAlign = MID
+onTick = TICK_SINGLE

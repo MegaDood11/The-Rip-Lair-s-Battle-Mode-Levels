@@ -1,0 +1,9 @@
+width=56
+height=28
+gfxwidth=56
+gfxheight=32
+gfxoffsety=2
+jumphurt=1
+nofireball=0
+name="Soundwave Sam"
+description="A fast-moving, unjumpable Bullet Bill variant that emits from speaker blasters and is launched to the beat of the background music."

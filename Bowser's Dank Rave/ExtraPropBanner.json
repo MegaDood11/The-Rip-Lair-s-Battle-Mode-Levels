@@ -1,0 +1,42 @@
+{
+	"style" : "groupbox",
+	"title" : "Content Settings",
+	"layout": [
+		{
+			"control": "checkBox",
+			"name": "attachNPC",
+			"title": "Attach to NPC",
+			"value-default": false
+		},
+		{
+			"control": "spinBox",
+			"name": "preset",
+			"title": "Preset",
+			"tooltip": "The rendering preset to use for this banner",
+			"type": "int",
+			"value-default": 0,
+			"value-min": 0
+		},
+		{
+			"control": "spinBox",
+			"name": "offsetY",
+			"title": "OffsetY",
+			"tooltip": "Offset from the attached entity",
+			"type": "int",
+			"value-default": 0,
+			"value-max": 4096,
+			"value-min": -4096
+		},
+		{
+			"control": "spinBox",
+			"name": "windMod",
+			"title": "Wind Modifier",
+			"tooltip": "Multiplier for how affected this banner is by wind",
+			"type": "double",
+			"value-default": 1,
+			"value-step": 0.1,
+			"value-max": 4096,
+			"value-min": -4096
+		}
+	]
+}

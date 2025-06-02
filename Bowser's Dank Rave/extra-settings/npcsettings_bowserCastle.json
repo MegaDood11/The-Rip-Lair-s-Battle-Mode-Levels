@@ -1,0 +1,20 @@
+{
+	"style" : "groupbox",
+	"title" : "Bowser (Castle form) Settings",
+	"layout": [
+		{
+			"control": "combobox",
+			"name": "ai1",
+			"title": "Hover Algorithm",
+			"value-default": 1,
+			"elements": [
+				"Chase",
+				"Chase 2",
+				"Fly & Turn Horizontal",
+				"Fly & Turn Vertical",
+				"Fly Horizontal",
+				"Fly Vertical"
+			]
+		}
+	]
+}
