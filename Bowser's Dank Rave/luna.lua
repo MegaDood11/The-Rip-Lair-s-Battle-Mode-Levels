@@ -18,11 +18,11 @@ local thing1 = onlinePlay.createVariable("thing1","uint16",true,0)
 local thing2 = onlinePlay.createVariable("thing2","uint16",true,0)
 
 function onTick()
-	if battleTimer and battleTimer.secondsLeft == battleTimer.optionTimeValues[battleOptions.getModeRuleset().timeLimit] - 90 and thing1.value == 0 then
+	if battleTimer and battleTimer.secondsLeft == battleTimer.optionTimeValues[battleOptions.getModeRuleset().timeLimit] - 89 and thing1.value == 0 then
 		triggerEvent("bowserbootup")
 		thing1.value = 1
 	end
-	if battleTimer and battleTimer.secondsLeft == 60 and thing2.value == 0 then
+	if battleTimer and battleTimer.secondsLeft == 61 and thing2.value == 0 then
 		triggerEvent("bowserbootup2")
 		thing2.value = 1
 	end
