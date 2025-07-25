@@ -2,7 +2,7 @@ HEAD
 TL:"Jungle Trouble";CPID:"SMBX2";
 HEAD_END
 SECTION
-SC:0;L:-199616;R:-195232;T:-200600;B:-200000;MZ:24;MF:"Jungle Trouble/Lost Jungle Medley.spc|0\;g=2.29\;e0";BG:12;CS:1;XTRA:"{\n    \"effects\"\: {\n        \"screenEffects\"\: 0\n    }\n}\n";
+SC:0;L:-199616;R:-195232;T:-200600;B:-200000;MZ:24;MF:"Jungle Trouble/Jungle.ogg";BG:12;CS:1;XTRA:"{\n    \"effects\"\: {\n        \"screenEffects\"\: 0\n    }\n}\n";
 SECTION_END
 STARTPOINT
 ID:1;X:-199388;Y:-200118;D:1;
