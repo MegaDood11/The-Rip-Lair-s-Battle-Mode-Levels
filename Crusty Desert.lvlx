@@ -2,7 +2,7 @@ HEAD
 TL:"Crusty Desert";CPID:"SMBX2";
 HEAD_END
 SECTION
-SC:0;L:-197216;R:-195008;T:-200600;B:-200000;MZ:24;MF:"Crusty Desert/Custom - Desert Stage.spc|0\;t=1.15\;g=4\;e0";BG:32;CS:1;
+SC:0;L:-197216;R:-195008;T:-200600;B:-200000;MZ:24;MF:"Crusty Desert/Desert.ogg";BG:32;CS:1;
 SECTION_END
 STARTPOINT
 ID:1;X:-197004;Y:-200086;D:1;
