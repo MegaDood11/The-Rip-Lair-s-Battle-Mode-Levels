@@ -1,0 +1,6 @@
+image = background-858.png
+name = Greendale Anthro Teacher Chair
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -85

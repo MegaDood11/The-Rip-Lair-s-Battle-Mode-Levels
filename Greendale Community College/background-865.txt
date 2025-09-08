@@ -1,0 +1,6 @@
+image = background-865.png
+name = Greendale AC Shelves
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -85

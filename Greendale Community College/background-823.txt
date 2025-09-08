@@ -1,0 +1,6 @@
+image = background-823.png
+name = Greendale Hand Drier
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -85

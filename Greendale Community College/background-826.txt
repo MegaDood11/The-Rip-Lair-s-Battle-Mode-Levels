@@ -1,0 +1,6 @@
+image = background-826.png
+name = Greendale Exit Door
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -85

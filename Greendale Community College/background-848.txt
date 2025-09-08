@@ -1,0 +1,6 @@
+image = background-848.png
+name = Greendale Anthro Artifact Shelf
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -85

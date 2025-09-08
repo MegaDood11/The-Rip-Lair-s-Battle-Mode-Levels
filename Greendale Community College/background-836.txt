@@ -1,0 +1,6 @@
+image = background-836.png
+name = Greendale Ceiling Light
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -95

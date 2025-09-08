@@ -1,0 +1,6 @@
+image = background-867.png
+name = Greendale AC Trash
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -85

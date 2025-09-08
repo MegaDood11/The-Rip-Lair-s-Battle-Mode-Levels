@@ -1,0 +1,6 @@
+image = background-838.png
+name = Greendale Anthro Clock
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -85

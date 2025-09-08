@@ -1,0 +1,6 @@
+image = background-828.png
+name = Greendale Who Indeed Sign
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -85

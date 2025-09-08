@@ -1,0 +1,6 @@
+image = background-844.png
+name = Greendale Anthro Dreamcatcher
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -85

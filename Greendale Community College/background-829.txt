@@ -1,0 +1,6 @@
+image = background-829.png
+name = Greendale Classroom Edging
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -95

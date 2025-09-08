@@ -1,0 +1,6 @@
+image = background-862.png
+name = Greendale AC Wall Edge 3
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -95

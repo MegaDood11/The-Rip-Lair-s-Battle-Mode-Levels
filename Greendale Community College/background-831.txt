@@ -1,0 +1,6 @@
+image = background-831.png
+name = Greendale El Tigre Chino Sign
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -85

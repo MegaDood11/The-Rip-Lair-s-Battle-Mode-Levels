@@ -1,0 +1,6 @@
+image = background-841.png
+name = Greendale Anthro Family
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -85

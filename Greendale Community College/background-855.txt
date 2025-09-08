@@ -1,0 +1,6 @@
+image = background-855.png
+name = Greendale Anthro Desk
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -85
