@@ -1,0 +1,61 @@
+[1]
+name="BG 2"
+img="bg_2.png"
+repeatY=true
+repeatX=true
+priority=-100
+alignY=BOTTOM
+parallaxX=0.12
+parallaxY=0.1
+
+[2]
+name="Clouds BG 2"
+img="clouds_bg_2.png"
+repeatY=true
+repeatX=true
+priority=-99.9
+alignY=BOTTOM
+parallaxX=0.2
+parallaxY=0.15
+
+[3]
+name="Clouds FG 2"
+img="clouds_fg_2.png"
+repeatY=false
+repeatX=true
+priority=-99.8
+alignY=BOTTOM
+parallaxX=0.24
+parallaxY=0.19
+
+[4]
+name="Mountains 2"
+img="mountains_2.png"
+repeatY=false
+repeatX=true
+priority=-99.7
+alignY=BOTTOM
+parallaxX=0.27
+parallaxY=0.21
+
+[5]
+name="cloudLayer 2"
+img="cloudLayer_2.png"
+repeatY=false
+repeatX=true
+priority=-99.6
+alignY=BOTTOM
+parallaxX=0.29
+parallaxY=0.23
+
+[6]
+name="Water 2"
+img="background-57.png"
+repeatY=false
+repeatX=true
+priority=-20
+alignY=BOTTOM
+y=64
+frames=6
+parallaxX=1
+parallaxY=1
