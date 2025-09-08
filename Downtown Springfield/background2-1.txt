@@ -1,0 +1,80 @@
+[background2]
+; Name that will appear in the editor
+name = "Downtown Springfield"
+; Backdrop fill color
+fill-color = black
+
+
+; Add layers here, for example:
+
+[back]
+depth = INFINITE
+img = "bback.png"
+repeatX = true
+
+[mountains]
+depth = 500
+img = "bmountains.png"
+repeatX = true
+alignY = CENTER
+
+[forest]
+depth = 350
+img = "bforest.png"
+repeatX = true
+alignY = BOTTOM
+
+[krusty]
+depth = 30
+img = "bkrusty.png"
+repeatX = true
+y = -152
+frames = 2
+
+[cloud1]
+depth = 200
+img = "bcloud1.png"
+repeatX = true
+speedX = 0.05
+
+[cloud2]
+depth = 190
+img = "bcloud2.png"
+repeatX = true
+speedX = 0.1
+
+[cloud3]
+depth = 180
+img = "bcloud3.png"
+repeatX = true
+speedX = 0.15
+
+[cloud4]
+depth = 170
+img = "bcloud4.png"
+repeatX = true
+speedX = 0.20
+
+[cloud5]
+depth = 160
+img = "bcloud5.png"
+repeatX = true
+speedX = 0.25
+
+[cloud6]
+depth = 150
+img = "bcloud6.png"
+repeatX = true
+speedX = 0.30
+
+[cloud7]
+depth = 140
+img = "bcloud7.png"
+repeatX = true
+speedX = 0.35
+
+[cloud8]
+depth = 130
+img = "bcloud8.png"
+repeatX = true
+speedX = 0.40

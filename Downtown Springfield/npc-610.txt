@@ -1,0 +1,6 @@
+gfxoffsetx=0
+gfxoffsety=0
+gfxwidth=170
+gfxheight=142
+width=170
+height=142
