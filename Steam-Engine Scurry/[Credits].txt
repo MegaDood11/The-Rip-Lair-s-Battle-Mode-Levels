@@ -1,0 +1,28 @@
+Steam-Engine Scurry by "Master" of Disaster
+
+----- Graphics -----
+
+-- Train --
+Original Sprites by Squishy Rex
+Upscaled by "Master" of Disaster, MegaDood
+Recoloured by "Master" of Disaster
+
+-- Backdrop --
+Ripped by The Pulseman Fansite
+Imported by gbradley231
+
+-- Train Tracks --
+Original by Squishy Rex
+Recoloured by "Master" of Disaster
+
+-- Smoke particle
+by Marina
+edited by "Master" of Disaster
+
+-- Other --
+by "Master" of Disaster
+
+
+----- Scripts -----
+BoneBlocks.lua by "Master" of Disaster
+Level specific code by "Master" of Disaster

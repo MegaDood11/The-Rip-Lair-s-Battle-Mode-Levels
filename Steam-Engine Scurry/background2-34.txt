@@ -1,0 +1,55 @@
+[rocks]
+img="rocks.png"
+depth=200
+repeatX=true
+alignY=BOTTOM
+speedX = -2
+
+[mid]
+img="mid.png"
+depth=400
+repeatX=true
+alignY=BOTTOM
+speedX = -1
+
+[mesa]
+img="mesa.png"
+depth=500
+repeatX=true
+alignY=BOTTOM
+speedX=-0.5
+
+[clouds1]
+img="clouds1.png"
+depth=550
+repeatX=true
+alignY=BOTTOM
+speedX=-0.4
+
+[clouds2]
+img="clouds2.png"
+depth=600
+repeatX=true
+alignY=BOTTOM
+speedX=-0.9
+
+[gradient]
+img="gradient.png"
+depth=800
+repeatX=true
+alignY=BOTTOM
+speedX= -0.2
+
+[foretraintracks]
+img = "foretraintracks.png"
+depth= 0
+repeatX=true
+alignY=BOTTOM
+speedX=-12
+
+[forerocks]
+img="forerocks.png"
+depth=-10
+repeatX=true
+alignY=BOTTOM
+speedX=-8
