@@ -1,0 +1,22 @@
+{
+	"style" : "groupbox",
+	"title" : "Butterfly Settings",
+	"layout": [
+	
+		{
+			"control": "combobox",
+			"name": "color",
+			"title": "Color",
+			"elements": ["White", "Yellow", "Pink", "Blue", "Orange", "Purple", "Green", "Moth 1", "Moth 2"],
+			"value-default": 0
+		},
+		{
+			"control": "checkbox",
+			"name": "random",
+			"title": "Random Colour",
+			"tooltip": "Check to make the butterflies be of a random colour.",
+			"text-visible": true,
+			"value-default": false
+		}
+		]
+}

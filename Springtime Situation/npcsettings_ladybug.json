@@ -1,0 +1,14 @@
+{
+	"style" : "groupbox",
+	"title" : "Ladybug/Stinkbug Settings",
+	"layout": [
+	
+		{
+			"control": "combobox",
+			"name": "type",
+			"title": "Color",
+			"elements": ["Ladybug", "Stinkbug"],
+			"value-default": 0
+		}
+		]
+}

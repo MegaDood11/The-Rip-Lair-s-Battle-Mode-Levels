@@ -1,0 +1,22 @@
+{
+	"style" : "groupbox",
+	"title" : "Dragonfly Settings",
+	"layout": [
+	
+		{
+			"control": "combobox",
+			"name": "color",
+			"title": "Color",
+			"elements": ["Red", "Blue", "Green", "Orange", "Yellow", "Grey"],
+			"value-default": 0
+		},
+		{
+			"control": "checkbox",
+			"name": "random",
+			"title": "Random Colour",
+			"tooltip": "Check to make the dragonfly be of a random colour.",
+			"text-visible": true,
+			"value-default": false
+		}
+		]
+}
