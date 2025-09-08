@@ -1,0 +1,6 @@
+image = background-871.png
+name = Greendale AC Photo 2
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -85

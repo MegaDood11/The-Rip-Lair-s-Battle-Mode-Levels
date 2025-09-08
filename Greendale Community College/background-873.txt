@@ -1,0 +1,6 @@
+image = background-873.png
+name = Greendale Chang Coming Sign
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -85

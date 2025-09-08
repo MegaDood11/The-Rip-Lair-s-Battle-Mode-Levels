@@ -1,0 +1,9 @@
+gfxoffsetx=8
+gfxoffsety=0
+gfxwidth=78
+gfxheight=52
+width=60
+height=48
+speed=0.6
+framespeed=16
+gridoffsety=-4

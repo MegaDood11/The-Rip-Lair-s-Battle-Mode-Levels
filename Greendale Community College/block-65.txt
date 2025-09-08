@@ -1,0 +1,3 @@
+image = block-65.png
+name = Hawkthorne Question Block
+frames = 1

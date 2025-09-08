@@ -1,0 +1,3 @@
+image = block-2.png
+name = Hawkthorne Hit Question Block
+frames = 1

@@ -1,0 +1,6 @@
+image = background-872.png
+name = Greendale AC BH
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -85
