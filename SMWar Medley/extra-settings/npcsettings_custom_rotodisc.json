@@ -1,0 +1,36 @@
+{
+	"style" : "groupbox",
+	"title" : "Roto-Disc Settings",
+	"layout": [
+		{
+			"control": "spinbox",
+			"name": "startangle",
+			"title": "Start Angle",
+			"tooltip": "0 is top, 180 is bottom. 90 is right, -90 is left.",
+			"type": "double",
+			"value-default": 0,
+			"value-min": -180,
+			"value-max": 180
+		},
+		{
+			"control": "spinbox",
+			"name": "radius",
+			"title": "Radius",
+			"tooltip": "32 pixels is 1 block, typically.",
+			"type": "int",
+			"value-default": 96,
+			"value-min": 16,
+			"value-max": 480
+		},
+		{
+			"control": "spinbox",
+			"name": "speed",
+			"title": "Speed",
+			"tooltip": "Angular speed (literally: number of degrees travelled per frame). Smaller numbers advised at greater radii.",
+			"type": "double",
+			"value-default": 3,
+			"value-min": 0.1,
+			"value-max": 8
+		}
+	]
+}
