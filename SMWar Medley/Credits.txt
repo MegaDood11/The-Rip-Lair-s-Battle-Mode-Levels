@@ -1,0 +1,8 @@
+faller.lua - Marioman2007
+areaNames.lua - Emral
+Roulette Block - Master of Disaster
+Roto Disc - Emral
+
+All custom graphics used were taken from Super Mario War. Credits to all the various spriters that forgot to be credited.
+
+Huge thanks to Murphmario for showing me how each stage works and what to do to recreate them.
