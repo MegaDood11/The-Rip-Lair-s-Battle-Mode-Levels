@@ -1,0 +1,6 @@
+image = background-814.png
+name = Greendale Exit Sign
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -85

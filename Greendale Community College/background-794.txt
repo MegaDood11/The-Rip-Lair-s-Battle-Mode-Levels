@@ -1,0 +1,6 @@
+image = background-794.png
+name = Greendale Grifting Sign
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -85

@@ -1,0 +1,6 @@
+image = background-815.png
+name = Greendale Learning Sign
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -85

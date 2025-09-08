@@ -1,0 +1,6 @@
+image = background-809.png
+name = Greendale Stairwell Door
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -85

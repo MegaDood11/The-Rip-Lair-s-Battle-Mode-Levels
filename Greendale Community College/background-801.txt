@@ -1,0 +1,6 @@
+image = background-801.png
+name = Greendale Biology Sign
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -85

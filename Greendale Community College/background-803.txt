@@ -1,0 +1,6 @@
+image = background-803.png
+name = Greendale Deploy Troy Sign
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -85

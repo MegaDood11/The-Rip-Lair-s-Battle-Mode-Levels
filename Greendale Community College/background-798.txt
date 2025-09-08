@@ -1,0 +1,6 @@
+image = background-798.png
+name = Greendale Wine Sign
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -85

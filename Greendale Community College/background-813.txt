@@ -1,0 +1,6 @@
+image = background-813.png
+name = Greendale Wastebin
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -85

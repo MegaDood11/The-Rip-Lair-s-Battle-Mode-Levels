@@ -1,0 +1,6 @@
+image = background-799.png
+name = Greendale Sailing Sign
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -85

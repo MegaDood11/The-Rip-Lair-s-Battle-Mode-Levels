@@ -1,0 +1,6 @@
+image = background-817.png
+name = Greendale Light Switch
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -85

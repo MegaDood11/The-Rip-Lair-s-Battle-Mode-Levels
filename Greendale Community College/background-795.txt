@@ -1,0 +1,6 @@
+image = background-795.png
+name = Greendale Pool Sign
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -85

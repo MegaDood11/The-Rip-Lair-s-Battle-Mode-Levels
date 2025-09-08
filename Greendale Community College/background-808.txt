@@ -1,0 +1,6 @@
+image = background-808.png
+name = Greendale Lockers
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -85

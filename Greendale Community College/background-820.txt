@@ -1,0 +1,6 @@
+image = background-820.png
+name = Greendale Bathroom Stall
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -85
