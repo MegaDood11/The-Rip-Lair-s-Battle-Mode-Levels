@@ -1,0 +1,20 @@
+[background2]
+; Name that will appear in the editor
+name = "Tinker Hills"
+; Backdrop fill color
+; fill-color = black
+
+
+; Add layers here, for example:
+
+[space]
+depth = 440
+img = "space.png"
+repeatX = true
+Y = 180
+
+[hills]
+depth = 290
+img = "hills.png"
+repeatX = true
+alignY = BOTTOM

@@ -1,0 +1,6 @@
+image = background-751.png
+name = Exit Button
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -10

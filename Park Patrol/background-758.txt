@@ -1,0 +1,7 @@
+image = background-758.png
+name = Teleporter Button
+description = Used to indicate a teleporter ID.
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -10

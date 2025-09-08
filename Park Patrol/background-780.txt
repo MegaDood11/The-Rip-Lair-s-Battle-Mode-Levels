@@ -1,0 +1,7 @@
+image = background-780.png
+name = Tinker Robot
+description = A statue of an old, forgotten friend.
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -80

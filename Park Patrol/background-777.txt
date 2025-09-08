@@ -1,0 +1,7 @@
+image = background-777.png
+name = Wood Block 1
+description = Intended to be combined with "Invisible Semisolid."
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -85

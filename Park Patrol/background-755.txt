@@ -1,0 +1,7 @@
+image = background-755.png
+name = Teleporter Light
+description = Used to mark a teleporter. You can use any warp type you like, but I would recommend using type Pipe.
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -10
