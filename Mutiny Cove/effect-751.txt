@@ -1,0 +1,5 @@
+[1]
+frames=9
+framespeed=4
+lifetime=36
+variants=3

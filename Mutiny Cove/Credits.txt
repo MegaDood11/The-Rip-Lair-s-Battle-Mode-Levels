@@ -1,0 +1,3 @@
+Tiles + BG by Nitrome, ripped by MegaDood
+Credits to deltom, as I used her code to draw something custom onto the minimap
+Credits to MrDoubleA and/or Starshi for the code I used to play the phanto theme
