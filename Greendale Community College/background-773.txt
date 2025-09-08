@@ -1,0 +1,6 @@
+image = background-773.png
+name = Greendale Envirodale Banner
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -85

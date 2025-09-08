@@ -1,0 +1,6 @@
+image = background-758.png
+name = Greendale Pot
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -85

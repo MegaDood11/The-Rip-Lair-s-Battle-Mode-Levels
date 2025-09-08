@@ -1,0 +1,6 @@
+image = background-770.png
+name = Greendale Filing Cabinet
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -85

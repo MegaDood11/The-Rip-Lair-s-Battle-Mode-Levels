@@ -1,0 +1,6 @@
+image = background-765.png
+name = Greendale Dean Wall
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -95

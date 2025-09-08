@@ -1,0 +1,6 @@
+image = background-783.png
+name = Greendale Door With Window
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -85

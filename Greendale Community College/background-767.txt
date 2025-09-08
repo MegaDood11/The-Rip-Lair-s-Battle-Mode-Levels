@@ -1,0 +1,6 @@
+image = background-767.png
+name = Greendale Microphone
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -40

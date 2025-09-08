@@ -1,0 +1,6 @@
+image = background-777.png
+name = Greendale Dean's Dalmation
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -85

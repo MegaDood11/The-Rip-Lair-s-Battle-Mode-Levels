@@ -1,0 +1,6 @@
+image = background-769.png
+name = Greendale Dean Chair
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -85

@@ -1,0 +1,6 @@
+image = background-785.png
+name = Greendale Bathroom Door Female
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -85

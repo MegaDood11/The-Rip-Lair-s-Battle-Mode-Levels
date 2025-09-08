@@ -1,0 +1,6 @@
+image = background-759.png
+name = Greendale Plant 1
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -85

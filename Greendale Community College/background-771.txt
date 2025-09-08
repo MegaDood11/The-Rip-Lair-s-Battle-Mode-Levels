@@ -1,0 +1,6 @@
+image = background-771.png
+name = Greendale Diploma
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -85
