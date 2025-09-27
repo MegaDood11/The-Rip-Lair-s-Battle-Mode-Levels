@@ -220,11 +220,15 @@ local sectionBackground = {
 [65] = 12,
 }
 
+local list = {159, 777, 4, 5, 90}
+
 --Harm players who are hit from below
 function onBlockHit(eventObj,v,fromTop,playerObj)
     for _,p in ipairs(Player.getIntersecting(v.x, v.y - 4, v.x + v.width, v.y)) do
-		if (p.isValid and battleGeneral.mode == 0) and v.id ~= 55 then
-			battlePlayer.harmPlayer(p,battlePlayer.HARM_TYPE.NORMAL)
+		for _,list in ipairs(list) do
+			if (p.isValid and battleGeneral.mode == 0) and not Colliders.downSlash(p,v) and v.id == list then
+				battlePlayer.harmPlayer(p,battlePlayer.HARM_TYPE.NORMAL)
+			end
 		end
 	end
 end
