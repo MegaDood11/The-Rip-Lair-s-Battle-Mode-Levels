@@ -226,7 +226,7 @@ local list = {159, 777, 4, 5, 90}
 function onBlockHit(eventObj,v,fromTop,playerObj)
     for _,p in ipairs(Player.getIntersecting(v.x, v.y - 4, v.x + v.width, v.y)) do
 		for _,list in ipairs(list) do
-			if (p.isValid and battleGeneral.mode == 0) and not Colliders.downSlash(p,v) and v.id == list then
+			if (p.isValid and battleGeneral.mode == 0) and not Colliders.downSlash(p,v) and v.id == list and p.y < v.y - 16 then
 				battlePlayer.harmPlayer(p,battlePlayer.HARM_TYPE.NORMAL)
 			end
 		end
