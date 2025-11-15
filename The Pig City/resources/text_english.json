@@ -1,0 +1,401 @@
+{
+    "menu": {
+        "main": {
+            "resume": "Resume",
+            "settings": "Settings",
+            "players": "Change\nPlayers",
+            "hubMusic": "Change\nMusic",
+            "stats": "Stats",
+            "forfeit": "Spectate",
+            "quit": "Quit Game",
+            "toHub": "Back to Hub",
+            "disconnect": "Disconnect"
+        },
+        "settings": {
+            "optionTypes": {
+                "personal": "Options",
+                "general": "General",
+                "classic": "Classic\nBattle",
+                "stars": "Star\nCatcher",
+                "stone": "Stone\nCarrier",
+                "special": "Special",
+                "teams": "Change\nTeams"
+            },
+            "personalOptions": {
+                "disableFancy": {
+                    "option": "Disable Fancy Effects",
+                    "description": "<align center>(Affects only you)</align>\nSimplifies system-taxing visual effects."
+                },
+                "muteMusic": {
+                    "option": "Mute Music",
+                    "description": "<align center>(Affects only you)</align>\nDisables all music."
+                },
+                "allowClientRuleChange": {
+                    "option": "Let Clients Change Rules",
+                    "description": "<align center>(For online play)</align>\nAllows non-hosts to change the game rules."
+                }
+            },
+            "ruleset": {
+                "physicsPatchEnabled": {
+                    "option": "Physics Patch Enabled",
+                    "description": "Enables quicker acceleration and deceleration for all players."
+                },
+                "reserveBoxEnabled": {
+                    "option": "Reserve Box Enabled",
+                    "description": "Allows Mario and Luigi to store an item in the reserve box and use it later."
+                },
+                "startWithMushroom": {
+                    "option": "Start with Mushroom",
+                    "description": "Allows each player to start in the super state at the start of each match."
+                },
+                "splitScreenStyle": {
+                    "option": "Split Screen Style",
+                    "description": "<align center>(For local play)</align>\nControl whether you can see more horizontally or vertically.",
+                    "selectionNames": ["Vertical","Horizontal"]
+                },
+                "lives": {
+                    "option": "Lives",
+                    "description": "How many lives each player should start with, if enabled.",
+                    "selectionNames": {
+                        "0": "Disabled"
+                    }
+                },
+                "starsToWin": {
+                    "option": "Stars to Win",
+                    "description": "The number of stars needed to win the game."
+                },
+                "itemsType": {
+                    "option": "Item Types",
+                    "description": "What types of items should be available from collecting coins.",
+                    "selectionNames": {
+                        "0": "Disabled",
+                        "1": "All Items",
+                        "2": "Powerups Only"
+                    }
+                },
+                "coinsForItem": {
+                    "option": "Coins for Item",
+                    "description": "How many coins a player needs to collect in order to get an item."
+                },
+                "timeLimit": {
+                    "option": "Time Limit",
+                    "description": "The maximum length of one game. In a time out, the leading player is awarded the win.",
+                    "selectionNames": {
+                        "0": "Disabled",
+                        "1": "3:00",
+                        "2": "4:00",
+                        "3": "5:00",
+                        "4": "8:00",
+                        "5": "10:00"
+                    }
+                },
+                "bannedCharacters": {
+                    "option": "Banned Characters...",
+                    "description": "Anybody playing as a banned character will be transformed into another random character at the start of a match."
+                }
+            },
+            "reset": "Reset to Default"
+        },
+        "teams": {
+            "enabledSetting": "Teams Enabled",
+            "teamNames": {
+                "0": "<color #A0A0A0>Auto</color>",
+                "1": "<color #F73910>Alpha</color>",
+                "2": "<color #00D3BE>Bravo</color>"
+            }
+        },
+        "players": {
+            "localMultiplayer": {
+                "option": "Local Play",
+                "description": "Face off against one other player in a split-screen battle!"
+            },
+            "onlineMultiplayer": {
+                "option": "Online",
+                "description": "Duke it out online with up to ten players! Additional setup is required."
+            },
+            "recon": {
+                "option": "Recon Mode",
+                "description": "Look around the levels on your own."
+            },
+
+            "online": {
+                "hostGame": "Host a Game",
+                "joinHost": "Join a Host",
+
+                "username": "Username",
+                "usernamePlaceholder": "...",
+                "ip": "Host Address",
+                "ipPlaceholder": "127.0.0.1",
+                "showAddress": "Show Address",
+                "color": "Color",
+                "hostOption": "Host",
+                "joinOption": "Join",
+
+                "errorOK": "OK",
+
+                "help": {
+                    "option": "Setup Help",
+                    "back": "Back",
+    
+                    "main": "You can find instructions on how to use the online features at:\n\n<color lightblue>https://mrdoublea232.github.io/battle</color>"
+                },
+
+                "disconnect": {
+                    "noteHost": "Do you want to disconnect? Any other players will also be disconnected.",
+                    "noteClient": "Do you want to disconnect?",
+
+                    "accept": "Yes",
+                    "reject": "No"
+                }
+            }
+        },
+
+        "stats": {
+            "generalHeader": "  General",
+            "firstPlayed": "First Played: {YEAR}/{MONTH}/{DAY}",
+            "playTime": "Play Time: {HOURS}h {MINUTES}m",
+            "playSessions": "Times Booted Up: {COUNT}",
+
+            "favoriteLevel": "Favorite Level: \"{NAME}\"",
+            "favoriteMode": "Favorite Mode: {NAME}",
+            "favoriteModeNames": {
+                "0": "Classic Mode",
+                "1": "Star Catcher",
+                "2": "Stone Carrier",
+                "3": "Special"
+            },
+
+            "localHeader": "\n  Local",
+            "localGames": "Games Played Locally: {COUNT}",
+
+            "onlineHeader": "\n  Online",
+            "onlineGames": "Games Played Online: {COUNT}",
+            "onlineDeaths": "Deaths Online: {COUNT}",
+            "onlineVictories": {
+                "0": "Classic Wins: {VICTORIES}/{GAMES} ({PERCENTAGE}%)",
+                "1": "Stars Wins: {VICTORIES}/{GAMES} ({PERCENTAGE}%)",
+                "2": "Stone Wins: {VICTORIES}/{GAMES} ({PERCENTAGE}%)",
+                "3": "Special Wins: {VICTORIES}/{GAMES} ({PERCENTAGE}%)"
+            }
+        }
+    },
+
+    "onlineErrors": {
+        "socket": "Socket is not enabled.",
+        "udp": "Error setting up UDP object: '{ERROR}'",
+        "tcp": "Error setting up TCP object: '{ERROR}'",
+        "sockName": "Error setting up sock name: '{ERROR}'",
+        "peerName": "Error setting up peer name: '{ERROR}'",
+        "connectError": "Error connecting to host: '{ERROR}'",
+        "malformed": "Error connecting to host: received malformed data.",
+        "unknown": "Unknown error connecting to host.",
+        "fellowClientCreateError": "Error connecting to fellow client ({NAME}) (during creation): '{ERROR}'",
+        "fellowClientConnectError": "Error connecting to fellow client ({NAME}) (during connection): '{ERROR}'",
+        "fellowClientSendError": "Error connecting to fellow client ({NAME}) (during data send): '{ERROR}'",
+
+        "maxPlayers": "Host already has maximum number of players.",
+        "nameInUse": "Username is already in use.",
+        "invalidName": "Username is not valid.",
+        "invalidColor": "Color is not valid.",
+        "invalidIP": "Host address is not valid.",
+        "invalidCharacter": "Error connecting to host: invalid character.",
+
+        "disallowed": "The host is currently in a game. You can try again later.",
+
+        "differentLevel": "The host is currently in a level. You can try again later.",
+        "differentEpisode": "The host is in a different episode.",
+        "differentVersion": "The host is using a different version of the game.",
+
+        "noConnect": "Could not connect to host. Make sure that they are hosting and that the address is correct. You or the host may need to make a firewall exception."
+    },
+
+    "hubMusic": {
+        "header": "Pick a song to play in the hub!",
+
+        "random": {
+            "name": "Random"
+        },
+        "none": {
+            "name": "None"
+        },
+
+        "numberlessMoments": {
+            "name": "Numberless Moments",
+            "source": "by Jazzman287"
+        },
+        "abstractMap": {
+            "name": "Abstract Map",
+            "source": "VLDC9"
+        },
+        "alternaSite6": {
+            "name": "Hyper Diver",
+            "source": "Splatoon 3"
+        },
+        "regret": {
+            "name": "#8 regret",
+            "source": "Splatoon 2: Octo Expansion"
+        },
+        "waitingRoom": {
+            "name": "Waiting to Join",
+            "source": "Mario Kart Wii"
+        },
+        "dreamyWakeport": {
+            "name": "Dreamy Wakeport Repose",
+            "source": "M&L: Dream Team"
+        }
+    },
+
+    "levelSelect": {
+        "countdownText": "{TIMER}",
+        "playerText": "{CURRENT}/{MAX}",
+
+        "unresponsiveWarning": {
+            "host": {
+                "header": "One or more players are not responding. Do you want to kick the unresponsive players?",
+                "disconnectOthers": "Kick Unresponsive\nPlayers",
+                "cancel": "Cancel"
+            },
+            "client": {
+                "header": "One or more players are not responding. Do you want to leave?",
+                "disconnectSelf": "Disconnect"
+            }
+        },
+
+        "modeNames": {
+            "-1": "All Modes",
+            "0": "Classic\nBattle",
+            "1": "Star\nCatcher",
+            "2": "Stone\nCarrier",
+            "3": "Special" 
+        },
+        "modeDescriptions": {
+            "-1": "View all the available levels across all modes.",
+            "0": "The original SMBX 1.3 battle mode - battle it out with limited lives!",
+            "1": "The New Super Mario Bros. versus mode - collect stars or steal them from your opponents!",
+            "2": "Hold the stone for as long as possible! It'll slow you down, but you need the points to win!",
+            "3": "Who knows what'll happen? The rules here are entirely up to the level creator!"
+        },
+
+        "randomLevel": "Random",
+        "authorFormat": "by {NAME}",
+
+        "unavailableDescription": "One or more players do not have this level installed.",
+        "tooFewPlayers": "This level can only be played with {AMOUNT} or more players.",
+        "tooManyPlayers": "This level can only be played with {AMOUNT} or fewer players.",
+        "unplayableLocally": "This level can only be played online.",
+        "unplayableOnline": "This level can only be played locally."
+    },
+
+    "costumeSelect": {
+        "defaultCostumeNames": {
+            "mario": "Mario (Default)",
+            "luigi": "Luigi (Default)",
+            "peach": "Peach (Default)",
+            "toad": "Toad (Default)",
+            "link": "Link (Default)"
+        },
+
+        "unavailableDescription": "One or more players do not have this costume installed."
+    },
+ 
+    "levelStart": {
+        "statuses": {
+            "reconnecting": "Reconnecting",
+            "waiting": "Waiting"
+        },
+        "statusEllipses": "...",
+
+        "warning": {
+            "host": {
+                "unresponsive": "One or more players are not responding. What would you like to do?"
+            },
+            "client": {
+                "hostUnresponsive": "The host is not responding. What would you like to do?",
+                "clientUnresponsive": "One or more other players are not responding. What would you like to do?"
+            },
+
+            "disconnectOthers": "Disconnect Unresponsive\nPlayers",
+            "disconnectSelf": "Leave Game",
+            "wait": "Wait..."
+        }
+    },
+
+    "hud": {
+        "timerOvertime": "PIZZA TIME!",
+        "spectateNamePrefix": "Spectating:"
+    },
+
+    "battleMessages": {
+        "victoryTop": "{NAME}",
+        "victoryBottom": "WINS!",
+        "victoryTeamNames": {
+            "1": "Alpha Team",
+            "2": "Bravo Team"
+        },
+
+        "victoryDraw": "DRAW!",
+
+        "eliminated": "{NAME} has been eliminated!",
+        "forfeited": "{NAME} has forfeited!",
+
+        "startRefusal": {
+            "onePlayer": "Wait until you have at\nleast one other player!",
+            "emptyTeam": "Cannot start while\na team is empty!"
+        },
+
+        "unfocusWarning": "Please avoid unfocusing the game\nduring online play.",
+
+        "stars": {
+            "spawn": "The star has appeared!",
+            "oneAway": "{NAME} is one star away!",
+            "get": "{NAME} got the star!"
+        },
+
+        "stone": {
+            "spawn": "Jerome has appeared!",
+            "grabbed": "{NAME} grabbed Jerome!",
+            "killed": "Jerome was destroyed!",
+            "overheated": "Jerome exploded!"
+        }
+    },
+
+    "chat": {
+        "typingTextPlaceholder": "Type and send with ENTER",
+        "disabledText": "Chat is disabled",
+
+        "gamePrefix": "Game:",
+
+        "hosting": "Now hosting as '{NAME}'",
+        "joinHost": "Joined {HOST}'s game as '{NAME}'",
+        "stopHosting": "Hosting ended",
+        "leave": "Successfully left",
+        "connected": "{NAME} has joined",
+
+        "disconnected": "{NAME} has disconnected",
+
+        "warningPrefix": "WARNING:",
+        "warning": {
+            "unresponsiveAsClient": "No response from host in {TIME}s; you may be disconnected.",
+            "unresponsiveAsHost": "No response from clients in {TIME}s; you may be disconnected."
+        },
+
+        "pingHost": "HOST",
+        "pingFormat": "{PING}ms",
+        "pingWaiting": "...",
+        "pingWarning": "!"
+    },
+
+    "titleScreen": {
+        "start": "Press any button!",
+        "onlineEnabled": "Online!"
+    },
+
+    "loadscreen": {
+        "authorFormat": "by {NAME}",
+
+        "teamNames": {
+            "1": "Alpha Team",
+            "2": "Bravo Team"
+        }
+    }
+}

@@ -1,0 +1,5 @@
+image = background-777.png
+frames = 14
+framespeed = 3
+noshadows = false
+priority = -85

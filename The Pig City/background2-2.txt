@@ -1,0 +1,34 @@
+[background2]
+; Name that will appear in the editor
+name = "IT WORKS FOR PIIIIIIIIIIIIIIIIIIIIIIIGS"
+; Backdrop fill color
+fill-color = black
+
+
+; Add layers here, for example:
+
+[sky]
+depth = 900
+img = "Bg_city7_0.png"
+repeatX = true
+repeatY = true
+speedX = 0.3
+
+[building1]
+depth = 500
+img = "Bg_city1.png"
+repeatX = true
+alignY = BOTTOM
+
+[building2]
+depth = 300
+img = "Bg_city6_0.png"
+repeatX = true
+alignY = BOTTOM
+
+[fog]
+depth = -20
+img = "Bg_city1cloud_0.png"
+repeatX = true
+repeatY = true
+speedX = 1.25

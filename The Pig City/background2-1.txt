@@ -1,0 +1,17 @@
+[background2]
+; Name that will appear in the editor
+name = "The Pig City"
+; Backdrop fill color
+fill-color = black
+
+
+; Add layers here, for example:
+
+[buildings]
+; depth = 70
+depth = 370
+img = "background2-1.png"
+repeatX = true
+alignY = BOTTOM
+frames = 3
+framespeed = 16
