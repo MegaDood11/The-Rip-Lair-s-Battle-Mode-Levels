@@ -1,0 +1,11 @@
+[back]
+img="back.png"
+depth=450
+repeatX=true
+alignY=BOTTOM
+
+[fore]
+img="fore.png"
+depth=250
+repeatX=true
+alignY=BOTTOM

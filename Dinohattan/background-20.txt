@@ -1,0 +1,6 @@
+name = "Bowser's Pimpmobile"
+image = background-20.png
+frames = 2
+framespeed = 20
+noshadows = false
+priority = -50

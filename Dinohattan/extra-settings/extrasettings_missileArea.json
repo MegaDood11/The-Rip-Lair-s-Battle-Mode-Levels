@@ -1,0 +1,33 @@
+{
+  "style": "groupbox",
+  "title": "Missile area Settings",
+  "layout": [
+    {
+      "control": "checkBox",
+      "name": "friendly",
+      "title": "Friendly",
+      "tooltip": "If set to true, the missiles will won't harm players. (Only useful for missile area sizables, for the missile bill, use the basegame friendly setting.)",
+      "value-default": false
+    },
+    {
+      "control": "spinBox",
+      "name": "rotation",
+      "title": "Rotation",
+      "tooltip": "Rotation of the missiles.",
+      "type": "double",
+      "value-default": 225,
+      "value-min": 0,
+      "value-max": 360
+    },
+    {
+      "control": "spinBox",
+      "name": "speed",
+      "title": "Speed",
+      "tooltip": "Speed of the missiles.",
+      "type": "double",
+      "value-default": 5,
+      "value-min": 0,
+      "value-max": 100
+    }
+  ]
+}
