@@ -1,0 +1,2 @@
+frames=12
+framespeed=3
