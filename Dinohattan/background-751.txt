@@ -1,0 +1,6 @@
+image = background-751.png
+frames = 2
+framespeed = 80
+noshadows = false
+priority = -55
+grid = 16
