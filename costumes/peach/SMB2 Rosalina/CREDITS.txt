@@ -1,0 +1,4 @@
+=== SMB2-SMAS ROSALINA ===
+Ported/Edited by Sleepy Dee, sprites by squawkbox
+Tanooki sprites base sprites by SkyeStage
+Player block is base game but fixed to go over Peach
