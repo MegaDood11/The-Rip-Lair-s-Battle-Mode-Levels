@@ -2,7 +2,7 @@ HEAD
 TL:"Sunset Battlefield.lvlx";CPID:"SMBX2";
 HEAD_END
 SECTION
-SC:0;L:-203424;R:-194752;T:-201248;B:-200000;MZ:24;MF:"Sunset Battlefield/SM3DW - Main Theme.spc|0\;g=3\;e0";BG:31;CS:1;XTRA:"{\n    \"darkness\"\: {\n        \"ambient\"\: \"#ffd2abff\"\,\n        \"enableDarkness\"\: true\n    }\,\n    \"effects\"\: {\n        \"weather\"\: 6\n    }\n}\n";
+SC:0;L:-203424;R:-194752;T:-201248;B:-200000;MZ:24;MF:"Sunset Battlefield/SM3DW - Main Theme.spc|0\;g=2\;e0";BG:31;CS:1;XTRA:"{\n    \"darkness\"\: {\n        \"ambient\"\: \"#ffd2abff\"\,\n        \"enableDarkness\"\: true\n    }\,\n    \"effects\"\: {\n        \"weather\"\: 6\n    }\n}\n";
 SECTION_END
 STARTPOINT
 ID:2;X:-199564;Y:-200252;D:1;
