@@ -1,5 +1,0 @@
-image = background-801.png
-frames = 1
-framespeed = 8
-noshadows = false
-priority = -85
