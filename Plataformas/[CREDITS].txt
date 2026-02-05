@@ -1,6 +1,0 @@
-"Plataformas"
-A level made by CarlosXDJav for Super Mario 4 Jugadores, now on Super Mario Bros. X!
-
-[Resources]
-sinelayers.lua by Emral
-"Meta Crystal" theme from Super Smash Bros. 64 (looped by murphmario)
