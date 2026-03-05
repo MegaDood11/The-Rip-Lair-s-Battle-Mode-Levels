@@ -10,7 +10,7 @@ local playerstun = require("playerstun")
 
 local perPlayerCostumes = require("scripts/perPlayerCostumes")
 
-local battleGeneral,battleCamera,battleMessages,battleStars,battleItems
+local battleGeneral,battleCamera,battleMessages,battleStars,battleItems,battlePhanto
 local onlinePlay,onlinePlayNPC,onlinePlayPlayers,onlineChat
 local booMushroom
 
@@ -30,10 +30,13 @@ local playerPushCommand
 local playerForfeitCommand
 local setTeamsCommand
 
-local invisiblePlayerStates = table.map{FORCEDSTATE_INVISIBLE,FORCEDSTATE_POWERUP_LEAF,FORCEDSTATE_SWALLOWED}
+local battlePlayerJoinPacket
+
+
 local dontDisplayNameStates = table.map{FORCEDSTATE_PIPE,FORCEDSTATE_DOOR}
 
 local mutedLinkHitSound = false
+local activeExplosions = {}
 
 local playerBuffer = Graphics.CaptureBuffer(200,200)
 local playerOutlineShader
@@ -176,6 +179,24 @@ battlePlayer.HARM_TYPE = {
     FREEZE = 3,
 }
 
+battlePlayer.HARM_CAUSE = {
+    UNKNOWN = 0,
+
+    PLAYER_STOMP = 1,
+    PLAYER_SLIDE = 2,
+    PLAYER_SWORD = 3,
+    PLAYER_STATUE_STOMP = 4,
+    PLAYER_STATUE_SLIDE = 5,
+    PLAYER_STARMAN = 6,
+
+    NPC = 7,
+
+    EXPLOSION = 8,
+}
+
+
+battlePlayer.teamPoints = {0,0}
+
 
 battlePlayer.outlineThickness = 2
 
@@ -198,6 +219,15 @@ battlePlayer.nameTextFormat = {
     font = textplus.loadFont("resources/font/outlinedFont.ini"),
     xscale = 1,yscale = 1,plaintext = true,
 }
+
+battlePlayer.pointEffectFormat = {
+    font = textplus.loadFont("textplus/font/1.ini"),
+    xscale = 1,yscale = 1,plaintext = true,
+}
+battlePlayer.pointEffectLifetime = 128
+battlePlayer.pointEffectFadeInTime = 12
+battlePlayer.pointEffectFadeOutTime = 12
+battlePlayer.pointEffectIconGap = 2
 
 battlePlayer.maxHearts = 2
 
@@ -321,6 +351,8 @@ local function resetPlayerData(p,data)
     data.deathStart = vector(0,0)
     data.deathStartSection = 0
 
+    data.invincibilityIsFromRespawn = false
+
     data.lostStarsAmount = 0
 
     data.nameOpacity = 0
@@ -354,10 +386,17 @@ function battlePlayer.getPlayerData(p)
 
         data.respawnDuration = 0
 
+        data.bombs = 0
+        data.bombsHopTimer = 0
+
         data.lives = -1
         data.stars = 0
         data.coins = 0
         data.points = 0
+        
+        data.pointsShakeFactor = 0
+        data.pointsHopTimer = 0
+        data.pointEffects = {}
         
 
         resetPlayerData(p,data)
@@ -458,8 +497,18 @@ function battlePlayer.getPlayerHead(p)
     local key = costume or character
 
     if characterHeadImages[key] == nil then
+        local characterName = playerManager.getName(character)
+
         if costume ~= nil then
-            -- Use costume image, if available
+            -- Use costume image from its own folder, if available
+            local path = Misc.episodePath().. "\\costumes\\".. characterName.. "\\".. costume.. "\\battleHead.png"
+
+            if io.exists(path) then
+                characterHeadImages[key] = Graphics.loadImage(path)
+                return characterHeadImages[key]
+            end
+
+            -- Use costume image from the character head folder, if available
             local path = Misc.resolveGraphicsFile("resources/characterHeads/".. costume.. ".png")
 
             if path ~= nil then
@@ -469,7 +518,7 @@ function battlePlayer.getPlayerHead(p)
         end
 
         -- Use character image
-        local path = Misc.resolveGraphicsFile("resources/characterHeads/".. playerManager.getName(character).. ".png")
+        local path = Misc.resolveGraphicsFile("resources/characterHeads/".. characterName.. ".png")
 
         if path ~= nil then
             characterHeadImages[key] = Graphics.loadImage(path)
@@ -537,6 +586,30 @@ function battlePlayer.setPlayerIsActive(p,newIsActive)
 end
 
 
+function battlePlayer.addPointEffect(p,points,iconImage)
+    if not onlinePlayPlayers.ownsPlayer(p) then
+        return
+    end
+
+    local data = battlePlayer.getPlayerData(p)
+
+    local text = (points >= 0 and "+".. points) or tostring(points)
+    local layout = textplus.layout(text,nil,battlePlayer.pointEffectFormat)
+
+    table.insert(data.pointEffects,1,{
+        iconImage = iconImage,
+        layout = layout,
+        timer = 0,
+    })
+end
+
+function battlePlayer.doPointHop(p)
+    local data = battlePlayer.getPlayerData(p)
+
+    data.pointsHopTimer = 1
+end
+
+
 function battlePlayer.sendTeamsUpdate()
     if onlinePlay.currentMode ~= onlinePlay.MODE_HOST then
         return
@@ -547,6 +620,19 @@ function battlePlayer.sendTeamsUpdate()
     else
         setTeamsCommand:send(0, nil)
     end
+end
+
+
+function battlePlayer.hasHarmImmunity(p)
+    return battleMessages.victoryActive
+end
+
+function battlePlayer.hasDeathImmunity(p)
+    return false
+end
+
+function battlePlayer.getRespawnDuration(p)
+    return battlePlayer.respawnDurations[battleGeneral.mode] or battlePlayer.respawnDurations.default
 end
 
 
@@ -673,6 +759,11 @@ end
 
 
 function battlePlayer.setPlayerCount(count,resetEveryone)
+    -- Before removing players, remove their costume in order to prevent errors from invalid players
+    for i = (count + 1),Player.count() do
+        perPlayerCostumes.setAllCostumes(i,{})
+    end
+    
     local startIdx = Player.count() + 1
     if resetEveryone then
         startIdx = 1
@@ -828,7 +919,7 @@ function battlePlayer.onStart()
     findPlayerStartPoints()
 
     -- Setup players
-    if battleGeneral.isInHub then
+    if battleGeneral.isInHub and (onlinePlay.currentMode ~= onlinePlay.MODE_OFFLINE or GameData.onlinePlay.mode ~= onlinePlay.MODE_OFFLINE) then
         battlePlayer.setPlayerCount(battleGeneral.maxOnlinePlayers,true)
     else
         battlePlayer.setPlayerCount(math.max(battleGeneral.gameData.playerCount,2),true)
@@ -1074,6 +1165,8 @@ local function handlePlayerWarping(p)
                 holdingNPC.y = p.y + settings.grabOffsetY + 32 - holdingNPC.height
                 holdingNPC.section = p.section
             end
+
+            EventManager.callEvent("onWarp",warp.idx + 1,p.idx)
         elseif p.forcedTimer == 3 then
             -- https://github.com/smbx/smbx-legacy-source/blob/master/modPlayer.bas#L7814
             local holdingNPC = p.holdingNPC
@@ -1118,6 +1211,8 @@ local function handlePlayerWarping(p)
             p.forcedTimer = 0
 
             p:mem(0x15C,FIELD_WORD,40)
+
+            EventManager.callEvent("onWarp",warp.idx + 1,p.idx)
         end
     end
 end
@@ -1131,7 +1226,7 @@ local function canSlideHurt(p)
 end
 
 local function canStompHurt(p)
-    return (p.isValid and battleGeneral.mode == 0) or (p.mount == MOUNT_BOOT or p:mem(0x4A,FIELD_BOOL) or canSlideHurt(p))
+    return p.deathTimer == 0
 end
 
 local function stompReaction(stompedPlayer,stompingPlayer)
@@ -1140,15 +1235,23 @@ local function stompReaction(stompedPlayer,stompingPlayer)
     -- Harm
     if canStompHurt(stompingPlayer) and not battlePlayer.playersAreOnSameTeam(stompedPlayer.idx,stompingPlayer.idx) then
         if onlinePlayPlayers.ownsPlayer(stompedPlayer) then
-            stompedPlayer:harm()
+            battlePlayer.harmPlayer(stompedPlayer,battlePlayer.HARM_TYPE.NORMAL,{
+                cause = (stompingPlayer.isTanookiStatue and battlePlayer.HARM_CAUSE.PLAYER_STATUE_STOMP) or battlePlayer.HARM_CAUSE.PLAYER_STOMP,
+                playerIdx = stompingPlayer.idx,
+            })
         end
     elseif battleGeneral.mode >= 0 and battleGeneral.mode ~= battleGeneral.gameMode.ARENA then
         if not battlePlayer.playersAreOnSameTeam(stompedPlayer.idx,stompingPlayer.idx) then
-            -- Invincibility frames
-            stompedPlayer:mem(0x140,FIELD_WORD,stompedPlayer:mem(0x140,FIELD_WORD) + 75)
+            if stompedData.stars > 0 then
+                -- Invincibility frames
+                stompedPlayer:mem(0x140,FIELD_WORD,stompedPlayer:mem(0x140,FIELD_WORD) + 75)
 
-            -- Lose stars
-            battleStars.lose(stompedPlayer,1)
+                -- Lose stars
+                battleStars.lose(stompedPlayer,1)
+            else
+                -- Invincibility frames
+                stompedPlayer:mem(0x140,FIELD_WORD,stompedPlayer:mem(0x140,FIELD_WORD) + 25)
+            end
         else
             -- Invincibility frames
             stompedPlayer:mem(0x140,FIELD_WORD,stompedPlayer:mem(0x140,FIELD_WORD) + 25)
@@ -1226,13 +1329,19 @@ local function playerToPlayerCollision(playerA,playerB)
     if not battlePlayer.playersAreOnSameTeam(playerA.idx,playerB.idx) then
         if playerA.hasStarman then
             if onlinePlayPlayers.ownsPlayer(playerB) then
-                playerB:harm()
+                battlePlayer.harmPlayer(playerB,battlePlayer.HARM_TYPE.NORMAL,{
+                    cause = battlePlayer.HARM_CAUSE.PLAYER_STARMAN,
+                    playerIdx = playerA.idx,
+                })
             end
 
             return
         elseif playerB.hasStarman then
             if onlinePlayPlayers.ownsPlayer(playerA) then
-                playerA:harm()
+                battlePlayer.harmPlayer(playerA,battlePlayer.HARM_TYPE.NORMAL,{
+                    cause = battlePlayer.HARM_CAUSE.PLAYER_STARMAN,
+                    playerIdx = playerB.idx,
+                })
             end
 
             return
@@ -1288,16 +1397,18 @@ local function playerToPlayerCollision(playerA,playerB)
     if not battlePlayer.playersAreOnSameTeam(playerA.idx,playerB.idx) then
         if canSlideHurt(playerA) then
             if onlinePlayPlayers.ownsPlayer(playerB) then
-                playerB:harm()
+                battlePlayer.harmPlayer(playerB,battlePlayer.HARM_TYPE.NORMAL,{
+                    cause = (playerA.isTanookiStatue and battlePlayer.HARM_CAUSE.PLAYER_STATUE_SLIDE) or battlePlayer.HARM_CAUSE.PLAYER_SLIDE,
+                    playerIdx = playerA.idx,
+                })
             end
-
-            return
         elseif canSlideHurt(playerB) then
             if onlinePlayPlayers.ownsPlayer(playerA) then
-                playerA:harm()
+                battlePlayer.harmPlayer(playerA,battlePlayer.HARM_TYPE.NORMAL,{
+                    cause = (playerB.isTanookiStatue and battlePlayer.HARM_CAUSE.PLAYER_STATUE_SLIDE) or battlePlayer.HARM_CAUSE.PLAYER_SLIDE,
+                    playerIdx = playerB.idx,
+                })
             end
-
-            return
         end
 
         -- Statue
@@ -1377,9 +1488,75 @@ local function handlePlayerInteraction(playerA)
 end
 
 
-local function getRespawnDuration()
-    return battlePlayer.respawnDurations[battleGeneral.mode] or battlePlayer.respawnDurations.default
+local function getLinkSwordHitbox(p)
+    -- Based on: https://github.com/smbx/smbx-legacy-source/blob/master/modPlayer.bas#L5030
+    if p.character ~= CHARACTER_LINK then
+        return nil
+    end
+
+    -- Crouching stab
+    if p:mem(0x14,FIELD_WORD) > 0 and p.isDucking then
+        local swordCollider = Colliders.Box(0,p.y + p.height - 22,38,8)
+
+        if p.direction == DIR_RIGHT then
+            swordCollider.x = p.x + p.width
+        else
+            swordCollider.x = p.x - swordCollider.width
+        end
+
+        return swordCollider
+    end
+
+    -- Horizontal stab
+    if p:mem(0x14,FIELD_WORD) > 0 then
+        local swordCollider = Colliders.Box(0,p.y + p.height - 42,38,6)
+
+        if p.direction == DIR_RIGHT then
+            swordCollider.x = p.x + p.width
+        else
+            swordCollider.x = p.x - swordCollider.width
+        end
+
+        return swordCollider
+    end
+
+    -- Vertical stabs
+    if not (p.speedY == 0 or p:mem(0x48,FIELD_WORD) ~= 0 or p:mem(0x176,FIELD_WORD) ~= 0)
+    and not p:isClimbing()
+    and not p.isDucking
+    and not p.isTanookiStatue
+    and p.mount == MOUNT_NONE
+    and p:mem(0x14,FIELD_WORD) == 0
+    and p:mem(0x160,FIELD_WORD) == 0
+    and not p:mem(0x36,FIELD_BOOL)
+    then
+        -- Vertical stabs are directly controlled by frame.......
+        -- Up stab
+        if p.keys.up and p.speedY < 0 and p.frame == 10 then
+            local swordCollider = Colliders.Box(0,0,6,14)
+
+            swordCollider.y = p.y - swordCollider.height
+
+            if p.direction == DIR_RIGHT then
+                swordCollider.x = p.x + p.width - 4
+            else
+                swordCollider.x = p.x - swordCollider.width + 4
+            end
+
+            return swordCollider
+        end
+
+        -- Down stab
+        if p.keys.down --[[and p.speedY > 0]] and p.frame == 9 then
+            local swordCollider = Colliders.Box(p.x + 1,p.y + p.height,p.width - 2,0)
+
+            swordCollider.height = (p.speedY >= 10 and 12) or (p.speedY >= 8 and 10) or 8
+
+            return swordCollider
+        end
+    end
 end
+
 
 local function shouldDisplayPlayerName(p)
     if onlinePlay.currentMode == onlinePlay.MODE_OFFLINE then
@@ -1412,48 +1589,170 @@ local function doForfeitExplosion(p)
     SFX.play(43)
 end
 
+local function updatePointEffects(p)
+    local data = battlePlayer.getPlayerData(p)
 
-function battlePlayer.onTick()
-    for _,p in ipairs(Player.get()) do
-        local data = battlePlayer.getPlayerData(p)
+    local i = 1
 
-        -- Custom player-to-player interaction
-        p.noplayerinteraction = true
-        handlePlayerInteraction(p)
+    while (data.pointEffects[i] ~= nil) do
+        local effect = data.pointEffects[i]
 
-        -- This fixes an issue where, with > 2 players, everyone will be teleported when going through a warp.
-        handlePlayerWarping(p)
+        effect.timer = effect.timer + 1
 
-        -- Limit the number of hearts for Toad, Peach and Link
-        if p:mem(0x16,FIELD_WORD) > battlePlayer.maxHearts then
-            p:mem(0x16,FIELD_WORD,battlePlayer.maxHearts)
+        if effect.timer >= battlePlayer.pointEffectLifetime then
+            table.remove(data.pointEffects,i)
+        else
+            i = i + 1
+        end
+    end
+end
+
+
+local function onTickPlayer(p)
+    local data = battlePlayer.getPlayerData(p)
+
+    -- Custom player-to-player interaction
+    p.noplayerinteraction = true
+    handlePlayerInteraction(p)
+
+    -- This fixes an issue where, with > 2 players, everyone will be teleported when going through a warp.
+    handlePlayerWarping(p)
+
+    -- Limit the number of hearts for Toad, Peach and Link
+    if p:mem(0x16,FIELD_WORD) > battlePlayer.maxHearts then
+        p:mem(0x16,FIELD_WORD,battlePlayer.maxHearts)
+    end
+
+    -- Disable the normal reserve box drop
+    p:mem(0x130,FIELD_BOOL,false)
+
+    -- Handling for custom ice block stuff
+    if data.iceBlockNPC ~= nil then
+        if not data.iceBlockNPC.isValid or data.iceBlockNPC.id ~= 263 then
+            if p.forcedState == FORCEDSTATE_SWALLOWED then
+                p.forcedState = FORCEDSTATE_NONE
+                p.forcedTimer = 0
+                p:mem(0xBA,FIELD_WORD,0)
+            end
+
+            data.iceBlockNPC = nil
+        end
+    end
+
+    -- Name fading in/out
+    if shouldDisplayPlayerName(p) then
+        data.nameOpacity = math.min(1,data.nameOpacity + 0.1)
+    else
+        data.nameOpacity = math.max(0,data.nameOpacity - 0.1)
+    end
+
+    -- Point effects
+    updatePointEffects(p)
+
+    -- Respawn invincibility flag
+    if data.invincibilityIsFromRespawn and p.invincibilityTimer == 0 then
+        data.invincibilityIsFromRespawn = false
+    end
+
+    -- Turn down shaking points
+    data.pointsShakeFactor = math.max(0,data.pointsShakeFactor - 0.25)
+
+    data.pointsHopTimer = math.max(0,data.pointsHopTimer - 1/12)
+    data.bombsHopTimer = math.max(0,data.bombsHopTimer - 1/12)
+
+    -- Reset lost stars amount
+    data.lostStarsAmount = 0
+end
+
+local function onTickEndPlayer(p)
+    local data = battlePlayer.getPlayerData(p)
+
+    -- Forfeiting
+    if data.forfeited and not data.isDead then
+        if onlinePlay.currentMode ~= onlinePlay.MODE_OFFLINE then
+            playerForfeitCommand:send(0)
         end
 
-        -- Disable the normal reserve box drop
-        p:mem(0x130,FIELD_BOOL,false)
+        data.lives = 1
 
-        -- Handling for custom ice block stuff
-        if data.iceBlockNPC ~= nil then
-            if not data.iceBlockNPC.isValid or data.iceBlockNPC.id ~= 263 then
-                if p.forcedState == FORCEDSTATE_SWALLOWED then
-                    p.forcedState = FORCEDSTATE_NONE
-                    p.forcedTimer = 0
-                    p:mem(0xBA,FIELD_WORD,0)
-                end
+        battlePlayer.onPlayerKillCustom({cancelled = false},p)
+        customKillPlayer(p)
+        doForfeitExplosion(p)
+    end
 
-                data.iceBlockNPC = nil
+    -- Death/respawning behaviour
+    if data.respawnTimer > 0 then
+        data.respawnTimer = data.respawnTimer - 1
+
+        local t = data.respawnTimer/data.respawnDuration
+
+        local respawnPoint = battlePlayer.getStartPoint(p.idx)
+        local respawnSection = Section.getIdxFromCoords(respawnPoint.x - p.width*0.5,respawnPoint.y - p.height,p.width,p.height)
+
+        if respawnSection == data.deathStartSection then
+            local moveTime = 1 - math.clamp(math.invlerp(16,data.respawnDuration - 8,data.respawnTimer),0,1)
+            local easedTime = easing.inOutQuad(moveTime,0,1,1)
+
+            p.x = math.lerp(data.deathStart.x,respawnPoint.x,easedTime) - p.width*0.5
+            p.y = math.lerp(data.deathStart.y,respawnPoint.y,easedTime) - p.height
+        else
+            if data.respawnTimer <= 16 then
+                p.x = respawnPoint.x - p.width*0.5
+                p.y = respawnPoint.y - p.height
+                p.section = respawnSection
+            else
+                p.x = data.deathStart.x - p.width*0.5
+                p.y = data.deathStart.y - p.height
+                p.section = data.deathStartSection
             end
         end
 
-        -- Name fading in/out
-        if shouldDisplayPlayerName(p) then
-            data.nameOpacity = math.min(1,data.nameOpacity + 0.1)
-        else
-            data.nameOpacity = math.max(0,data.nameOpacity - 0.1)
-        end
 
-        -- Reset lost stars amount
-        data.lostStarsAmount = 0
+        if t <= 0 then
+            p.forcedState = FORCEDSTATE_NONE
+            p.forcedTimer = 0
+
+            data.respawnTimer = 0
+            data.isDead = false
+
+            data.invincibilityIsFromRespawn = true
+
+            p.invincibilityTimer = 75
+
+            if (p.x + p.width*0.5) > (p.sectionObj.boundary.left + p.sectionObj.boundary.right)*0.5 then
+                p.direction = DIR_LEFT
+            else
+                p.direction = DIR_RIGHT
+            end
+
+            local e = Effect.spawn(131,p.x + p.width*0.5,p.y + p.height*0.5)
+
+            e.x = e.x - e.width *0.5
+            e.y = e.y - e.height*0.5
+
+            SFX.play(34)
+
+            battlePlayer.onPlayerRespawn(p)
+        end
+    elseif data.isDead then
+        p.x = data.deathStart.x - p.width*0.5
+        p.y = data.deathStart.y - p.height
+
+        data.deathTimer = data.deathTimer + 1
+        data.isActive = (data.deathTimer <= 100)
+    end
+
+    if data.isDead then
+        p.forcedState = FORCEDSTATE_SWALLOWED
+        p.forcedTimer = p.idx
+        p:mem(0xBA,FIELD_WORD,p.idx)
+    end
+end
+
+
+function battlePlayer.onTick()
+    for _,p in ipairs(Player.get()) do
+        onTickPlayer(p)
     end
 
     -- Reset player "templates" so that they don't have a powerup
@@ -1471,80 +1770,7 @@ end
 
 function battlePlayer.onTickEnd()
     for _,p in ipairs(Player.get()) do
-        local data = battlePlayer.getPlayerData(p)
-
-        -- Forfeiting
-        if data.forfeited and not data.isDead then
-            if onlinePlay.currentMode ~= onlinePlay.MODE_OFFLINE then
-                playerForfeitCommand:send(0)
-            end
-
-            data.lives = 1
-
-            battlePlayer.onPlayerKillCustom({cancelled = false},p)
-            customKillPlayer(p)
-            doForfeitExplosion(p)
-        end
-
-        -- Death/respawning behaviour
-        if data.respawnTimer > 0 then
-            data.respawnTimer = data.respawnTimer - 1
-
-            local t = data.respawnTimer/data.respawnDuration
-
-            local respawnPoint = battlePlayer.getStartPoint(p.idx)
-            local respawnSection = Section.getIdxFromCoords(respawnPoint.x - p.width*0.5,respawnPoint.y - p.height,p.width,p.height)
-
-            if respawnSection == data.deathStartSection then
-                local moveTime = 1 - math.clamp(math.invlerp(16,data.respawnDuration - 8,data.respawnTimer),0,1)
-                local easedTime = easing.inOutQuad(moveTime,0,1,1)
-
-                p.x = math.lerp(data.deathStart.x,respawnPoint.x,easedTime) - p.width*0.5
-                p.y = math.lerp(data.deathStart.y,respawnPoint.y,easedTime) - p.height
-            else
-                if data.respawnTimer <= 16 then
-                    p.x = respawnPoint.x - p.width*0.5
-                    p.y = respawnPoint.y - p.height
-                    p.section = respawnSection
-                end
-            end
-
-
-            if t <= 0 then
-                p.forcedState = FORCEDSTATE_NONE
-                p.forcedTimer = 0
-
-                data.respawnTimer = 0
-                data.isDead = false
-
-                p:mem(0x140,FIELD_WORD,150)
-
-                if (p.x + p.width*0.5) > (p.sectionObj.boundary.left + p.sectionObj.boundary.right)*0.5 then
-                    p.direction = DIR_LEFT
-                else
-                    p.direction = DIR_RIGHT
-                end
-
-                local e = Effect.spawn(131,p.x + p.width*0.5,p.y + p.height*0.5)
-
-                e.x = e.x - e.width *0.5
-                e.y = e.y - e.height*0.5
-
-                SFX.play(34)
-            end
-        elseif data.isDead then
-            p.x = data.deathStart.x - p.width*0.5
-            p.y = data.deathStart.y - p.height
-
-            data.deathTimer = data.deathTimer + 1
-            data.isActive = (data.deathTimer <= 100)
-        end
-
-        if data.isDead then
-            p.forcedState = FORCEDSTATE_SWALLOWED
-            p.forcedTimer = p.idx
-            p:mem(0xBA,FIELD_WORD,p.idx)
-        end
+        onTickEndPlayer(p)
     end
 
     if not battleMessages.victoryActive and onlinePlay.currentMode ~= onlinePlay.MODE_CLIENT then
@@ -1560,6 +1786,10 @@ function battlePlayer.onTickEnd()
         Audio.sounds[89].muted = false
         mutedLinkHitSound = false
     end
+
+    for i = 1,#activeExplosions do
+        activeExplosions[i] = nil
+    end
 end
 
 
@@ -1574,11 +1804,15 @@ local function getPlayerPriority(p)
 end
 
 local function renderPlayerOutline(p,camIdx)
-    if invisiblePlayerStates[p.forcedState] or p:mem(0x142,FIELD_BOOL) or p.deathTimer > 0 or p:mem(0x13C,FIELD_BOOL) or p:mem(0x0C,FIELD_BOOL) then
+    if p.invincibilityFlash or p.deathTimer > 0 or p:mem(0x13C,FIELD_BOOL) or p:mem(0x0C,FIELD_BOOL) then
         return
     end
 
-    if booMushroom.isActive(p) and not battleCamera.cameraIsFocusedOnPlayer(camIdx,p.idx) and not battlePlayer.playersAreOnSameTeam(p.idx,battleCamera.onlineFollowedPlayerIdx) then
+    if perPlayerCostumes.invisiblePlayerStates[p.forcedState] and not perPlayerCostumes.getIsVisibleDespiteForcedState(p) then
+        return
+    end
+
+    if perPlayerCostumes.getIsInvisible(p,camIdx) then
         return
     end
 
@@ -1669,7 +1903,7 @@ function battlePlayer.renderOutlinedPlayerHead(args)
         simpleOutlineShader = Shader.fromFile(nil,"resources/simpleOutline.frag")
     end
 
-    local image = battlePlayer.getPlayerHead(Player(args.playerIdx))
+    local image = args.image or battlePlayer.getPlayerHead(Player(args.playerIdx))
 
     local color = args.color or Color.white
     local outlineColor = color*(battlePlayer.getColor(args.playerIdx).. (args.outlineOpacity or 0.5))
@@ -1688,7 +1922,8 @@ function battlePlayer.renderOutlinedPlayerHead(args)
         sourceX = -2,sourceY = -2,
         x = args.x,y = args.y,
 
-        shader = simpleOutlineShader,uniforms = {
+        shader = args.shader or simpleOutlineShader,
+        uniforms = args.uniforms or {
             outlineColor = outlineColor,
             imageSize = vector(image.width,image.height),
         },
@@ -1723,6 +1958,46 @@ local function renderPlayerName(p)
     }
 end
 
+local function drawPointEffects(p)
+    local data = battlePlayer.getPlayerData(p)
+
+    local textColor = battlePlayer.getColor(p.idx):lerp(Color.white,0.8)
+    local offsetY = 8
+
+    for _,effect in ipairs(data.pointEffects) do
+        local fadeInTime = math.min(1,effect.timer/battlePlayer.pointEffectFadeInTime)
+        local fadeOutTime = math.min(1,(battlePlayer.pointEffectLifetime - effect.timer)/battlePlayer.pointEffectFadeOutTime)
+
+        local opacity = fadeInTime*fadeOutTime
+
+        local width = effect.layout.width
+
+        offsetY = offsetY - (effect.layout.height + 3)*easing.outQuad(fadeInTime,0,1,1)
+
+        local x = math.floor(p.x + 0.5) + math.floor(p.width*0.5)
+        local y = math.floor(p.y + 0.5) + math.floor(offsetY + 0.5)
+
+        if effect.iconImage ~= nil then
+            width = width + effect.iconImage.width + battlePlayer.pointEffectIconGap
+
+            local iconX = x + math.floor(-width*0.5 + 0.5)
+            local iconY = y + math.floor(-effect.iconImage.height*0.5 + 0.5)
+
+            Graphics.drawImageToSceneWP(effect.iconImage,iconX,iconY,opacity,1)
+        end
+
+        textplus.render{
+            layout = effect.layout,
+            color = textColor*opacity,
+            priority = 1,
+            sceneCoords = true,
+
+            x = x + math.floor(width*0.5 - effect.layout.width + 0.5),
+            y = y + math.floor(-effect.layout.height*0.5 + 0.5),
+        }
+    end
+end
+
 
 local function drawForPlayer(p,camIdx)
     local data = battlePlayer.getPlayerData(p)
@@ -1739,6 +2014,11 @@ local function drawForPlayer(p,camIdx)
         -- Name
         if onlinePlay.currentMode ~= onlinePlay.MODE_OFFLINE and p.idx ~= battleCamera.onlineFollowedPlayerIdx and onlinePlay.isConnected(p.idx) then
             renderPlayerName(p)
+        end
+
+        -- Point effects
+        if battleCamera.cameraIsFocusedOnPlayer(camIdx,p.idx) then
+            drawPointEffects(p)
         end
     end
 end
@@ -1827,12 +2107,35 @@ function perPlayerCostumes.getIsInvisible(p,camIdx)
     return false
 end
 
+function perPlayerCostumes.getIsVisibleDespiteForcedState(p)
+    -- During the forced state used while putting on the mask, the player should not be invisible
+    if battlePhanto.isInMaskForcedState(p) then
+        return true
+    end
+
+    return false
+end
+
 
 -- Harm/death stuff
 do
-    local notNoHurtNPCs = table.map{171,266,292,45}
+    local notNoHurtNPCs = table.map{171,266,291,292,45}
 
-    local function findHarmCulprit(p)
+    local function findHarmCauseInfo(p)
+        -- Explosions
+        for _,explosionData in ipairs(activeExplosions) do
+            local explosion = explosionData[1]
+            local bomberPlayer = explosionData[2]
+
+            if explosion.collider:collide(p) and bomberPlayer ~= p then
+                return {
+                    cause = battlePlayer.HARM_CAUSE.EXPLOSION,
+                    playerIdx = (bomberPlayer ~= nil and bomberPlayer.idx) or 0,
+                    explosionID = explosion.id,
+                }
+            end
+        end
+
         -- NPCs
         local col = Colliders.getHitbox(p)
 
@@ -1845,41 +2148,77 @@ do
             local config = NPC.config[n.id]
 
             if (not config.nohurt or config.isvegetable or notNoHurtNPCs[n.id]) and n:mem(0x130,FIELD_WORD) ~= p.idx then
-                return n 
+                return {
+                    cause = battlePlayer.HARM_CAUSE.NPC,
+                    npcID = n.id,
+                    isProjectile = n.isProjectile,
+                    playerIdx = (n.heldIndex > 0 and n.heldIndex) or (n:mem(0x130,FIELD_WORD) > 0 and n:mem(0x130,FIELD_WORD)) or n:mem(0x132,FIELD_WORD),
+                }
             end
         end
 
         -- Players
         for _,o in ipairs(Player.get()) do
-            if Colliders.slash(o,col) or Colliders.downSlash(o,col) or (Colliders.collide(o,col) and (o:mem(0x3E,FIELD_BOOL) or o.hasStarman)) then
-                return o
+            if o.idx ~= p.idx then
+                -- Link's sword
+                local swordCollider = getLinkSwordHitbox(o)
+
+                if swordCollider ~= nil and swordCollider:collide(col) then
+                    return {
+                        cause = battlePlayer.HARM_CAUSE.PLAYER_SWORD,
+                        playerIdx = o.idx,
+                    }
+                end
             end
         end
 
-        return nil
+        return {cause = battlePlayer.HARM_CAUSE.UNKNOWN}
     end
 
-    local function canClaimPlayerHarm(p,culprit,harmType)
+    local function canClaimPlayerHarm(p,causeInfo)
         -- It's ourselves!
         if p.idx == onlinePlay.playerIdx then
             return true
         end
 
-        if type(culprit) == "Player" then
-            -- It's not us getting hurt, but we ARE evil
-            if culprit.idx == onlinePlay.playerIdx then
-                return true
-            end
-        elseif type(culprit) == "NPC" then
+        if causeInfo.playerIdx == onlinePlay.playerIdx then
             -- Some projectiles (like fireballs) should DEFINITELY be defender-favoured
-            if battlePlayer.defenderFavouredProjectileMap[culprit.id] then
+            if causeInfo.cause == battlePlayer.HARM_CAUSE.NPC and battlePlayer.defenderFavouredProjectileMap[causeInfo.npcID] then
                 return false
             end
 
-            -- It's not us getting hurt, but we have an evil lackey
-            if culprit:mem(0x12C,FIELD_WORD) == onlinePlay.playerIdx
-            or culprit:mem(0x132,FIELD_WORD) == onlinePlay.playerIdx
-            then
+            -- It's not us getting hurt, but we ARE evil
+            return true
+        end
+
+        return false
+    end
+
+    local function getHarmType(p,causeInfo)
+        if causeInfo.cause == battlePlayer.HARM_CAUSE.NPC then
+            -- Fire ball
+            if causeInfo.npcID == 13 and battleGeneral.mode ~= battleGeneral.gameMode.CLASSIC then
+                return battlePlayer.HARM_TYPE.SMALL_DAMAGE
+            end
+
+            -- Ice ball
+            if causeInfo.npcID == 265 and not p:mem(0x0C,FIELD_BOOL) then
+                return battlePlayer.HARM_TYPE.FREEZE
+            end
+        end
+
+        return battlePlayer.HARM_TYPE.NORMAL
+    end
+
+    local function harmIsFriendlyFire(p,causeInfo)
+        if causeInfo.playerIdx ~= nil and causeInfo.playerIdx > 0 then
+            -- Friendly fire on ourselves is still harmful
+            if causeInfo.playerIdx == p.idx then
+                return false
+            end
+
+            -- However, friendly fire from teammates is not
+            if battlePlayer.playersAreOnSameTeam(p.idx,causeInfo.playerIdx) then
                 return true
             end
         end
@@ -1887,77 +2226,38 @@ do
         return false
     end
 
-    local function getHarmType(p,culprit)
-        -- Fire ball
-        if type(culprit) == "NPC" and culprit.id == 13 and battleGeneral.mode ~= battleGeneral.gameMode.CLASSIC then
-            return battlePlayer.HARM_TYPE.SMALL_DAMAGE
-        end
 
-        -- Ice ball
-        if type(culprit) == "NPC" and culprit.id == 265 and not p:mem(0x0C,FIELD_BOOL) then
-            return battlePlayer.HARM_TYPE.FREEZE
-        end
-
-        return battlePlayer.HARM_TYPE.NORMAL
-    end
-
-    local function getPlayerIndexResponsibleForHarm(p,culprit)
-        if type(culprit) == "Player" then
-            return culprit.idx
-        elseif type(culprit) == "NPC" then
-            local ownerPlayerIdx = culprit:mem(0x132,FIELD_WORD)
-
-            if ownerPlayerIdx > 0 then
-                return ownerPlayerIdx
-            end
-
-            local holdPlayerIdx = culprit:mem(0x12C,FIELD_WORD)
-
-            if holdPlayerIdx > 0 then
-                return holdPlayerIdx
-            end
-        end
-
-        return 0
-    end
-
-    local function harmIsFriendlyFire(p,culprit)
-        if not battlePlayer.teamsAreEnabled() then
-            return false
-        end
-
-        local culpritPlayerIdx = getPlayerIndexResponsibleForHarm(p,culprit)
-
-        return (culpritPlayerIdx > 0 and culpritPlayerIdx ~= p.idx and battlePlayer.playersAreOnSameTeam(p.idx,culpritPlayerIdx))
-    end
-
-
-    function battlePlayer.harmPlayer(p,harmType)
+    function battlePlayer.harmPlayer(p,harmType,causeInfo)
         local data = battlePlayer.getPlayerData(p)
 
-        if p.forcedState ~= FORCEDSTATE_NONE and p:mem(0x140,FIELD_WORD) ~= 0 or p.hasStarman then
+        if p.forcedState ~= FORCEDSTATE_NONE or p:mem(0x140,FIELD_WORD) ~= 0 or p.hasStarman then
             return
         end
 
         harmType = harmType or battlePlayer.HARM_TYPE.NORMAL
+        causeInfo = (type(causeInfo) == "number" and {cause = causeInfo}) or causeInfo or {cause = battlePlayer.HARM_CAUSE.UNKNOWN}
 
         -- Event
         local eventObj = {cancelled = false}
-        battlePlayer.onPlayerHarmCustom(eventObj,p,harmType)
+        battlePlayer.onPlayerHarmCustom(eventObj,p,harmType,causeInfo)
 
         if eventObj.cancelled then
             return
         end
 
-        battlePlayer.onPostPlayerHarmCustom(p,harmType)
+        if not data.dontSendHarmCommand and not onlinePlayPlayers.ownsPlayer(p) then
+            return
+        end
+
+        battlePlayer.onPostPlayerHarmCustom(p,harmType,causeInfo)
 
         -- Command
         if onlinePlay.currentMode ~= onlinePlay.MODE_OFFLINE and not data.dontSendHarmCommand then
-            playerHarmCommand:send(0, p.idx,harmType)
+            playerHarmCommand:send(0, p.idx,harmType,causeInfo)
         end
 
         -- Hub damage/damage after victory
-        if (battleGeneral.mode == battleGeneral.gameMode.HUB or battleMessages.victoryActive) and harmType ~= battlePlayer.HARM_TYPE.FREEZE then
+        if battlePlayer.hasHarmImmunity(p) and harmType ~= battlePlayer.HARM_TYPE.FREEZE then
             p:mem(0x140,FIELD_WORD,50)
             SFX.play(54)
 
@@ -2041,15 +2341,15 @@ do
         eventObj.cancelled = true
 
 
-        local culprit = findHarmCulprit(p)
-        local harmType = getHarmType(p,culprit)
+        local causeInfo = findHarmCauseInfo(p)
+        local harmType = getHarmType(p,causeInfo)
 
-        if onlinePlay.currentMode ~= onlinePlay.MODE_OFFLINE and not canClaimPlayerHarm(p,culprit,harmType) then
+        if onlinePlay.currentMode ~= onlinePlay.MODE_OFFLINE and not canClaimPlayerHarm(p,causeInfo) then
             return
         end
 
-        if harmIsFriendlyFire(p,culprit) then
-            if type(culprit) == "Player" and not Audio.sounds[89].muted and not mutedLinkHitSound then
+        if harmIsFriendlyFire(p,causeInfo) then
+            if causeInfo.cause == battlePlayer.HARM_CAUSE.PLAYER_SWORD and not Audio.sounds[89].muted and not mutedLinkHitSound then
                 Audio.sounds[89].muted = true
                 mutedLinkHitSound = true
             end
@@ -2057,7 +2357,7 @@ do
             return
         end
 
-        battlePlayer.harmPlayer(p,harmType)
+        battlePlayer.harmPlayer(p,harmType,causeInfo)
     end
 
 
@@ -2117,7 +2417,7 @@ do
         battlePlayer.reset(p,false)
 
         if data.lives > 1 or data.lives < 0 then
-            data.respawnDuration = getRespawnDuration()
+            data.respawnDuration = battlePlayer.getRespawnDuration(p)
             data.respawnTimer = data.respawnDuration
             data.lives = data.lives - 1
         else
@@ -2162,8 +2462,8 @@ do
 
         local data = battlePlayer.getPlayerData(p)
 
-        if battleGeneral.mode == battleGeneral.gameMode.HUB then
-            if p.y >= p.sectionObj.boundary.bottom+64 then
+        if battlePlayer.hasDeathImmunity(p) then
+            if p.y >= (p.sectionObj.boundary.bottom + 64) then
                 if onlinePlay.currentMode == onlinePlay.MODE_OFFLINE or battleCamera.onlineFollowedPlayerIdx == p.idx or battleCamera.isOnScreen(p.x,p.y - 128,p.width,p.height) then
                     SFX.play(24)
                 end
@@ -2221,6 +2521,10 @@ function battlePlayer.onBlockHit(eventObj,b,fromTop,playerObj)
     end
 end
 
+function battlePlayer.onPostExplosion(explosion,bomberPlayer)
+    table.insert(activeExplosions,{explosion,bomberPlayer})
+end
+
 
 function battlePlayer.onInitAPI()
     registerEvent(battlePlayer,"onStart")
@@ -2240,6 +2544,15 @@ function battlePlayer.onInitAPI()
     registerEvent(battlePlayer,"onPlayerKill","onPlayerKill",false)
 
     registerEvent(battlePlayer,"onBlockHit")
+    registerEvent(battlePlayer,"onPostExplosion")
+
+
+    registerCustomEvent(battlePlayer,"onPostPlayerKillCustom")
+    registerCustomEvent(battlePlayer,"onPostPlayerHarmCustom")
+    registerCustomEvent(battlePlayer,"onPlayerKillCustom")
+    registerCustomEvent(battlePlayer,"onPlayerHarmCustom")
+    registerCustomEvent(battlePlayer,"onPlayerStomped")
+    registerCustomEvent(battlePlayer,"onPlayerRespawn")
 
 
     battleGeneral = require("scripts/battleGeneral")
@@ -2247,6 +2560,7 @@ function battlePlayer.onInitAPI()
     battleMessages = require("scripts/battleMessages")
     battleStars = require("scripts/battleStars")
     battleItems = require("scripts/battleItems")
+    battlePhanto = require("scripts/battlePhanto")
     battleOptions = require("scripts/battleOptions")
 
     onlinePlay = require("scripts/onlinePlay")
@@ -2255,13 +2569,6 @@ function battlePlayer.onInitAPI()
     onlineChat = require("scripts/onlineChat")
 
     booMushroom = require("scripts/booMushroom")
-
-
-    registerCustomEvent(battlePlayer,"onPostPlayerKillCustom")
-    registerCustomEvent(battlePlayer,"onPostPlayerHarmCustom")
-    registerCustomEvent(battlePlayer,"onPlayerKillCustom")
-    registerCustomEvent(battlePlayer,"onPlayerHarmCustom")
-    registerCustomEvent(battlePlayer,"onPlayerStomped")
 
 
     battlePlayer.respawnDurations = {
@@ -2291,6 +2598,9 @@ function battlePlayer.onInitAPI()
     playerForfeitCommand = onlinePlay.createCommand("battle_player_forfeit",onlinePlay.IMPORTANCE_MAJOR)
     setTeamsCommand = onlinePlay.createCommand("battle_player_teams",onlinePlay.IMPORTANCE_MAJOR)
 
+    teamsJoinPacket = onlinePlay.createJoinPacket("battle_player_teams")
+
+
     function playerDeathCommand.onReceive(sourcePlayerIdx, lives)
         local p = Player(sourcePlayerIdx)
         local data = battlePlayer.getPlayerData(p)
@@ -2301,12 +2611,12 @@ function battlePlayer.onInitAPI()
         customKillPlayer(p)
     end
 
-    function playerHarmCommand.onReceive(sourcePlayerIdx, playerIdx,harmType)
+    function playerHarmCommand.onReceive(sourcePlayerIdx, playerIdx,harmType,causeInfo)
         local p = Player(playerIdx)
         local data = battlePlayer.getPlayerData(p)
 
         data.dontSendHarmCommand = true
-        battlePlayer.harmPlayer(p,harmType)
+        battlePlayer.harmPlayer(p,harmType,causeInfo)
         data.dontSendHarmCommand = false
     end
 
@@ -2351,6 +2661,20 @@ function battlePlayer.onInitAPI()
     end
 
 
+    function teamsJoinPacket.encodeData(targetPlayerIdx)
+        if battleGeneral.gameData.teamsEnabled then
+            return battleGeneral.gameData.playerTeams
+        else
+            return nil
+        end
+    end
+
+    function teamsJoinPacket.onReceive(playerTeams)
+        battleGeneral.gameData.teamsEnabled = (playerTeams ~= nil)
+        battleGeneral.gameData.playerTeams = playerTeams or {}
+    end
+
+
     function onlinePlay.onConnect(playerIdx)
         if playerIdx == onlinePlay.playerIdx then
             battlePlayer.saveCharacters(false)
@@ -2359,15 +2683,15 @@ function battlePlayer.onInitAPI()
             battleGeneral.gameData.playerCostumes = {[playerIdx] = {}}
 
             for character = 1,5 do
-                battleGeneral.gameData.playerCostumes[playerIdx][character] = battleGeneral.saveData.playerCostumes[playerIdx][character]
+                battleGeneral.gameData.playerCostumes[playerIdx][character] = battleGeneral.saveData.playerCostumes[1][character]
             end
 
             battlePlayer.loadCostumes(true)
         end
 
-        if onlinePlay.currentMode == onlinePlay.MODE_HOST and playerIdx ~= onlinePlay.playerIdx then
+        --[[if onlinePlay.currentMode == onlinePlay.MODE_HOST and playerIdx ~= onlinePlay.playerIdx then
             battlePlayer.sendTeamsUpdate()
-        end
+        end]]
 
         battlePlayer.setPlayerIsActive(Player(playerIdx),true)
     end
