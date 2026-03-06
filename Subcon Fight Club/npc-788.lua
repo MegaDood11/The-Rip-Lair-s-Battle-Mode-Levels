@@ -58,7 +58,7 @@ function npc.onNPCHarm(e, v, r, c)
 	
 	local data = v.data
 	local n = data.npc
-	
+	data.init = nil
 	if n and n.isValid then
 		n:kill(r)
 	end
