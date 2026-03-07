@@ -379,7 +379,7 @@ function bossbass.onTickEndNPC(v)
 			end
 		elseif cfg.nohurt and Level.winState() == 0 and data.eatenAnimCooldown <= 0 then
 			for k,p in ipairs(Player.get()) do
-				if Colliders.collide(p,v) and math.abs(v.y + cfg.hitboxoffsettop - p.y) <= cfg.hitboxheight then
+				if Colliders.collide(p,v) and ((p.x < v.x + v.width * 0.5 and v.direction == -1) or (p.x > v.x + v.width * 0.5 and v.direction == 1)) then
 					if p.forcedState == 0 and not p.inClearPipe and not p.inLaunchBarrel and not p:isInvincible() and p.hasStarman == false and p.isMega == false and p.deathTimer == 0 then
 						data.eatenPlayer = p.idx
 						data.eatenx = p.x
