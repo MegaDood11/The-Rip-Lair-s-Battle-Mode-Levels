@@ -4,8 +4,9 @@ local id = NPC_ID
 
 local list = {
 	19,
-	129,
+	--129,
 	130,
+	374,
 	--471, --Uncommenting this, Billy Snifits are broken in Patch 2
 	530,
 	578,
