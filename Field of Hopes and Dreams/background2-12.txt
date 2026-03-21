@@ -1,0 +1,29 @@
+[Layer1]
+name="Sky"
+img=bg_sky.png
+alignX=LEFT
+alignY=BOTTOM
+depth=800
+parallaxY=1
+repeatX=true
+frames=4
+
+[Layer2]
+name="Leaves"
+img=bg_leaf.png
+alignX=LEFT
+alignY=BOTTOM
+depth=100
+parallaxY=1
+repeatX=true
+
+; [Layer3]
+; name="Fountain"
+; img=bg_fountain.png
+; alignX=MIDDLE
+; alignY=TOP
+; depth=600
+; parallaxY=1
+; repeatX=false
+; frames=3
+; framespeed=16
