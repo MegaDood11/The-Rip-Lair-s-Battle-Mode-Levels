@@ -1,0 +1,7 @@
+image = background-900.png
+name = Oil
+description = not flammable Unfortunately.
+frames = 4
+framespeed = 8
+noshadows = false
+priority = -85
