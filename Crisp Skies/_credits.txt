@@ -3,5 +3,6 @@ Ground tileset by Linkstorm Z
 Mushrooms by FutureNyanCat
 Mushroom Stems by Gamma V
 Clouds by Teyla
+Flappy Block by FNC2002
 
 Recolours + Big Mushroom ends done by MegaDood
