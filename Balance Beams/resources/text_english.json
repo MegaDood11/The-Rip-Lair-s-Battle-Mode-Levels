@@ -1,0 +1,16 @@
+{
+    "battleMessages": {
+        "stars": {
+            "spawn": "A Win Token has appeared!",
+            "oneAway": "{NAME} is one Win Token away!",
+            "get": "{NAME} snatched a Win Token!"
+        },
+
+        "stone": {
+            "spawn": "A Rock has appeared!",
+            "grabbed": "{NAME} snatched The Rock!",
+            "killed": "The Rock has been destroyed!",
+            "overheated": "The Rock (somehow) exploded!"
+        }
+    }
+}
