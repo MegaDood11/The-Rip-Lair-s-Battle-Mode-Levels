@@ -8,3 +8,4 @@
 -Spin Block by Master of Disaster, sprites by JamesD28
 -SMW styled SMB3 Bridge by h2643
 -SMW Cave BGOs by Valtteri
+-Flamethrowers - FNC2002

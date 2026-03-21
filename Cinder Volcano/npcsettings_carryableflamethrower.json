@@ -1,0 +1,25 @@
+{
+	"style" : "groupbox",
+	"title" : "Carryable Flame Cannon Settings",
+	"layout": [
+		{
+			"control": "itemSelect",
+			"name": "projectile",
+			"title": "Projectile",
+			"type": "npcorcoins",
+			"tooltip": "Which NPC to fire from the Flame Cannon (use none to fire regular fireballs).",
+			"value-default": 0
+		},
+		{
+			"control": "spinbox",
+			"name": "timer",
+			"title": "Delay",
+			"type": "int",
+			"tooltip": "The number of ticks between firing the Flame Cannon",
+			"value-default": 8,
+			"value-min": 1,
+			"value-max": 999
+		}
+	]
+}
+
