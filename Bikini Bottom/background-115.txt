@@ -1,0 +1,2 @@
+frames=10
+frsmespeed=2
