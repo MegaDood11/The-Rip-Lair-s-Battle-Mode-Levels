@@ -1,0 +1,38 @@
+{
+  "style": "groupbox",
+  "title": "Cloud Lift Settings",
+  "layout": [
+	{
+		"control": "spinbox",
+		"name": "width",
+		"title": "Width",
+		"type": "int",
+		"tooltip": "The width of the platform. Centered in the middle",
+		"value-default": 96,
+		"value-min": 48,
+		"value-max": 640,
+		"single-step": 32
+	},
+	{
+		"control": "spinbox",
+		"name": "height",
+		"title": "Max Height",
+		"type": "int",
+		"tooltip": "The maximum height of the platform",
+		"value-default": 96,
+		"value-min": 64,
+		"value-max": 640,
+		"single-step": 32
+	},
+	{
+		"control": "spinbox",
+		"name": "spawnheight",
+		"title": "Initial Height",
+		"type": "int",
+		"tooltip": "The height the cloud lift starts at. If set to 0-32, it spawns with it's spawn height. If -1, it will spawn as hidden. Don't set it higher than the max height.",
+		"value-default": 0,
+		"value-min": -1,
+		"value-max": 640,
+		"single-step": 32
+	}]
+}
