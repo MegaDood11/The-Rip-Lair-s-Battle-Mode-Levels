@@ -1,0 +1,56 @@
+{
+	"style" : "groupbox",
+	"title" : "Tackle Fire Generator Settings",
+	"layout": [
+		{
+			"control": "spinBox",
+			"name": "idx",
+			"title": "Index",
+			"type": "int",
+			"value-default": 0,
+			"value-min": 0,
+			"value-max": 99999,
+			"single-step": 1
+		},
+		{
+			"control": "spinBox",
+			"name": "distance",
+			"title": "Distance",
+			"type": "double",
+			"tooltip": "How far the block shoots npcs.",
+			"value-default": 3,
+			"value-min": 0,
+			"value-max": 99999,
+			"single-step": 0.5
+		},
+		{
+			"control": "spinBox",
+			"name": "waitTime",
+			"title": "Wait Time",
+			"type": "int",
+			"tooltip": "The time (in ticks) the block waits before shooting.",
+			"value-default": 32,
+			"value-min": 0,
+			"value-max": 99999,
+			"single-step": 1
+		},
+		{
+			"control": "checkbox",
+			"name": "shootsFirst",
+			"title": "Shoots First",
+			"tooltip": "If true, this block will shoot before its partner block.",
+			"value-default": false
+		},
+		{
+			"control": "spinBox",
+			"name": "count",
+			"title": "Shoot Count",
+			"type": "int",
+			"tooltip": "The amount of npcs shot by the block.",
+			"value-default": 4,
+			"value-min": 1,
+			"value-max": 99999,
+			"single-step": 1
+		}
+	]
+}
