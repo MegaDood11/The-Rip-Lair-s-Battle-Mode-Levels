@@ -1,5 +1,6 @@
 --NPCManager is required for setting basic NPC properties
 local npcManager = require("npcManager")
+local onlinePlayNPC = require("scripts/onlinePlay_npc")
 
 --Create the library table
 local skeeterbomb = {}
@@ -40,7 +41,7 @@ local skeeterbombSettings = {
 	--Various interactions
 	jumphurt = false, --If true, spiny-like
 	spinjumpsafe = false, --If true, prevents player hurt when spinjumping
-	harmlessgrab = false, --Held NPC hurts other NPCs if false
+	harmlessgrab = true, --Held NPC hurts other NPCs if false
 	harmlessthrown = false, --Thrown NPC hurts other NPCs if false
 
 	grabside=false,
@@ -136,15 +137,73 @@ function skeeterbomb.onTickNPC(v)
 	or v:mem(0x136, FIELD_BOOL)        --Thrown
 	or v:mem(0x138, FIELD_WORD) > 0    --Contained within
 	then
-		--Handling
+		data.explode = true
+		data.culprit = v.heldPlayer
+		v.friendly = true
+	end
+	
+	v.data.culprit = v.heldPlayer or 0
+	
+	if data.culprit then
+		v:mem(0x132,FIELD_WORD, v.heldIndex)
+		v.data.culprit = v:mem(0x132,FIELD_WORD)
+		
+		v:mem(0x132,FIELD_WORD, v.data.culprit)
+		
+		if v:mem(0x132,FIELD_WORD) ~= 0 then
+			v.data.target = v:mem(0x132,FIELD_WORD)
+		end
+		
+		for _,p in ipairs(Player.get()) do
+			if p.idx ~= v.data.target and Colliders.collide(v,p) and v.heldIndex == 0 and data.explode and p.deathTimer <= 0 and v:mem(0x12C, FIELD_WORD) == 0 then
+				v:kill()
+				Misc.doBombExplosion(v.x + 14, v.y + 16, 2)
+			end
+		end
+	end
+	
+	v:mem(0x136, FIELD_BOOL, false)
+	
+	if data.explode then
+		if v:mem(0x12C, FIELD_WORD) == 0 then v.friendly = false end
+		for _,n in ipairs(NPC.get()) do
+			if Colliders.collide(n, v) and n.idx ~= v.idx and not NPC.config[n.id].iscoin and not NPC.config[n.id].powerup and NPC.HITTABLE_MAP[n.id] then
+				v:kill()
+				Misc.doBombExplosion(v.x + 14, v.y + 16, 2)
+			end
+		end
 	end
 	
 	--Execute main AI. This template just jumps when it touches the ground.
-	if v.collidesBlockBottom then
+	if v.collidesBlockBottom or v.collidesBlockLeft or v.collidesBlockRight or v.collidesBlockUp then
 		v:kill()
 		Misc.doBombExplosion(v.x + 14, v.y + 16, 2)
 	end
 end
+
+onlinePlayNPC.onlineHandlingConfig[npcID] = {
+	getExtraData = function(v)
+		local data = v.data
+		if not data.initialized then
+			return nil
+		end
+
+		return {
+			culprit = data.culprit,
+			target = data.target,
+			explode = data.explode,
+		}
+	end,
+	setExtraData = function(v, receivedData)
+		local data = v.data
+		if not data.initialized then
+			return nil
+		end
+		data.culprit = receivedData.culprit
+		data.target = receivedData.target
+		data.explode = receivedData.explode
+	end,
+}
 
 --Gotta return the library table!
 return skeeterbomb
