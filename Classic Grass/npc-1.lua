@@ -17,6 +17,16 @@ npcManager.setNpcSettings(sampleNPCSettings)
 --Register the vulnerable harm types for this NPC. The first table defines the harm types the NPC should be affected by, while the second maps an effect to each, if desired.
 npcManager.registerHarmTypes(npcID,
 	{
+		HARM_TYPE_JUMP,
+		HARM_TYPE_FROMBELOW,
+		HARM_TYPE_NPC,
+		HARM_TYPE_PROJECTILE_USED,
+		HARM_TYPE_LAVA,
+		HARM_TYPE_HELD,
+		HARM_TYPE_TAIL,
+		HARM_TYPE_SPINJUMP,
+		HARM_TYPE_OFFSCREEN,
+		HARM_TYPE_SWORD
 	},
 	{
 	[HARM_TYPE_FROMBELOW]=800,
