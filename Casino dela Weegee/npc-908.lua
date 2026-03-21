@@ -28,6 +28,7 @@ local cardSettings = {
 	nofireball=true,
 	noiceball=true,
 	noyoshi=true,
+	ignorethrownnpcs = true,
 	
 	maxheight=32, --The maximum amount of upwards movement the Card will do when triggered. If its speed isn't high enough, it will stop prematurely before reaching this value, however!
 	upspeed=2, --The speed that the Card moves upwards when triggered. Will not move beyond the maxheight value relative to the spawning location of the Card.
@@ -40,6 +41,7 @@ local STATE_IDLE = 0
 local STATE_TRIGGERED = 1
 local STATE_REVEALED = 2
 local STATE_RETURN = 3
+local STATE_HIDDEN = 4
 
 local collided = { }
 
@@ -181,12 +183,12 @@ function card.onTickNPC(v)
 		elseif data.cardAIState == STATE_REVEALED then
 			if data.cardTimer >= configFile.revealtime then
 				giveReward(v)
+				Effect.spawn(10,v.x + v.width*0.5 - 16, v.y + v.height*0.5 - 16)
+				data.cardAIState = nil
 				if settings.respawn then
-					data.cardAIState = STATE_RETURN
+					data.cardAIState = STATE_HIDDEN
 					data.cardTimer = 0
 				else
-					Effect.spawn(10,v.x + v.width*0.5 - 16, v.y + v.height*0.5 - 16)
-					data.cardAIState = nil
 					v:kill(9)
 				end
 			else
@@ -202,6 +204,13 @@ function card.onTickNPC(v)
 			end
 			if v.animationFrame == 0 then
 				data.cardAIState = STATE_IDLE
+			end
+		elseif data.cardAIState == STATE_HIDDEN then
+			data.cardTimer = data.cardTimer + 1
+			if data.cardTimer >= 192 then
+				Effect.spawn(10,v.x + v.width*0.5 - 16, v.y + v.height*0.5 - 16)
+				data.cardTimer = 0
+				data.cardAIState = STATE_RETURN
 			end
 		end
 	end
@@ -254,6 +263,8 @@ function card.onDrawNPC(v)
 		if v.animationFrame >= configFile.frames - 4 then
 			v.animationFrame = configFile.frames - 5
 		end
+	else
+		v.animationFrame = -1
 	end
 end
 	
