@@ -1,0 +1,37 @@
+[background2]
+; Name that will appear in the editor
+name = "SMW Hills 2"
+; Backdrop fill color
+fill-color = black
+
+
+; Add layers here, for example:
+
+[stars]
+depth = INFINITE
+img = "stars.png"
+repeatX = true
+alignY = TOP
+x = 288
+; y = -152
+
+[moon]
+depth = INFINITE
+img = "moon.png"
+repeatX = true
+alignY = BOTTOM
+priority = -100
+x = 288
+; y = -152
+
+[hills]
+depth = 600
+img = "hills.png"
+repeatX = true
+alignY = BOTTOM
+
+[water]
+depth = 350
+img = "water.png"
+repeatX = true
+alignY = BOTTOM
