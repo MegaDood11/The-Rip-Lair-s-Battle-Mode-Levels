@@ -1,0 +1,2 @@
+height=128
+width=32

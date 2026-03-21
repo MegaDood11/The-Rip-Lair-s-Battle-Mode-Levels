@@ -1,0 +1,5 @@
+height=64
+height=32
+gfxheight=64
+gfxwidth=32
+nogravity=1

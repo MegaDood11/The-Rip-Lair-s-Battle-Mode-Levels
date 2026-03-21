@@ -1,0 +1,8 @@
+width=40
+height=16
+gfxwidth=40
+gfxheight=30
+frames=1
+framestyle=1
+gfxoffsety=14
+noblockcollision=1

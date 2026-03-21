@@ -1,0 +1,89 @@
+{
+	"style" : "groupbox",
+	"title" : "Global Block Settings",
+	"layout": [
+		{
+			"control": "spinBox",
+			"type": "double",
+			"name": "priority_blockyGlobe",
+			"title": "Render Priority",
+			"value-default": -102,
+			"value-min": -102,
+			"value-max": 101,
+			"single-step": 1,
+			"decimals" : 3
+		},
+		{
+			"control": "checkbox",
+			"name": "nocollision_blockyGlobe",
+			"title": "Disable Collision",
+			"tooltip": "If true, objects can move through it.",
+			"text-visible": false,
+			"value-default": false
+		},
+		{
+		  "control": "multiLineEdit",
+		  "name": "movement_blockyGlobe",
+		  "title": "Movement",
+		  "tooltip": "LunaLua function to define and customize the Block Movement.",
+		  "value-default": ""
+		},
+		{
+		  "control": "group",
+		  "title": "Examples",
+		  "children": [
+			{
+			  "control": "lineEdit",
+			  "title": "Circle",
+			  "tooltip": "Makes the Block fly in circles.",
+			  "value-default": "x=sin(t * 2) * 2; y=cos(t * 2) * 2;",
+			  "read-only": true
+			}
+		  ]
+		},
+		{
+			"control": "checkbox",
+			"name": "isSizable_blockyGlobe",
+			"title": "Sizable Rendering",
+			"tooltip": "If true, Block will render like sizable. (Only works if image is bigger than 64x64!)",
+			"text-visible": false,
+			"value-default": false
+		},
+		{
+			"control": "checkbox",
+			"name": "stretch_blockyGlobe",
+			"title": "Stretchy Rendering",
+			"tooltip": "If true, Block will render stretchy if bigger than usual.",
+			"text-visible": false,
+			"value-default": false
+		},	
+		{
+			"control": "checkbox",
+			"name": "repeat_blockyGlobe",
+			"title": "Repeating Texture",
+			"tooltip": "If true, Block will have a repeating texture if bigger than usual.",
+			"text-visible": false,
+			"value-default": false
+		},		
+		{
+			"control": "spinBox",
+			"type": "int",
+			"name": "width_blockyGlobe",
+			"title": "Block's width",
+			"value-default": 0,
+			"value-min": 0,
+			"value-max": 9999,		
+			"single-step": 1
+		},
+		{
+			"control": "spinBox",
+			"type": "int",
+			"name": "height_blockyGlobe",
+			"title": "Block's height",
+			"value-default": 0,
+			"value-min": 0,
+			"value-max": 9999,
+			"single-step": 1
+		}
+	]
+}

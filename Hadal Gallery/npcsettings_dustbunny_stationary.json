@@ -1,0 +1,51 @@
+{
+	"style" : "groupbox",
+	"title" : "Dust Bunny Settings",
+	"layout": [
+        {
+			"control": "comboBox",
+			"name": "eyeType",
+			"title": "Eye Type",
+			"tooltip": "The eye graphic used for this NPC.",
+            "elements": ["Random","None","Big","Small","Thin"],
+			"value-default": 0
+		},
+        {
+            "control": "spinBox",
+            "name": "eyeRotation",
+            "title": "Eye Rotation",
+            "type": "int",
+            "tooltip": "The rotation that the NPC's eyes start at (in degrees).",
+            "value-default": 0,
+            "value-min": -360,
+            "value-max": 360,
+            "single-step": 5
+        },
+        {
+            "control" : "group",
+            "title" : "Stare At Player",
+            "name" : "stareAt",
+            "children": [
+                {
+                    "control": "checkBox",
+                    "name": "enabled",
+                    "title": "Enabled",
+                    "tooltip": "If ticked, the NPC will look at the player if they're nearby.",
+                    "value-default": true
+                },
+                {
+                    "control": "spinBox",
+                    "name": "maxPlayerDistance",
+                    "title": "Maximum Player Distance",
+                    "type": "int",
+                    "tooltip": "How close a player must be for the NPC to look at them. Set to 0 for no distance limit.",
+                    "value-default": 256,
+                    "value-min": 0,
+                    "value-max": 4096,
+                    "single-step": 32
+                }
+            ]
+        }
+	]
+}
+

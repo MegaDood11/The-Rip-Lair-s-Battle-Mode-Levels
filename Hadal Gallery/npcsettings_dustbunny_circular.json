@@ -1,0 +1,66 @@
+{
+	"style" : "groupbox",
+	"title" : "Dust Bunny Settings",
+	"layout": [
+        {
+            "control": "spinBox",
+            "name": "horizontalDistance",
+            "title": "Horizontal Distance",
+            "type": "int",
+            "tooltip": "How far the NPC moves horizontally in each cycle.",
+            "value-default": 256,
+            "value-min": -4096,
+            "value-max": 4096,
+            "single-step": 32
+        },
+        {
+            "control": "spinBox",
+            "name": "verticalDistance",
+            "title": "Vertical Distance",
+            "type": "int",
+            "tooltip": "How far the NPC moves vertically in each cycle.",
+            "value-default": 256,
+            "value-min": -4096,
+            "value-max": 4096,
+            "single-step": 32
+        },
+        {
+            "control": "spinBox",
+            "name": "cycleDuration",
+            "title": "Cycle Duration",
+            "type": "int",
+            "tooltip": "How long each cycle lasts.",
+            "value-default": 160,
+            "value-min": 0,
+            "value-max": 4096,
+            "single-step": 32
+        },
+        {
+            "control": "spinBox",
+            "name": "startingRotation",
+            "title": "Starting Rotation",
+            "type": "int",
+            "tooltip": "The rotation that the NPC starts at.",
+            "value-default": 0,
+            "value-min": -360,
+            "value-max": 360,
+            "single-step": 5
+        },
+        {
+            "control": "checkBox",
+            "name": "useLocalTimer",
+            "title": "Use Local Timer",
+            "tooltip": "When ticked, the NPC will use its own timer that is dependent on when it spawned in rather than a timer that's synced for all NPC's.",
+            "value-default": false
+        },
+        {
+			"control": "comboBox",
+			"name": "eyeType",
+			"title": "Eye Type",
+			"tooltip": "The eye graphic used for this NPC.",
+            "elements": ["Random","None","Big","Small","Thin"],
+			"value-default": 0
+		}
+	]
+}
+

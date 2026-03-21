@@ -1,0 +1,81 @@
+{
+	"style" : "groupbox",
+	"title" : "Global Settings",
+	"layout": [
+		{
+			"control": "multiLineEdit",
+			"name": "movementScript",
+			"title": "Movement",
+			"tooltip": "LunaLua function to define and customize the movement, rotation and scale of the BGO. You can specify 'x', 'y', 'rotation', 'scaleX', 'scaleY' and 'opacity'.",
+			"value-default": ""
+		},
+		{
+			"control": "group",
+			"title": "Examples",
+			"children": [
+				{
+					"control": "lineEdit",
+					"title": "Circle",
+					"value-default": "x = sin(t*2)*2; y = cos(t*2)*2;",
+					"read-only": true
+				},
+				{
+					"control": "lineEdit",
+					"title": "Spin",
+					"value-default": "rotation = t*45;",
+					"read-only": true
+				}
+			]
+		},
+
+		{
+			"control": "description",
+			"text": ""
+		},
+
+		{
+			"control": "spinBox",
+			"name": "parallaxX",
+			"title": "Parallax X",
+			"tooltip": "How quickly the BGO scrolls with the camera horizontally. 0 means no movement, 1 is moving with the scene, and you can use anything in between.",
+			"type": "double",
+			"decimals": 2,
+			"value-min": 0,
+			"value-max": 2,
+			"value-default": 1
+		},
+		{
+			"control": "spinBox",
+			"name": "parallaxY",
+			"title": "Parallax Y",
+			"tooltip": "How quickly the BGO scrolls with the camera vertially. 0 means no movement, 1 is moving with the scene, and you can use anything in between.",
+			"type": "double",
+			"decimals": 2,
+			"value-min": 0,
+			"value-max": 2,
+			"value-default": 1
+		},
+		{
+			"control": "spinBox",
+			"name": "pivotX",
+			"title": "Pivot X",
+			"tooltip": "The horizontal centre used for rotation, scaling and parallax.",
+			"type": "double",
+			"decimals": 2,
+			"value-min": -1,
+			"value-max": 2,
+			"value-default": 0.5
+		},
+		{
+			"control": "spinBox",
+			"name": "pivotY",
+			"title": "Pivot Y",
+			"tooltip": "The vertical centre used for rotation, scaling and parallax.",
+			"type": "double",
+			"decimals": 2,
+			"value-min": -1,
+			"value-max": 2,
+			"value-default": 0.5
+		}
+	]
+}
