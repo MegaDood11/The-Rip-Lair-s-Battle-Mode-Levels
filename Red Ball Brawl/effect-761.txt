@@ -1,0 +1,7 @@
+[1]
+import=AI_ARC
+rotation=-15:15
+xAlign=CENTER
+yAlign=CENTER
+spawnBindX=CENTER
+spawnBindY=CENTER
