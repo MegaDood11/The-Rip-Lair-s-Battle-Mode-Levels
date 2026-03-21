@@ -38,11 +38,11 @@ local swingSprite = {	-- done this way so if need be, you can use a different fr
 }
 
 local playerColors = {  -- after image colours to be used when not playing online
-    [CHARACTER_MARIO] = Color.fromHexRGB(0xFF0059),
-	[CHARACTER_LUIGI] = Color.fromHexRGB(0x00FF11),
-	[CHARACTER_PEACH] = Color.fromHexRGB(0xFF45E0),
-	[CHARACTER_TOAD]  = Color.fromHexRGB(0x0062FF),
-	[CHARACTER_LINK]  = Color.fromHexRGB(0x27AC65),
+    [CHARACTER_MARIO] = Color.fromHexRGB(#ff0059),
+	[CHARACTER_LUIGI] = Color.fromHexRGB(#00ff11),
+	[CHARACTER_PEACH] = Color.fromHexRGB(#ff45e0),
+	[CHARACTER_TOAD]  = Color.fromHexRGB(#0062ff),
+	[CHARACTER_LINK]  = Color.fromHexRGB(#27ac65),
 }
 
 
