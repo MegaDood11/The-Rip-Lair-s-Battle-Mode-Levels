@@ -1,0 +1,15 @@
+[background2]
+; Name that will appear in the editor
+name = "SMW Hills"
+; Backdrop fill color
+fill-color = black
+
+
+; Add layers here, for example:
+
+[Layer1]
+depth = INFINITE
+img = "background2-12.png"
+repeatX = true
+fitY = true
+fitX = true

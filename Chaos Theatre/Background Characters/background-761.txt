@@ -1,0 +1,7 @@
+image = background-761.png
+name = Lawrence West
+description = Lawrence West Pilgrim is Scott and Stacey Pilgrim's younger brother.  The name Lawrence West is a reference to a subway stop in Toronto. He appears in Scott Pilgrim vs. the World: The Game as a background character.
+frames = 4
+framespeed = 8
+noshadows = false
+priority = -85.1

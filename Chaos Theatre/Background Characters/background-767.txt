@@ -1,0 +1,7 @@
+image = background-767.png
+name = Monique
+description = Sandra and Monique are two girls who went to the University of Toronto with Scott and his friends. They are always together, whether in person or just mentioned. They first appear at Julie's party in Volume 1, when Scott asks them about Ramona. They both frequently attend shows at Lee's Palace as well as parties, and gossip about Envy, Gideon, etcetera.
+frames = 8
+framespeed = 8
+noshadows = false
+priority = -85.1

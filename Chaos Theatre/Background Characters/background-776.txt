@@ -1,0 +1,7 @@
+image = background-776.png
+name = Stacey Pilgrim (cheering)
+description = Stacey Pilgrim is Scott's younger sister. She works at the same Second Cup with Julie Powers and is also friends with Ramona. She's based on, and named after Bryan Lee O'Malley's real sister Stacey. She sometimes calls Scott her little brother, probably because she is more grown up and mature. Stacey appears in the video game as a background character and a vendor in World 1. She also appears in World 6. A secret path will take you to Mobile's home and she is there (for some reason) before you meet Mobile. She also appears in the end credits as an audience to a Shatter Band concert.
+frames = 4
+framespeed = 8
+noshadows = false
+priority = -85.1

@@ -1,0 +1,7 @@
+image = background-777.png
+name = Wallace Wells
+description = Wallace Wells is Scott Pilgrim's cool gay roommate and is one of the seven main characters in the Scott Pilgrim franchise. Wallace acts as Scott's voice of reason, with the two meeting each other in college when Wallace asks him a question during a lecture. He and Scott now live together, sharing a double bed as they are unable to afford two separate mattresses. Wallace is one of the many background characters in the game. You can also find him manning a secret shop found in World 1 that can sell you expensive items ($100 and up) which can massively boost your stats. Wallace was added as a playable character in the March 13, 2013, DLC pack "Wallace Wells + Online Multiplayer." As a playable character, Wallace is a simple reskin of Stephen Stills, using almost all of Stephen's attack animations with slight differences (the most notable ones being a rainbow special effect in his uppercut and him kissing the enemy he grabs instead of headbutting the enemy).
+frames = 3
+framespeed = 8
+noshadows = false
+priority = -85.1

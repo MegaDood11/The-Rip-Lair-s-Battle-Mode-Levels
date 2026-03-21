@@ -1,0 +1,7 @@
+image = background-756.png
+name = Jimmy (cheering)
+description = Jimmy was Stacey Pilgrim's boyfriend whom she brought to Club Rockit to see Sex Bob-omb play. He was later seduced by a drunken Wallace Wells after Crash and the Boys played "Last Song Kills Audience", causing a furious Stacey to break up with him. He makes many appearances in different stages as a background character, and can even be seen making out with Wallace (much to the annoyance of Stacey) during the boss fight against Matthew Patel at the end of World 1.
+frames = 3
+framespeed = 8
+noshadows = false
+priority = -85.1

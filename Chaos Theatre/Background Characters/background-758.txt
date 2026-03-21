@@ -1,0 +1,7 @@
+image = background-758.png
+name = Joseph (clapping)
+description = Joseph is Hollie Hawkes' gay, soft-spoken roommate. He appears first in Volume 2 at the performance for The Clash at Demonhead and only came due to his attraction to Todd Ingram. In Scott Pilgrim vs. the World: The Game, Joseph's room can be unlocked as part of a sound check level. There, players can listen to all the audio tracks and songs in the game. He is also seen as a background character.
+frames = 4
+framespeed = 8
+noshadows = false
+priority = -85.1

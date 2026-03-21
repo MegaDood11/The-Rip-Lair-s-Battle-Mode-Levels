@@ -1,0 +1,7 @@
+image = background-754.png
+name = Hollie Hawkes (cheering)
+description = Hollie Hawkes is a 26-year-old who works with Kim Pine at the local video store, No-Account Video. She first appears in Volume 2, working at the video store with Kim, and subsequently appears at both Clash at Demonhead shows through to Volume 3. Hollie appears in the video game as a background character, and a vendor (works at the same video store as in the graphic novels).
+frames = 4
+framespeed = 8
+noshadows = false
+priority = -85.1

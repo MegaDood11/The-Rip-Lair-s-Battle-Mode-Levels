@@ -1,0 +1,7 @@
+image = background-760.png
+name = Julie Powers (cheering)
+description = Julie Powers is the social glue binding most of the characters in the series together, though she herself is a comparatively unimportant character. She is known to frequently host parties, introduce characters to each other, and is known to be a "full-time bitch and a half." Julie apppears as one of the many background characters in the video game adaptation. She is seen as a store clerk in World 1 and later in front of the stairs at the Halloween party.
+frames = 3
+framespeed = 8
+noshadows = false
+priority = -85.1
