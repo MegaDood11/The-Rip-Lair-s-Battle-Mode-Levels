@@ -1,0 +1,43 @@
+[sky]
+img="sky.png"
+priority=-100
+alignY=BOTTOM
+repeatX=true
+repeatY=false
+parallaxX=0.04
+parallaxY=0.06
+alignY = BOTTOM
+y = 0
+
+[farbg_buildings]
+img="farbg_buildings.png"
+priority=-99.9
+alignY=BOTTOM
+repeatX=true
+repeatY=false
+parallaxX=0.06
+parallaxY=0.20
+alignY = BOTTOM
+y = 32
+
+[bg_buildings]
+img="bg_buildings.png"
+priority=-99.8
+alignY=BOTTOM
+repeatX=true
+repeatY=false
+parallaxX=0.09
+parallaxY=0.28
+alignY = BOTTOM
+y = 0
+
+[fg_buildings]
+img="fg_buildings.png"
+priority=-99.7
+alignY=BOTTOM
+repeatX=true
+repeatY=false
+parallaxX=0.14
+parallaxY=0.43
+alignY = BOTTOM
+y = 48
