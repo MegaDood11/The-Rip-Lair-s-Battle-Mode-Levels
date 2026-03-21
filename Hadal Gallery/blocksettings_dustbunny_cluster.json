@@ -1,0 +1,68 @@
+{
+	"style" : "groupbox",
+	"title" : "Dust Bunny Cluster Settings",
+	"layout": [
+        {
+			"control": "spinBox",
+			"name": "hasEyesChance",
+			"title": "Has Eyes Chance",
+			"tooltip": "The chance that any individual will have eyes (in percentage).",
+            "type": "int",
+			"value-default": 25,
+            "value-min": 0,
+            "value-max": 100
+		},
+        {
+			"control": "spinBox",
+			"name": "canStareChance",
+			"title": "Can Stare at Player Chance",
+			"tooltip": "The chance that any individual can stare at the player (in percentage).",
+            "type": "int",
+			"value-default": 60,
+            "value-min": 0,
+            "value-max": 100
+		},
+        {
+            "control": "spinBox",
+            "name": "stareMaxPlayerDistance",
+            "title": "Stare Maximum Player Distance",
+            "type": "int",
+            "tooltip": "How close a player must be for the NPC to look at them. Set to 0 for no distance limit.",
+            "value-default": 160,
+            "value-min": 0,
+            "value-max": 4096,
+            "single-step": 32
+        },
+        {
+			"control": "spinBox",
+			"name": "horizontalGap",
+			"title": "Horizontal Gap",
+			"tooltip": "The horizontal distance between each individual's centre (in pixels).",
+            "type": "int",
+			"value-default": 20,
+            "value-min": 1,
+            "value-max": 4096
+		},
+        {
+			"control": "spinBox",
+			"name": "verticalGap",
+			"title": "Vertical Gap",
+			"tooltip": "The vertical distance between each individual's centre (in pixels).",
+            "type": "int",
+			"value-default": 20,
+            "value-min": 1,
+            "value-max": 4096
+		},
+        {
+            "control": "spinBox",
+            "name": "randomOffset",
+            "title": "Max Position Offset",
+            "tooltip": "The maximum distance that an individual's distance can be offset (in pixels). This does not affect the hitbox.",
+            "type": "int",
+            "value-default": 2,
+            "value-min": 0,
+            "value-max": 4096
+        }
+	]
+}
+

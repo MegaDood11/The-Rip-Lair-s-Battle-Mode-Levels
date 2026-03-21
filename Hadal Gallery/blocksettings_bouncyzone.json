@@ -1,0 +1,50 @@
+{
+	"style" : "groupbox",
+	"title" : "Bouncy Zone Settings",
+	"layout": [
+		{
+			"control": "spinBox",
+			"type": "float",
+			"name": "strength",
+			"title": "Strength",
+			"tooltip": "The speed at which the player is launched out of this zone via pits/lava.",
+			"value-default": 13.5,
+			"value-min": 12,
+			"value-max": 100
+		},
+		{
+			"control": "spinBox",
+			"type": "float",
+			"name": "slopeStrengthModifier",
+			"title": "Slope strength modifier",
+			"tooltip": "The amount players' X speed is multiplied by when bouncing off slopes. only used by <b>bouncyLava</b>",
+			"value-default": 0.6,
+			"value-min": 0,
+			"value-max": 100
+		},
+		{
+			"control": "checkBox",
+			"name": "respectsMercy",
+			"title": "Respects mercy",
+			"tooltip": "Whether or not pits/lava will harm or kill during blink frames in this zone.",
+			"value-default": true,
+			"text-at-left": true
+		},
+		{
+			"control": "checkBox",
+			"name": "canHarm",
+			"title": "Can harm player",
+			"tooltip": "Whether or not the player is harmed in this zone via pits/lava.",
+			"value-default": true,
+			"text-at-left": true
+		},
+		{
+			"control": "checkBox",
+			"name": "canKill",
+			"title": "Can kill player",
+			"tooltip": "Whether or not the player can die in this zone via pits/lava.",
+			"value-default": true,
+			"text-at-left": true
+		}
+	]
+}
