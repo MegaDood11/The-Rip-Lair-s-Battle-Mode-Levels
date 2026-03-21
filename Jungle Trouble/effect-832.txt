@@ -1,0 +1,3 @@
+[1]
+lifetime = 128
+onDeath=DEATH_SMOKE
