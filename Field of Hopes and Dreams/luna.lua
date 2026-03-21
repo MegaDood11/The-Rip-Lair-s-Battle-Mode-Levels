@@ -12,12 +12,13 @@ battleOptions = require("scripts/battleOptions")
 local doormode = onlinePlay.createVariable("doormode","uint16",true,0)
 local doorlay = onlinePlay.createVariable("doorlay","uint16",true,0)
 local doormake = onlinePlay.createVariable("doormake","uint16",true,0)
+
 local dojoe = onlinePlay.createVariable("dojoe","uint16",true,0)
 
-local doorsolidA = {}
-local doorsolidB = {}
-local doorwarpA = {}
-local doorwarpB = {}
+local doorsolidA = onlinePlay.createVariable("doorsolidA","uint16",true,0)
+local doorsolidB = onlinePlay.createVariable("doorsolidB","uint16",true,0)
+local doorwarpA = onlinePlay.createVariable("doorwarpA","uint16",true,0)
+local doorwarpB = onlinePlay.createVariable("doorwarpB","uint16",true,0)
 
 local joenorm = {}
 local joeahh = {}
