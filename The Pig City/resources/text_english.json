@@ -352,10 +352,10 @@
         },
 
         "stone": {
-            "spawn": "Jerome has appeared!",
-            "grabbed": "{NAME} grabbed Jerome!",
-            "killed": "Jerome was destroyed!",
-            "overheated": "Jerome exploded!"
+            "spawn": "Gerome has appeared!",
+            "grabbed": "{NAME} grabbed Gerome!",
+            "killed": "Gerome was destroyed!",
+            "overheated": "Gerome exploded!"
         }
     },
 

@@ -17,16 +17,35 @@ local pizzatimeimgframe = 0
 local pizzanim = {}
 local pizzanimconcluded = false
 
+local mainmus = onlinePlay.createVariable("mainmus","uint16",true,0)
+local pizzmus = onlinePlay.createVariable("pizzmus","uint16",true,0)
+
 -- Run code on level start
 function onStart()
-	
+	pizzatime = 0
+	mainmus = math.random(0,1)
+	pizzmus = math.random(0,1)
+	Routine.run(function ()
+		Routine.waitFrames(2)
+		if mainmus == 0 then
+			Audio.MusicChange(player.section, "The Pig City/Bite The Crust.mp3", 1)
+		end
+		if mainmus == 1 then
+			Audio.MusicChange(player.section, "The Pig City/Way Of The Pig.mp3", 1)
+		end
+	end)
 end
 
 -- Run code every frame (~1/65 second)
 -- (code will be executed before game logic will be processed)
 function onTick()
-    if battleTimer.isActive and battleTimer.secondsLeft <= 60 and pizzatime.value == 0 then
-		Audio.MusicChange(player.section, "The Pig City/The Death That I Deservioli.mp3", 1)
+    if battleTimer.isActive and battleTimer.secondsLeft <= 60 and pizzatime == 0 then
+		if pizzmus == 0 then
+			Audio.MusicChange(player.section, "The Pig City/pizztime.mp3", 1)
+		end
+		if pizzmus == 1 then
+			Audio.MusicChange(player.section, "The Pig City/The Death That I Deservioli.mp3", 1)
+		end
 		if pizzanimconcluded == false then
 			pizzanimconcluded = true
 			pizzanim = Routine.run(function ()
