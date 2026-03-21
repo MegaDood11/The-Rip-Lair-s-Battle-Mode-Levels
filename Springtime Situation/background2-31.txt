@@ -40,6 +40,6 @@ alignY=BOTTOM
 
 [trees]
 img="trees.png"
-depth=50
+depth=100
 repeatX=true
 alignY=BOTTOM
