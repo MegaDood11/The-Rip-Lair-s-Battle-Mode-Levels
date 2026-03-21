@@ -1,0 +1,4 @@
+height=120
+width=46
+frames=3
+framestyle=0

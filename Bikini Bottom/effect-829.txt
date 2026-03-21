@@ -1,0 +1,10 @@
+[fist]
+import=AI_ARC
+xAlign = MID
+yAlign = MID
+spawnBindX = CENTER
+spawnBindY = CENTER
+frames = 1
+framestyle=0
+rotation = -5:5
+variants = 2

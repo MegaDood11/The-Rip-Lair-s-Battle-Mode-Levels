@@ -1,0 +1,3 @@
+gfxwidth=56
+gfxheight=76
+frames=5

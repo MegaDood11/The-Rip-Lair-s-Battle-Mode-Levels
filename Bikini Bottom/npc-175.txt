@@ -1,0 +1,5 @@
+frames=4
+width=104
+height=108
+gfxwidth=104
+gfxheight=108

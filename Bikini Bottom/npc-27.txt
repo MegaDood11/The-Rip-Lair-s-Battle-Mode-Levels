@@ -1,0 +1,4 @@
+frames=6
+framestyle=1
+width=68
+height=112

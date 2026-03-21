@@ -1,0 +1,4 @@
+[1]
+lifetime = 24
+frames = 3
+variants = 2
