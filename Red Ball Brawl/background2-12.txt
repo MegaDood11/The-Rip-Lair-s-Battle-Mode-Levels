@@ -1,0 +1,16 @@
+[background2]
+; Name that will appear in the editor
+name = "Red Ball Background"
+; Backdrop fill color
+fill-color = black
+
+
+; Add layers here, for example:
+
+[back]
+depth = INFINITE
+img = "background2-13.png"
+
+[clouds]
+depth = 200
+img = "bclouds.png"
