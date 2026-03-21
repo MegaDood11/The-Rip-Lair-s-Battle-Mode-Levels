@@ -1,0 +1,6 @@
+image = background-784.png
+name = EXPLOOOOOOSSSIUNNnnn
+frames = 5
+framespeed = 8
+noshadows = false
+priority = -85

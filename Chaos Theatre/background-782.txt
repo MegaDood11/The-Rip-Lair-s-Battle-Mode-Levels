@@ -1,0 +1,6 @@
+image = background-782.png
+name = Cloud (long)
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -85

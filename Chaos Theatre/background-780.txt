@@ -1,0 +1,7 @@
+image = background-780.png
+name = "Young" Neil Nordegraf (cheering)
+description = "Young" Neil Nordegraf is a substitute member of Sex Bob-omb and one of the seven main characters of the Scott Pilgrim franchise. He is introduced as a close friend to Scott Pilgrim and is part of his friendship circle. He supports Scott and Stephen’s band and considers himself to be their biggest fan. Young Neil appears in Scott Pilgrim vs. the World: The Game as a background character and the shop owner in Lee's Place Stand in World 3.
+frames = 5
+framespeed = 8
+noshadows = false
+priority = -85.1

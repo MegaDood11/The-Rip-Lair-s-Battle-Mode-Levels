@@ -1,0 +1,7 @@
+image = background-772.png
+name = Other Scott (thumbs up)
+description = "Other" Scott is a 26-year-old guy with sideburns and constant stubble. He sometimes appears with long eyelashes, possibly hinting that he wears makeup. He is "fairly gay" and Wallace Wells' best friend. He doesn't seem to mind being known as "Other Scott". He appears in Scott Pilgrim vs. the World: The Game as a background character is various locations. He is also the vendor of the Fancy Chip Wagon in World 2.
+frames = 3
+framespeed = 8
+noshadows = false
+priority = -85.1

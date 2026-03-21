@@ -1,0 +1,7 @@
+image = background-766.png
+name = Mobile (cheering)
+description = Mobile is Wallace Wells' boyfriend. He and Wallace move in together at the end of Volume 4 and he makes his first appearance at the end of Volume 5, during which Scott mistakes him for Gideon and promptly freaks out. Mobile appears in the Game as a background character. In World 6, a secret path will take you to Mobile's home where you can get food or a special training manual that gives you a special (and final) move.
+frames = 4
+framespeed = 8
+noshadows = false
+priority = -85.1

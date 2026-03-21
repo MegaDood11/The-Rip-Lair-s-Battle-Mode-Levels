@@ -1,0 +1,7 @@
+image = background-769.png
+name = Mrs. Chau
+description = Mrs. Chau is the mother of Knives Chau and the wife of Mr. Chau. She is a minor character in the series because she only appeared twice in the graphic novels. She appears in Scott Pilgrim vs. the World: The Game as a background character. She also appears as Knives' striker. When she is summoned, she will shout profanity in Chinese at the enemies, causing one of them to flee the battle. She can also be randomly summoned by any character after they have defeated and unlocked Mr. Chau.
+frames = 5
+framespeed = 8
+noshadows = false
+priority = -85.1

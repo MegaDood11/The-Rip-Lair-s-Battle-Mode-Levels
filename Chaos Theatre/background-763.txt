@@ -1,0 +1,7 @@
+image = background-763.png
+name = Lisa Miller
+description = Lisa Miller is an actress from Northern Ontario. She was close friends with Scott Pilgrim and Kim Pine in high school, and the three played in a band called Sonic & Knuckles. Lisa is one of the many background characters you see in the game. She's also the vendor at Dee's Tex Mex in World 1's Shopping District.
+frames = 8
+framespeed = 8
+noshadows = false
+priority = -85.1
