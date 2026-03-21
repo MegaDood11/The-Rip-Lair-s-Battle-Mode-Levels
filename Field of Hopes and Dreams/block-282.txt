@@ -1,0 +1,2 @@
+image = block-282.png
+frames = 1
