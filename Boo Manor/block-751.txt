@@ -17,3 +17,4 @@ bumpable = false
 customhurt = false
 ediblebyvine = false
 content_id = 0
+walkpaststair = true
