@@ -251,6 +251,14 @@ ID:1282;X:-201254;Y:-200186;W:32;H:32;
 ID:1282;X:-198816;Y:-200192;W:32;H:32;
 ID:1007;X:-199870;Y:-200244;W:32;H:32;
 ID:1007;X:-199816;Y:-200244;W:32;H:32;
+ID:5;X:-198624;Y:-200416;W:32;H:32;CN:964;LR:"\[Bombs\] Default";
+ID:5;X:-198048;Y:-200416;W:32;H:32;CN:964;LR:"\[Bombs\] Default";
+ID:5;X:-198944;Y:-200288;W:32;H:32;CN:964;LR:"\[Bombs\] Default";
+ID:5;X:-199936;Y:-200256;W:32;H:32;CN:964;LR:"\[Bombs\] Default";
+ID:5;X:-200288;Y:-200576;W:32;H:32;CN:964;LR:"\[Bombs\] Default";
+ID:5;X:-201376;Y:-200416;W:32;H:32;CN:964;LR:"\[Bombs\] Default";
+ID:5;X:-199104;Y:-200544;W:32;H:32;CN:964;LR:"\[Bombs\] Default";
+ID:5;X:-200992;Y:-200288;W:32;H:32;CN:964;LR:"\[Bombs\] Default";
 BLOCK_END
 BGO
 ID:751;X:-201408;Y:-200864;LR:"buildings";
@@ -286,7 +294,6 @@ ID:10;X:-199102;Y:-200448;D:-1;
 ID:10;X:-199038;Y:-200448;D:-1;
 ID:10;X:-199642;Y:-200564;D:-1;
 ID:10;X:-199642;Y:-200500;D:-1;
-ID:10;X:-199578;Y:-200532;D:-1;
 ID:10;X:-199514;Y:-200500;D:-1;
 ID:10;X:-199514;Y:-200564;D:-1;
 ID:501;X:-200178;Y:-200452;D:-1;
@@ -313,6 +320,7 @@ ID:951;X:-197952;Y:-200366;D:-1;XTRA:"{\n    \"index\"\: 7\n}\n";
 ID:951;X:-198240;Y:-200192;D:-1;XTRA:"{\n    \"index\"\: 8\n}\n";
 ID:951;X:-199970;Y:-200510;D:-1;XTRA:"{\n    \"index\"\: 9\n}\n";
 ID:951;X:-200382;Y:-200448;D:-1;XTRA:"{\n    \"index\"\: 10\n}\n";
+ID:10;X:-199578;Y:-200532;D:-1;
 NPC_END
 LAYERS
 LR:"Default";
@@ -320,6 +328,7 @@ LR:"Destroyed Blocks";HD:1;
 LR:"Spawned NPCs";
 LR:"buildings";
 LR:"smithers";HD:1;
+LR:"\[Bombs\] Default";
 LAYERS_END
 EVENTS_CLASSIC
 ET:"Level - Start";AS:0;AX:0;AY:0;

@@ -234,6 +234,7 @@ ID:120;X:-199040;Y:-200448;
 ID:120;X:-199008;Y:-200448;
 ID:107;X:-199904;Y:-200128;LR:"Door";
 ID:952;X:-199488;Y:-200256;
+ID:953;X:-199488;Y:-200480;
 BGO_END
 NPC
 ID:76;X:-199248;Y:-200480;D:-1;GE:1;GT:2;GD:3;GM:1;LR:"GreenKoopa";EA:"HideGreen";ED:"ShowGreen";
@@ -250,6 +251,10 @@ ID:76;X:-199248;Y:-200480;D:-1;GE:1;GT:2;GD:3;GM:1;LR:"Hell";EA:"HideGreen";ED:"
 ID:161;X:-199728;Y:-200480;D:-1;GE:1;GT:2;GD:3;GM:1;LR:"Hell";EA:"HideRed";ED:"ShowRed";
 ID:239;X:-199488;Y:-200096;D:-1;LR:"Switch";ED:"YouFuckedUP";
 ID:86;X:-199503;Y:-200592;D:-1;LR:"Bowser";
+ID:964;X:-199248;Y:-200480;D:-1;GE:1;GT:1;GD:3;GM:60;LR:"\[Bombs\] Default";
+ID:964;X:-199728;Y:-200480;D:-1;GE:1;GT:1;GD:3;GM:60;LR:"\[Bombs\] Default";
+ID:964;X:-199248;Y:-200480;D:-1;LR:"\[Bombs\] Default";
+ID:964;X:-199728;Y:-200480;D:-1;LR:"\[Bombs\] Default";
 NPC_END
 LAYERS
 LR:"Default";
@@ -260,6 +265,7 @@ LR:"GreenKoopa";
 LR:"Hell";HD:1;
 LR:"Switch";HD:1;
 LR:"Bowser";HD:1;
+LR:"\[Bombs\] Default";
 LAYERS_END
 EVENTS_CLASSIC
 ET:"Level - Start";AS:0;AX:0;AY:0;

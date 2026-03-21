@@ -148,10 +148,10 @@ ID:118;X:-197728;Y:-200128;W:32;H:32;
 ID:118;X:-197728;Y:-200096;W:32;H:32;
 ID:118;X:-197728;Y:-200064;W:32;H:32;
 ID:118;X:-197728;Y:-200032;W:32;H:32;
-ID:4;X:-197568;Y:-200128;W:32;H:32;
-ID:4;X:-197536;Y:-200128;W:32;H:32;
-ID:4;X:-197504;Y:-200128;W:32;H:32;
-ID:4;X:-197472;Y:-200128;W:32;H:32;
+ID:4;X:-197568;Y:-200128;W:32;H:32;LR:"\[Stars\, Classic\] Default";
+ID:4;X:-197536;Y:-200128;W:32;H:32;LR:"\[Stars\, Classic\] Default";
+ID:4;X:-197504;Y:-200128;W:32;H:32;LR:"\[Stars\, Classic\] Default";
+ID:4;X:-197472;Y:-200128;W:32;H:32;LR:"\[Stars\, Classic\] Default";
 ID:1083;X:-197344;Y:-200064;W:32;H:32;
 ID:141;X:-197312;Y:-200192;W:64;H:32;
 ID:146;X:-197312;Y:-200160;W:64;H:32;
@@ -211,7 +211,7 @@ ID:117;X:-196160;Y:-200128;W:32;H:32;
 ID:119;X:-196192;Y:-200128;W:32;H:32;
 ID:88;X:-195872;Y:-200320;W:32;H:32;CN:-1;
 ID:4;X:-195840;Y:-200320;W:32;H:32;
-ID:4;X:-195904;Y:-200320;W:32;H:32;
+ID:4;X:-195904;Y:-200320;W:32;H:32;LR:"\[Stars\, Classic\] Default";
 ID:4;X:-195968;Y:-200320;W:32;H:32;
 ID:88;X:-195936;Y:-200320;W:32;H:32;CN:-1;
 ID:4;X:-195936;Y:-200192;W:32;H:32;
@@ -1603,6 +1603,17 @@ ID:120;X:-198400;Y:-201824;W:32;H:32;
 ID:120;X:-198400;Y:-201856;W:32;H:32;
 ID:120;X:-198400;Y:-201888;W:32;H:32;
 ID:120;X:-198400;Y:-201920;W:32;H:32;
+ID:446;X:-197504;Y:-200128;W:32;H:32;LR:"\[Bombs\] Default";
+ID:446;X:-197568;Y:-200128;W:32;H:32;LR:"\[Bombs\] Default";
+ID:446;X:-197472;Y:-200128;W:32;H:32;LR:"\[Bombs\] Default";
+ID:446;X:-197536;Y:-200128;W:32;H:32;LR:"\[Bombs\] Default";
+ID:88;X:-197520;Y:-200256;W:32;H:32;CN:964;LR:"\[Bombs\] Default";
+ID:88;X:-197040;Y:-200352;W:32;H:32;CN:964;LR:"\[Bombs\] Default";
+ID:88;X:-196320;Y:-200160;W:32;H:32;CN:964;LR:"\[Bombs\] Default";
+ID:88;X:-195904;Y:-200320;W:32;H:32;CN:964;LR:"\[Bombs\] Default";
+ID:88;X:-196672;Y:-200160;W:32;H:32;CN:964;LR:"\[Bombs\] Default";
+ID:88;X:-198048;Y:-200352;W:32;H:32;CN:964;LR:"\[Bombs\] Default";
+ID:88;X:-198608;Y:-200192;W:32;H:32;CN:964;LR:"\[Bombs\] Default";
 BLOCK_END
 BGO
 ID:132;X:-198880;Y:-200192;
@@ -1968,6 +1979,10 @@ ID:59;X:-199648;Y:-200448;
 ID:56;X:-199648;Y:-200608;
 ID:56;X:-199648;Y:-200512;
 ID:55;X:-199648;Y:-200544;
+ID:132;X:-197568;Y:-200160;LR:"\[Bombs\] Default";
+ID:132;X:-197536;Y:-200160;LR:"\[Bombs\] Default";
+ID:132;X:-197504;Y:-200160;LR:"\[Bombs\] Default";
+ID:132;X:-197472;Y:-200160;LR:"\[Bombs\] Default";
 BGO_END
 NPC
 ID:521;X:-197296;Y:-200256;D:-1;
@@ -1996,8 +2011,6 @@ ID:951;X:-195312;Y:-200160;D:-1;XTRA:"{\n    \"index\"\: 10\n}\n";
 ID:591;X:-196672;Y:-200040;D:-1;
 ID:591;X:-196640;Y:-200040;D:-1;
 ID:590;X:-195568;Y:-200512;D:-1;LR:"Podoboos";XTRA:"{\n    \"jumpHeight\"\: 400\,\n    \"useFixed\"\: true\n}\n";
-ID:590;X:-195904;Y:-200512;D:-1;LR:"Podoboos";XTRA:"{\n    \"jumpHeight\"\: 300\,\n    \"useFixed\"\: true\n}\n";
-ID:590;X:-197520;Y:-200512;D:-1;LR:"Podoboos";XTRA:"{\n    \"jumpHeight\"\: 300\,\n    \"useFixed\"\: true\n}\n";
 ID:590;X:-198112;Y:-200512;D:-1;LR:"Podoboos";XTRA:"{\n    \"jumpHeight\"\: 400\,\n    \"useFixed\"\: true\n}\n";
 ID:590;X:-197984;Y:-200512;D:-1;LR:"Podoboos";XTRA:"{\n    \"jumpHeight\"\: 400\,\n    \"useFixed\"\: true\n}\n";
 ID:590;X:-198608;Y:-200512;D:-1;LR:"Podoboos";XTRA:"{\n    \"jumpHeight\"\: 400\,\n    \"useFixed\"\: true\n}\n";
@@ -2009,6 +2022,13 @@ ID:91;X:-198656;Y:-200064;D:-1;CN:713;
 ID:91;X:-198560;Y:-200064;D:-1;CN:713;
 ID:91;X:-195488;Y:-200160;D:-1;CN:713;
 ID:590;X:-197040;Y:-200512;D:-1;LR:"Podoboos";XTRA:"{\n    \"jumpHeight\"\: 350\,\n    \"useFixed\"\: true\n}\n";
+ID:589;X:-198784;Y:-200064;D:-1;LR:"Podoboos";XTRA:"{\n    \"useFixed\"\: true\n}\n";
+ID:589;X:-198432;Y:-200064;D:-1;LR:"Podoboos";XTRA:"{\n    \"useFixed\"\: true\n}\n";
+ID:589;X:-197408;Y:-200064;D:-1;LR:"Podoboos";XTRA:"{\n    \"useFixed\"\: true\n}\n";
+ID:589;X:-197152;Y:-200064;D:-1;LR:"Podoboos";XTRA:"{\n    \"jumpHeight\"\: 128\,\n    \"useFixed\"\: true\n}\n";
+ID:589;X:-196896;Y:-200064;D:-1;LR:"Podoboos";XTRA:"{\n    \"jumpHeight\"\: 128\,\n    \"useFixed\"\: true\n}\n";
+ID:589;X:-196048;Y:-200064;D:-1;LR:"Podoboos";XTRA:"{\n    \"jumpHeight\"\: 160\,\n    \"useFixed\"\: true\n}\n";
+ID:589;X:-195744;Y:-200064;D:-1;LR:"Podoboos";XTRA:"{\n    \"jumpHeight\"\: 160\,\n    \"useFixed\"\: true\n}\n";
 NPC_END
 LAYERS
 LR:"Default";
@@ -2017,6 +2037,8 @@ LR:"Spawned NPCs";
 LR:"lava";
 LR:"Lava";HD:1;
 LR:"Podoboos";HD:1;
+LR:"\[Bombs\] Default";
+LR:"\[Stars\, Classic\] Default";
 LAYERS_END
 EVENTS_CLASSIC
 ET:"Level - Start";AS:0;AX:0;AY:0;

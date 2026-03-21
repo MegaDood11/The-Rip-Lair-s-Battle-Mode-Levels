@@ -4089,16 +4089,16 @@ NPC
 ID:908;X:-199892;Y:-200512;D:-1;CN:153;XTRA:"{\n    \"coins\"\: 0\,\n    \"projectileTrigger\"\: false\,\n    \"respawn\"\: false\,\n    \"revealFace\"\: 2\,\n    \"timeTrigger\"\: -1\n}\n";
 ID:101;X:-200063;Y:-200476;D:-1;FD:1;
 ID:908;X:-200180;Y:-200704;D:-1;CN:287;XTRA:"{\n    \"coins\"\: 0\,\n    \"projectileTrigger\"\: false\,\n    \"respawn\"\: false\,\n    \"revealFace\"\: 2\,\n    \"timeTrigger\"\: -1\n}\n";
-ID:908;X:-198292;Y:-200512;D:-1;CN:952;XTRA:"{\n    \"coins\"\: 0\,\n    \"projectileTrigger\"\: false\,\n    \"respawn\"\: false\,\n    \"revealFace\"\: 2\,\n    \"timeTrigger\"\: -1\n}\n";
-ID:908;X:-200244;Y:-200512;D:-1;CN:287;XTRA:"{\n    \"coins\"\: 0\,\n    \"projectileTrigger\"\: false\,\n    \"respawn\"\: false\,\n    \"revealFace\"\: 2\,\n    \"timeTrigger\"\: -1\n}\n";
+ID:908;X:-198292;Y:-200512;D:-1;CN:952;LR:"\[Classic\, Stars\] Default";XTRA:"{\n    \"coins\"\: 0\,\n    \"projectileTrigger\"\: false\,\n    \"respawn\"\: false\,\n    \"revealFace\"\: 2\,\n    \"timeTrigger\"\: -1\n}\n";
+ID:908;X:-200244;Y:-200512;D:-1;CN:287;LR:"\[Classic\, Stars\] Default";XTRA:"{\n    \"coins\"\: 0\,\n    \"projectileTrigger\"\: false\,\n    \"respawn\"\: false\,\n    \"revealFace\"\: 2\,\n    \"timeTrigger\"\: -1\n}\n";
 ID:908;X:-200660;Y:-200448;D:-1;CN:153;XTRA:"{\n    \"coins\"\: 0\,\n    \"projectileTrigger\"\: false\,\n    \"respawn\"\: false\,\n    \"revealFace\"\: 2\,\n    \"timeTrigger\"\: -1\n}\n";
 ID:908;X:-202132;Y:-200320;D:-1;CN:957;XTRA:"{\n    \"coins\"\: 0\,\n    \"projectileTrigger\"\: false\,\n    \"respawn\"\: false\,\n    \"revealFace\"\: 2\,\n    \"timeTrigger\"\: -1\n}\n";
 ID:908;X:-197300;Y:-200448;D:-1;CN:957;XTRA:"{\n    \"coins\"\: 0\,\n    \"projectileTrigger\"\: false\,\n    \"respawn\"\: false\,\n    \"revealFace\"\: 2\,\n    \"timeTrigger\"\: -1\n}\n";
 ID:908;X:-202932;Y:-200288;D:-1;CN:952;XTRA:"{\n    \"coins\"\: 0\,\n    \"projectileTrigger\"\: false\,\n    \"respawn\"\: false\,\n    \"revealFace\"\: 2\,\n    \"timeTrigger\"\: -1\n}\n";
 ID:908;X:-199444;Y:-200448;D:-1;CN:287;XTRA:"{\n    \"coins\"\: 0\,\n    \"projectileTrigger\"\: false\,\n    \"respawn\"\: false\,\n    \"revealFace\"\: 2\,\n    \"timeTrigger\"\: -1\n}\n";
-ID:908;X:-203188;Y:-200384;D:-1;CN:287;XTRA:"{\n    \"coins\"\: 0\,\n    \"projectileTrigger\"\: false\,\n    \"respawn\"\: false\,\n    \"revealFace\"\: 2\,\n    \"timeTrigger\"\: -1\n}\n";
+ID:908;X:-203188;Y:-200384;D:-1;CN:287;LR:"\[Classic\, Stars\] Default";XTRA:"{\n    \"coins\"\: 0\,\n    \"projectileTrigger\"\: false\,\n    \"respawn\"\: false\,\n    \"revealFace\"\: 2\,\n    \"timeTrigger\"\: -1\n}\n";
 ID:908;X:-201460;Y:-200320;D:-1;CN:287;XTRA:"{\n    \"coins\"\: 0\,\n    \"projectileTrigger\"\: false\,\n    \"respawn\"\: false\,\n    \"revealFace\"\: 2\,\n    \"timeTrigger\"\: -1\n}\n";
-ID:908;X:-202164;Y:-200480;D:-1;CN:287;XTRA:"{\n    \"coins\"\: 0\,\n    \"projectileTrigger\"\: false\,\n    \"respawn\"\: false\,\n    \"revealFace\"\: 2\,\n    \"timeTrigger\"\: -1\n}\n";
+ID:908;X:-202164;Y:-200480;D:-1;CN:287;LR:"\[Classic\, Stars\] Default";XTRA:"{\n    \"coins\"\: 0\,\n    \"projectileTrigger\"\: false\,\n    \"respawn\"\: false\,\n    \"revealFace\"\: 2\,\n    \"timeTrigger\"\: -1\n}\n";
 ID:908;X:-197012;Y:-200544;D:-1;CN:153;XTRA:"{\n    \"coins\"\: 0\,\n    \"projectileTrigger\"\: false\,\n    \"respawn\"\: false\,\n    \"revealFace\"\: 2\,\n    \"timeTrigger\"\: -1\n}\n";
 ID:908;X:-201428;Y:-200480;D:-1;CN:153;XTRA:"{\n    \"coins\"\: 0\,\n    \"projectileTrigger\"\: false\,\n    \"respawn\"\: false\,\n    \"revealFace\"\: 2\,\n    \"timeTrigger\"\: -1\n}\n";
 ID:33;X:-200700;Y:-200288;D:-1;
@@ -4129,11 +4129,23 @@ ID:951;X:-199808;Y:-200160;D:-1;XTRA:"{\n    \"index\"\: 7\n}\n";
 ID:951;X:-200352;Y:-200160;D:-1;XTRA:"{\n    \"index\"\: 8\n}\n";
 ID:951;X:-199744;Y:-200160;D:-1;XTRA:"{\n    \"index\"\: 9\n}\n";
 ID:951;X:-200032;Y:-200160;D:-1;XTRA:"{\n    \"index\"\: 10\n}\n";
+ID:908;X:-200244;Y:-200512;D:-1;CN:964;LR:"\[Bombs\] Default";XTRA:"{\n    \"respawn\"\: true\n}\n";
+ID:908;X:-202164;Y:-200480;D:-1;CN:964;LR:"\[Bombs\] Default";XTRA:"{\n    \"respawn\"\: true\n}\n";
+ID:908;X:-203188;Y:-200384;D:-1;CN:964;LR:"\[Bombs\] Default";XTRA:"{\n    \"respawn\"\: true\n}\n";
+ID:908;X:-196756;Y:-200416;D:-1;CN:964;LR:"\[Bombs\] Default";XTRA:"{\n    \"respawn\"\: true\n}\n";
+ID:908;X:-200948;Y:-200352;D:-1;CN:964;LR:"\[Bombs\] Default";XTRA:"{\n    \"respawn\"\: true\n}\n";
+ID:908;X:-201780;Y:-200256;D:-1;CN:964;LR:"\[Bombs\] Default";XTRA:"{\n    \"respawn\"\: true\n}\n";
+ID:908;X:-202548;Y:-200288;D:-1;CN:964;LR:"\[Bombs\] Default";XTRA:"{\n    \"respawn\"\: true\n}\n";
+ID:908;X:-202084;Y:-200176;D:-1;CN:287;LR:"\[Bombs\] Default";
+ID:908;X:-198292;Y:-200512;D:-1;CN:964;LR:"\[Bombs\] Default";XTRA:"{\n    \"respawn\"\: true\n}\n";
+ID:908;X:-197716;Y:-200384;D:-1;CN:964;LR:"\[Bombs\] Default";XTRA:"{\n    \"respawn\"\: true\n}\n";
 NPC_END
 LAYERS
 LR:"Default";
 LR:"Destroyed Blocks";HD:1;
 LR:"Spawned NPCs";
+LR:"\[Bombs\] Default";
+LR:"\[Classic\, Stars\] Default";
 LAYERS_END
 EVENTS_CLASSIC
 ET:"Level - Start";AS:0;AX:0;AY:0;
