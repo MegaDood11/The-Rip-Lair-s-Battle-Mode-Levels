@@ -1,0 +1,9 @@
+[background]
+image = "background-818.png"
+name = "Crimson Water Fountain (On)"
+z-layer = "background"
+grid=2
+animated=1
+frames = 6
+frame-delay = 90
+framespeed=5.85
