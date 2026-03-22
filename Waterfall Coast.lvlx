@@ -2165,8 +2165,8 @@ ET:0;X:-200480;Y:-200096;W:2544;H:160;LR:"liquid";
 ET:0;X:-197936;Y:-200096;W:2160;H:160;LR:"liquid";
 PHYSICS_END
 DOORS
-IX:-199472;IY:-200928;OX:-197104;OY:-200832;DT:1;ID:1;OD:1;TW:1;
-IX:-199600;IY:-200288;OX:-197680;OY:-200704;DT:1;ID:3;OD:1;TW:1;
+IX:-199472;IY:-200928;OX:-197104;OY:-200832;DT:1;ID:1;OD:1;LR:"\[Classic\, Stars\, Stone\] Default";TW:1;
+IX:-199600;IY:-200288;OX:-197680;OY:-200704;DT:1;ID:3;OD:1;LR:"\[Classic\, Stars\, Stone\] Default";TW:1;
 DOORS_END
 LAYERS
 LR:"Default";
@@ -2178,6 +2178,7 @@ LR:"liquid";
 LR:"waterfall";
 LR:"\[Classic\, Stars\, Phanto\] Default";
 LR:"\[Stone\] Default";
+LR:"\[Classic\, Stars\, Stone\] Default";
 LAYERS_END
 EVENTS_CLASSIC
 ET:"Level - Start";AS:0;AX:0;AY:0;

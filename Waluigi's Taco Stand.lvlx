@@ -1784,9 +1784,6 @@ ID:951;X:-199648;Y:-200160;D:-1;XTRA:"{\n    \"index\"\: 7\n}\n";
 ID:951;X:-199552;Y:-200160;D:-1;XTRA:"{\n    \"index\"\: 9\n}\n";
 ID:951;X:-199600;Y:-200160;D:-1;XTRA:"{\n    \"index\"\: 8\n}\n";
 NPC_END
-DOORS
-IX:-195856;IY:-200288;OX:-203088;OY:-200224;DT:1;ID:3;OD:3;TW:1;
-DOORS_END
 LAYERS
 LR:"Default";
 LR:"Destroyed Blocks";HD:1;
