@@ -1,4 +1,5 @@
 local npcManager = require("npcManager")
+local onlinePlayNPC = require("scripts/onlinePlay_npc")
 
 local card = {}
 local npcID = NPC_ID
@@ -207,7 +208,7 @@ function card.onTickNPC(v)
 			end
 		elseif data.cardAIState == STATE_HIDDEN then
 			data.cardTimer = data.cardTimer + 1
-			if data.cardTimer >= 192 then
+			if data.cardTimer >= 416 then
 				Effect.spawn(10,v.x + v.width*0.5 - 16, v.y + v.height*0.5 - 16)
 				data.cardTimer = 0
 				data.cardAIState = STATE_RETURN
@@ -267,5 +268,40 @@ function card.onDrawNPC(v)
 		v.animationFrame = -1
 	end
 end
-	
+
+onlinePlayNPC.onlineHandlingConfig[npcID] = {
+	getExtraData = function(v)
+		local data = v.data._basegame
+		if not data.initialized then
+			return nil
+		end
+
+		return {
+			spawnDirection = data.spawnDirection,
+			cardAIState = data.cardAIState,
+			cardTimer = data.cardTimer,
+			cardHitbox = data.cardHitbox,
+			cardMaxHeight = data.cardMaxHeight,
+			cardUpSpeed = data.cardUpSpeed,
+			revealFrame = data.revealFrame,
+			revealImage = data.revealImage,
+		}
+	end,
+	setExtraData = function(v, receivedData)
+		local data = v.data
+		if not data.initialized then
+			return nil
+		end
+
+		data.spawnDirection = receivedData.spawnDirection
+		data.cardAIState = receivedData.cardAIState
+		data.cardTimer = receivedData.cardTimer
+		data.cardHitbox = receivedData.cardHitbox
+		data.cardMaxHeight = receivedData.cardMaxHeight
+		data.cardUpSpeed = receivedData.cardUpSpeed
+		data.revealFrame = receivedData.revealFrame
+		data.revealImage = receivedData.revealImage
+	end,
+}
+
 return card
