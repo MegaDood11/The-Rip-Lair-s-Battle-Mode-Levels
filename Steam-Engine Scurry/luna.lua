@@ -96,7 +96,7 @@ local function eventHandling(name)	-- synced for online play
 	elseif name == "noTunnel" then
 		Audio.MusicInstChannelMute(1)
 		Audio.MusicInstChannelUnmute(0)
-	elseif name == "warning" then
+	elseif name == "warning" and battleGeneral.mode ~= battleGeneral.gameMode.PHANTO then
 		Routine.run(function()
 			showWarningArea = true
 			SFX.play("train_whistle.mp3")	-- play the train whistle sound for everyone regardless of their position
