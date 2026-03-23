@@ -35,7 +35,7 @@ costume.hammerConfig = {
 	framestyle = 1,
 }
 
-goaltape.registerVictoryPose("SMW-Mario",28,29) -- this allows the player to use a custom frame after getting a goal tape
+goaltape.registerVictoryPose("SMW-Luigi",28,29) -- this allows the player to use a custom frame after getting a goal tape
 
 
 
@@ -618,7 +618,7 @@ end
 
 function costume.onTick()
 	for _,p in ipairs(costume.playersList) do
-		if p.character == CHARACTER_MARIO then
+		if p.character == CHARACTER_LUIGI then
 			local data = costume.playerData[p]
 
 
@@ -654,7 +654,7 @@ end
 
 function costume.onTickEnd()
 	for _,p in ipairs(costume.playersList) do
-		if p.character == CHARACTER_MARIO then
+		if p.character == CHARACTER_LUIGI then
 			local data = costume.playerData[p]
 
 
@@ -742,7 +742,7 @@ end
 
 function costume.onDraw()
 	for _,p in ipairs(costume.playersList) do
-		if p.character == CHARACTER_MARIO then
+		if p.character == CHARACTER_LUIGI then
 			local data = costume.playerData[p]
 
 			data.frameInOnDraw = p.frame
