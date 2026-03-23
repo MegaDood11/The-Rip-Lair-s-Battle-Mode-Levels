@@ -1,15 +1,15 @@
 local iceBlock = {}
 local npcManager = require("npcManager")
+local onlineNPC = require("scripts/onlinePlay_npc")
 
 local npcID = NPC_ID
 
 function iceBlock.onNPCKill(e, v, r)
 	if Defines.levelFreeze then return end
 	if v.id ~= npcID or r == 9 then return end
-	e.cancelled = true
-	Effect.spawn(30, v.x + v.width * 0.5, v.y + v.height * 0.5)
-	SFX.play(4)
-	v.data.respawn = 320
+	local n = NPC.spawn(npcID, v.spawnX, v.spawnY)
+	n.data.respawn = 320
+	onlineNPC.forceKillNPC(v)
 end
 
 function iceBlock.onTickEndNPC(v)
@@ -24,14 +24,12 @@ function iceBlock.onTickEndNPC(v)
 	v.ai2 = 1
 	v.animationFrame = -1
 	v.friendly = true
-	if v.despawnTimer <= 0 then NPC.spawn(npcID, v.x, v.y) v:kill(9) data.respawn = nil return end
 	for _,p in ipairs(Player.get()) do
 		if Colliders.collide(v,p) then return end
 		if data.respawn <= 0 then
 			Effect.spawn(10, v.x, v.y)
-			NPC.spawn(npcID, v.x, v.y)
 			data.respawn = nil
-			v:kill(9)
+			v.friendly = false
 			break
 		end
 	end
