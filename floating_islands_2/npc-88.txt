@@ -1,0 +1,4 @@
+width=32
+frames=8
+framespeed=6
+framestyle=1
