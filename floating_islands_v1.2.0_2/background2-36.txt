@@ -1,7 +1,0 @@
-fill-color = #9890F8
-
-[BG]
-img=floating_islands_v1.2.0_1/background2-36.png
-parallaxX=0.25
-fitY=true
-depth=100
