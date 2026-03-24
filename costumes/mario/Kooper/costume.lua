@@ -79,7 +79,7 @@ local function isOnGround(p)
 		or p:mem(0x48,FIELD_WORD) ~= 0 -- on a slope
 	)
 end
-
+--[[
 local function isSupposedToBeSmall(p)
 	return (
 		(
@@ -96,6 +96,7 @@ local function isSupposedToBeSmall(p)
 		)
 	)
 end
+--]]
 
 local function isSlidingOnIce(p)
 	return (p:mem(0x0A,FIELD_BOOL) and (not p.keys.left and not p.keys.right))
@@ -256,23 +257,24 @@ local animations = {
 	run  = {18,17,16, frameDelay = 6},
 	walkHolding = {10,9,8, frameDelay = 6},
 	fall = {5},
-	duckSmall = {7},
 	
 	-- Small only animation
-	walkSmall = {3,2,1, frameDelay = 6},
-	runSmall  = {18,17,16, frameDelay = 6},
-	walkHoldingSmall = {10,9,8, frameDelay = 6},
+	walkSmall = {2,1,   frameDelay = 6},
+	runSmall  = {16,17, frameDelay = 6},
+	walkHoldingSmall = {6,5, frameDelay = 6},
+    
+	duckSmall = {8},
+	fallSmall = {7},
 	
 	
-	jumpSmall = {4},
-	jumpSmallHolding = {10},
-	fallSmall = {5},
-	fallSmallHolding = {10},
+	jumpSmall = {3},
+	jumpSmallHolding = {6},
+	fallSmallHolding = {6},
 	
-	holdSmallIdle = {8},
+	holdSmallIdle = {5},
 	
-	turnSmall = {6},
-	turnSmallHolding = {10},
+	turnSmall = {4},
+	turnSmallHolding = {6},
 	
 	-- damaged frame
 	damaged = {20,21, frameDelay = 8},
@@ -297,6 +299,7 @@ local animations = {
 	runJump = {19},
 
 	slide = {24},
+	slideSmall = {8},
 
 	clearPipeHorizontal = {19, setFrameInOnDraw = true},
 	clearPipeVertical = {15, setFrameInOnDraw = true},
@@ -322,7 +325,7 @@ local animations = {
 	-- Swimming
 	swimIdle = {40,41, frameDelay = 10},
 	swimStroke = {43,44,44, frameDelay = 4,loops = false},
-	swimStrokeSmall = {43,44,44, frameDelay = 4,loops = false},
+	swimStrokeSmall = {42,43,43, frameDelay = 4,loops = false},
 
 
 	-- To fix a dumb bug with toad's spinjump while holding an item
@@ -419,7 +422,11 @@ local function findAnimation(p)
 	end
 	
 	if  p:mem(0x3C,FIELD_BOOL) then -- sliding
-		return "slide",math.max(0.35,math.abs(p.speedX)/Defines.player_runspeed)
+	    if p.powerup > 1 then
+		    return "slide",math.max(0.35,math.abs(p.speedX)/Defines.player_runspeed)
+		else
+		    return "slideSmall"
+		end
 	end
 
 	if p:mem(0x12E,FIELD_BOOL) then
@@ -715,33 +722,6 @@ function costume.onTick()
 				data.yoshiHitTimer = 0
 			end
 		end
-		
-		if Player.getCostume(p.character) == "KOOPER" then
-	
-			if isSupposedToBeSmall(p) then	-- make Kooper small when sliding and not "small" already (can't resize hitbox in that case
-				p.isDucking = true
-				p:mem(0x12E,FIELD_BOOL,true)
-				
-				local swiping = p:mem(0x164,FIELD_WORD) ~= 0 and not p.slidingOnSlope
-				p.keys.down = swiping	-- hold down if tailswiping, but not if sliding
-				
-				if swiping and isOnGround(p) then
-					local useAccel = acceleration
-					if math.abs(p.speedX) >= Defines.player_walkspeed then
-						useAccel = accelerationPastWalkspeed
-					end
-					if p:mem(0x0A,FIELD_BOOL) then
-						useAccel = useAccel * 0.25
-					end
-					if p.keys.left then
-						p.speedX = p.speedX - useAccel
-					elseif p.keys.right then
-						p.speedX = p.speedX + useAccel
-					end
-				end
-			end
-		end
-		
 	end
 end
 
