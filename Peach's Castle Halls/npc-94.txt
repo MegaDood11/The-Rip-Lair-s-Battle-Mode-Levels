@@ -1,4 +1,0 @@
-gfxheight=40
-gfxwidth=30
-height=40
-width=30
