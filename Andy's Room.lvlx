@@ -434,7 +434,6 @@ ID:1007;X:-197888;Y:-200192;W:32;H:32;LR:"\[Stone\] Default";
 ID:9;X:-197888;Y:-200128;W:64;H:64;LR:"\[Stone\] Default";
 ID:88;X:-198752;Y:-200960;W:32;H:32;CN:964;LR:"\[Bombs\] Default";
 ID:88;X:-197984;Y:-200640;W:32;H:32;CN:964;LR:"\[Bombs\] Default";
-ID:88;X:-199840;Y:-200192;W:32;H:32;CN:964;LR:"\[Bombs\] Default";
 ID:88;X:-198400;Y:-200384;W:32;H:32;CN:964;LR:"\[Bombs\] Default";
 ID:90;X:-198336;Y:-200512;W:32;H:32;CN:-1;LR:"\[Bombs\] Default";
 ID:88;X:-198720;Y:-200576;W:32;H:32;CN:964;LR:"\[Bombs\] Default";
