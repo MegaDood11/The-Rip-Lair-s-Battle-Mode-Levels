@@ -1,0 +1,8 @@
+priority=-80
+frames=1
+framespeed=8
+
+lightradius = 192
+lightbrightness = 1
+lightcolor = 0xF82038
+lightflicker = false
