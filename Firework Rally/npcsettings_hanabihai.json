@@ -1,0 +1,89 @@
+{
+	"style" : "groupbox",
+	"title" : "Hanabihai Settings",
+	"layout": [
+		{
+		"control": "listGroup",
+		"name": "segmentData",
+		"tooltip": "Which NPCs get released when the Barrglar breaks.",
+		"collapse": true,
+		"default-collapsed": false,
+		"title": "Segments",
+		"children": [
+			{
+			"control": "spinBox",
+			"type": "int",
+			"name": "defaultColour",
+			"title": "Default Colour",
+			"tooltip": "The colour of this segment. 1: red. 2: blue. 3: yellow. Only used if 'Use custom Colour' is off.",
+			"value-default": 0,
+			"value-min": 0,
+			"value-max": 3,
+			"single-step": 1
+		},
+		{
+			"control": "checkBox",
+			"name": "useCustom",
+			"title": "Use custom Colour",
+			"tooltip": "If ticked, the Default Colour will be ignored, instead using the colour picked from the colour wheel below.",
+			"value-default": false
+		},
+		
+		{
+			"control": "color",
+			"name": "customColour",
+			"title": "Colour",
+			"tooltip": "The colour this segment is using. Only gets picked when 'Use custom Colour' is ticked.",
+			"value-default": "#eb0004",
+			"alpha-channel": false,
+			"placeholder": "pick Colour"
+			
+		}
+		
+		]
+		},
+		{
+			"control": "spinBox",
+			"type": "int",
+			"name": "fireworktimer",
+			"title": "Shooting Invervall",
+			"tooltip": "The amount of frames between each firework rocket shot.",
+			"value-default": 100,
+			"value-min": 1,
+			"value-max": 500,
+			"single-step": 10
+		},
+		{
+			"control": "spinBox",
+			"type": "double",
+			"decimals": 2,
+			"name": "fireworkspeed",
+			"title": "Shooting Speed",
+			"tooltip": "The speed a rocket is shot at. The faster it is, the higher it will reach, obviously",
+			"value-default": 10,
+			"value-min": 6,
+			"value-max": 16,
+			"single-step": 0.5
+		},
+		{
+			"control": "spinBox",
+			"type": "int",
+			"name": "segmentCount",
+		"title": "[OLD] Segments",
+			"tooltip": "[OLD] The amount of pixels the Hanabihai has.\nonly used when the segment list is empty",
+			"value-default": 3,
+			"value-min": 1,
+			"value-max": 15,
+			"single-step": 1
+		},
+		{
+			"control": "lineEdit",
+			"name": "colourSet",
+			"type": "table",
+			"title": "[OLD] Colours",
+			"tooltip": "[OLD] The colours of each individual segment (starting from the bottom). Enter like this:\n 1 2 3 (1: red. 2: blue. 3: yellow) You can also use hex codes!\n There should be as many values given as there are segments\nonly used when the segment list is empty",
+			"value-default": "1 3 2"
+		}
+		
+	]
+}

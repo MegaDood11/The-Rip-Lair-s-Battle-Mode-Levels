@@ -1,0 +1,13 @@
+[first]
+onTick=TICK_ARC
+gravity=0.6
+speedY=-7:-10
+speedX=4:-4
+framespeed=3
+frames=1
+lifetime=500
+maxSpeedY=10
+variants=4
+rotation = 10:-10
+xAlign = CENTER
+yAlign = CENTER
