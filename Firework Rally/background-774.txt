@@ -1,0 +1,1 @@
+image = background-774.png
