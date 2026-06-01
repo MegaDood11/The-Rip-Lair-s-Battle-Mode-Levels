@@ -75,6 +75,17 @@ function sampleNPC.onTickNPC(v)
 		data.timer = 0
 	end
 
+	v.data.culprit = v.heldPlayer or 0
+	
+	v:mem(0x132,FIELD_WORD, v.heldIndex)
+	v.data.culprit = v:mem(0x132,FIELD_WORD)
+	
+	v:mem(0x132,FIELD_WORD, v.data.culprit)
+	
+	if v:mem(0x132,FIELD_WORD) ~= 0 then
+		v.data.target = v:mem(0x132,FIELD_WORD)
+	end
+
 	--Depending on the NPC, these checks must be handled differently
 	if v.isProjectile and v.ai1 == 0 then
 		if not data.split then
@@ -83,6 +94,7 @@ function sampleNPC.onTickNPC(v)
 				local n = NPC.spawn(npcID, v.x, v.y, player.section, false)
 				n.speedX = v.speedX + RNG.random(-3, 3)
 				n.speedY = v.speedY + RNG.random(-3, 3)
+				n.data.target = v.data.target
 				n.isProjectile = true
 				n.ai1 = 1
 				n:mem(0x130, FIELD_WORD, v:mem(0x130, FIELD_WORD))
@@ -93,16 +105,9 @@ function sampleNPC.onTickNPC(v)
 		
 	if v.heldIndex == 0 and v.forcedState == 0 then
 	
-		for _,p in ipairs(Player.get()) do
-			if not v.friendly and Colliders.collide(p, v) and v:mem(0x12E, FIELD_WORD) <= 0 then
-				p:harm()
-			end
-		end
-
-	
 		data.timer = data.timer + 1
 		for _,p in ipairs(Player.get()) do
-			if data.timer >= 8 then
+			if data.timer >= 8 and p.idx ~= v.data.target then
 				if (Colliders.collide(p,v) and p.forcedState == 0 and p.deathTimer <= 0) or (v.collidesBlockBottom or v.collidesBlockUp or v.collidesBlockLeft or v.collidesBlockRight) then
 					v:kill(9)
 				end
@@ -122,6 +127,12 @@ function sampleNPC.onTickNPC(v)
 			end
 		end
 	end
+	
+	for _,p in ipairs(Player.get()) do
+		if p.idx ~= v.data.target and Colliders.collide(v,p) and v.heldIndex == 0 then
+			battlePlayer.harmPlayer(p,1)
+		end
+	end
 end
 
 onlinePlayNPC.onlineHandlingConfig[npcID] = {
@@ -135,6 +146,8 @@ onlinePlayNPC.onlineHandlingConfig[npcID] = {
 			MutinyLevelSplashSound = data.MutinyLevelSplashSound,
 			split = data.split,
 			timer = data.timer,
+			culprit = data.culprit,
+			target = data.target,
 		}
 	end,
 	setExtraData = function(v, receivedData)
@@ -146,6 +159,8 @@ onlinePlayNPC.onlineHandlingConfig[npcID] = {
 		data.MutinyLevelSplashSound = receivedData.MutinyLevelSplashSound
 		data.split = receivedData.split
 		data.timer = receivedData.timer
+		data.culprit = receivedData.culprit
+		data.target = receivedData.target
 	end,
 }
 

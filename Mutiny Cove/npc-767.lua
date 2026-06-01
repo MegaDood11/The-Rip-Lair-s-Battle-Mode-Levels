@@ -1,6 +1,7 @@
 --NPCManager is required for setting basic NPC properties
 local npcManager = require("npcManager")
 local onlinePlayNPC = require("scripts/onlinePlay_npc")
+local battlePlayer = require("scripts/battlePlayer")
 local npcutils = require("npcs/npcutils")
 
 --Create the library table
@@ -83,12 +84,6 @@ function sampleNPC.onTickNPC(v)
 			v.speedY = 8
 		else
 			
-			for _,p in ipairs(Player.get()) do
-				if not v.friendly and Colliders.collide(p, v) then
-					p:harm()
-				end
-			end
-			
 			if not v.friendly then
 				for _,p in ipairs(NPC.getIntersecting(v.x - 1, v.y - 1, v.x + v.width + 1, v.y + v.height + 1)) do
 					if (p.id >= 754 and p.id <= 765) or (p:mem(0x12A, FIELD_WORD) > 0 and p:mem(0x138, FIELD_WORD) == 0 and v:mem(0x138, FIELD_WORD) == 0 and (not p.isHidden) and (not p.friendly) and p:mem(0x12C, FIELD_WORD) == 0 and p.idx ~= v.idx and v:mem(0x12C, FIELD_WORD) == 0 and NPC.HITTABLE_MAP[p.id]) then
@@ -114,6 +109,23 @@ function sampleNPC.onTickNPC(v)
 			end
 		end
 	end
+	
+	v.data.culprit = v.heldPlayer or 0
+	
+	v:mem(0x132,FIELD_WORD, v.heldIndex)
+	v.data.culprit = v:mem(0x132,FIELD_WORD)
+	
+	v:mem(0x132,FIELD_WORD, v.data.culprit)
+	
+	if v:mem(0x132,FIELD_WORD) ~= 0 then
+		v.data.target = v:mem(0x132,FIELD_WORD)
+	end
+	
+	for _,p in ipairs(Player.get()) do
+		if not v.friendly and p.idx ~= v.data.target and Colliders.collide(v,p) and v.heldIndex == 0 then
+			battlePlayer.harmPlayer(p,1)
+		end
+	end
 end
 
 function sampleNPC.onDrawNPC(v)
@@ -136,6 +148,8 @@ onlinePlayNPC.onlineHandlingConfig[npcID] = {
 		return {
 			timer = data.timer,
 			top = data.top,
+			culprit = data.culprit,
+			target = data.target,
 		}
 	end,
 	setExtraData = function(v, receivedData)
@@ -146,6 +160,8 @@ onlinePlayNPC.onlineHandlingConfig[npcID] = {
 
 		data.timer = receivedData.timer
 		data.top = receivedData.top
+		data.culprit = receivedData.culprit
+		data.target = receivedData.target
 	end,
 }
 

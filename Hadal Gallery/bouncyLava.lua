@@ -8,7 +8,7 @@ local bouncyLava = {
     -- library only vars
 	enabled = true, -- basic flip switch for functionality
 	zoneBlockID = 755, -- block id considered for zone checks
-    launchTime = 55, -- amount a control lock timer is set to upon launch
+    launchTime = 32, -- amount a control lock timer is set to upon launch
 	sectionConfig = {}, -- stores per-section settings
 
 	-- setting shared with per-section configs
@@ -27,6 +27,11 @@ local bouncyLava = {
 -- Helper function; dummies out table for section settings to avoid nil entry access
 local function initSection(id)
 	bouncyLava.sectionConfig[id] = bouncyLava.sectionConfig[id]  or  {}
+end
+
+function ultimateSlip(p)
+    p:mem(0x138, FIELD_FLOAT, p.speedX)
+    p.speedX = 0
 end
 
 -- set up settings for section specified
@@ -170,6 +175,7 @@ end
 function bouncyLava.onInitAPI()
 	registerEvent(bouncyLava, "onTick")
 	registerEvent(bouncyLava, "onPlayerKill")
+	registerEvent(bouncyLava, "onNPCKill")
 end
 
 local pData = {}
@@ -197,10 +203,11 @@ function bouncyLava.onTick()
         -- if our launch timer is active, unhold the player's run buttons (for speed purposes)
         if data.launchTimer > 0 then
             data.launchTimer = pData[harmedPlayer.idx].launchTimer - 1
-            harmedPlayer.keys.run = KEYS_UP
-            harmedPlayer.keys.altRun = KEYS_UP
             harmedPlayer:mem(0x160, FIELD_WORD, 2) -- projectile cooldown
             harmedPlayer:mem(0x172, FIELD_BOOL, false) -- run button bool, powerup related
+			if lunatime.tick() % 4 == 0 then
+				Effect.spawn(139, RNG.randomInt(harmedPlayer.x, harmedPlayer.x + harmedPlayer.width), RNG.randomInt(harmedPlayer.y, harmedPlayer.y + harmedPlayer.height))
+			end
         end
 
         -- reset the launch timer if we're back on the ground properor start climing
@@ -354,8 +361,13 @@ function bouncyLava.onTick()
                         -- appliedOffset.y = harmedPlayer.y - initialPosition.y -- debug line
 
                         harmedPlayer:mem(processTable.y[tostring(math.sign(normal.y))].pinchAddress, FIELD_WORD, 2) -- pinch address. meant to work with layer crushing, barely works
-
-                        harmedPlayer.speedY = processSpeed*normal.y
+						
+						if harmedPlayer.rawKeys.jump == KEYS_DOWN or harmedPlayer.rawKeys.altJump == KEYS_DOWN then
+							harmedPlayer.speedY = processSpeed*normal.y
+						else
+							harmedPlayer.speedY = -5
+						end
+						
                         appliedSpeed.y = harmedPlayer.speedY
                     end
                 else
@@ -391,7 +403,11 @@ function bouncyLava.onTick()
                         end
 
                         -- appliedOffset.y = harmedPlayer.y - initialPosition.y -- debug line
-                        harmedPlayer.speedY = appliedSpeed.y
+						if harmedPlayer.rawKeys.jump == KEYS_DOWN or harmedPlayer.rawKeys.altJump == KEYS_DOWN then
+							harmedPlayer.speedY = appliedSpeed.y
+						else
+							harmedPlayer.speedY = -5
+						end
                     -- horizontal
                     else
                         -- right of block
@@ -414,15 +430,11 @@ function bouncyLava.onTick()
 
                 -- set these for this frame so it carries over to control locks
                 data.launchTimer = bouncyLava.launchTime
-                harmedPlayer.keys.run = KEYS_UP
-                harmedPlayer.keys.altRun = KEYS_UP
                 harmedPlayer:mem(0x160, FIELD_WORD, 2)
                 harmedPlayer:mem(0x172, FIELD_BOOL, false)
-
-                -- call harm if we should be doing that
-                if  (harmedPlayer.powerup ~= PLAYER_SMALL or harmedPlayer.mount > 0) and bouncyLava.getConfig(harmedPlayer.section, "canHarm", zones) then
-                    harmedPlayer:harm()
-                end
+				SFX.play(Misc.resolveSoundFile("nitro-bounce.ogg"))
+				
+				harmedPlayer.speedX = math.clamp(harmedPlayer.speedX * 2, -12, 12)
 
                 -- print debug info for some frames
                 -- Routine.run(function()
@@ -442,6 +454,9 @@ function bouncyLava.onTick()
                 EventManager.callEvent("onPlayerLavaBounce",harmedPlayer)
             end
         end
+		if data.launchTimer > 0 then
+			ultimateSlip(harmedPlayer)
+		end
     end
 end
 
@@ -479,6 +494,12 @@ function bouncyLava.onPlayerKill(eventToken, harmedPlayer)
             EventManager.callEvent("onPlayerLavaDeath", harmedPlayer)
         end  
     end    
+end
+
+function bouncyLava.onNPCKill(eventToken, v, reason)
+    if reason ~= HARM_TYPE_LAVA then return end
+	eventToken.cancelled = true
+	v.speedY = -11
 end
 
 return bouncyLava;

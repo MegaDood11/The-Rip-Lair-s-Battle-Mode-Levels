@@ -2,3 +2,4 @@ width=40
 gfxwidth=40
 gfxheight=54
 height=42
+cliffturn=true
