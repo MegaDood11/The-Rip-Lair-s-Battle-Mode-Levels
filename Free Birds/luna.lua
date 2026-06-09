@@ -131,6 +131,12 @@ function onTick()
 		if n.isValid then n:harm(3) end
 	end
 	
+	for _,n in NPC.iterate(955) do
+		if (n.x >= -198064 and n.x <= -197952) and n.y > -200192 then
+			n.noblockcollision = true
+		end
+	end
+	
 end
 
 

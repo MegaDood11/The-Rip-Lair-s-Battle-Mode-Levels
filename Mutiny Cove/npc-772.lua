@@ -74,7 +74,7 @@ function sampleNPC.onTickEndNPC(v)
 	if v.heldIndex == 0 then
 		for _,p in ipairs(Player.get()) do
 			for _,n in ipairs(NPC.getIntersecting(v.x - 1, v.y - 1, v.x + v.width + 1, v.y + v.height + 1)) do
-				if v:mem(0x12E, FIELD_WORD) <= 0 then
+				if v:mem(0x12E, FIELD_WORD) <= 24 then
 					if Colliders.collide(p, v) or (Colliders.collide(n, v) and not NPC.config[n.id].powerup and not NPC.config[n.id].iscoin and n.id ~= 951 and n.forcedState == 0 and n.id ~= v.id) or (v.collidesBlockBottom or v.collidesBlockUp or v.collidesBlockLeft or v.collidesBlockRight) then
 						v:kill(9)
 						Explosion.spawn(v.x + v.width * 0.5, v.y + v.height * 0.5, 2)
