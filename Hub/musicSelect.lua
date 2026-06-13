@@ -39,12 +39,16 @@ musicSelect.songPaths = {
 	sonicExtras = "resources/hubMusic/Extras Menu - Sonic Mega Collection.ogg",
 	airRidersMenu = "resources/hubMusic/Menu - Kirby Air Riders.ogg",
 	pokemonGoodbye = "resources/hubMusic/I Don't Wanna Say Goodbye - PKM.ogg",
+	organJelly = "resources/hubMusic/Organ Jelly - Blast Thru.ogg",
+	worldMap2ColorSplash = "resources/hubMusic/World Map 2 - Paper Mario - Color Splash.ogg",
+	areaPlanetWisp = "resources/hubMusic/Area Planet Wisp - Sonic Colors.ogg",
+	raftWarsMenu = "resources/hubMusic/Lazy Days - Reinhold Pöhnl.ogg",
 }
 
 musicSelect.songList = {
-    "numberlessMoments","abstractMap","alternaSite6","regret","waitingRoom","WFC","dreamyWakeport","flipsideArcade","readyToFight","greenRoom","stickerbrush","velkommen",
-	"reconstruction","drawful","wordspud","pollMine","rosalina","LA","yoshiStar","breakSilence","allStarRestArea","trophy","menuSSF","floodLobby","resonance","sonicExtras",
-	"airRidersMenu","pokemonGoodbye"
+    "numberlessMoments","abstractMap","alternaSite6","regret","waitingRoom","WFC","dreamyWakeport","flipsideArcade","worldMap2ColorSplash","readyToFight","greenRoom","stickerbrush","velkommen",
+	"reconstruction","drawful","wordspud","pollMine","rosalina","LA","yoshiStar","breakSilence","allStarRestArea","trophy","menuSSF","floodLobby","resonance","sonicExtras","areaPlanetWisp",
+	"airRidersMenu","pokemonGoodbye","organJelly","raftWarsMenu"
 }
 
 battleGeneral.saveData.hubMusic = battleGeneral.saveData.hubMusic or "random"
@@ -139,7 +143,7 @@ local optionFormatSettings = table.join({textScale = 1.7,boxMarginX = 24,boxMarg
 		for i = 1, #menu.options do
 			menu.options[i].x = 200 + (-400 * (i % 2))
 			if i % 2 == 1 then menu.options[i].offsetUp = 20 end
-			menu.options[i].y = -200 + (20 * i) + (menu.options[i].offsetUp or 0)
+			menu.options[i].y = -220 + (20 * i) + (menu.options[i].offsetUp or 0)
 		end
 	end
 	

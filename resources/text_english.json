@@ -261,6 +261,10 @@
 			"name": "Flipside Arcade",
 			"source": "Super Paper Mario"
 		},
+		"worldMap2ColorSplash": {
+			"name": "World Map 2",
+			"source": "Paper Mario - Color Splash"
+		},
 		"readyToFight": {
 			"name": "Get Ready to Fight!",
 			"source": "Multiversus"
@@ -333,6 +337,10 @@
 			"name": "Extras Menu",
 			"source": "Sonic Mega Collection"
 		},
+		"areaPlanetWisp": {
+			"name": "Area: Planet Wisp",
+			"source": "Sonic Colors"
+		},
 		"airRidersMenu": {
 			"name": "Menu",
 			"source": "Kirby Air Riders"
@@ -340,6 +348,14 @@
 		"pokemonGoodbye": {
 			"name": "I Don't Wanna Say Goodbye",
 			"source": "TroyAnthony (Pokémon MD)"
+		},
+		"organJelly": {
+			"name": "Organ Jelly",
+			"source": "Blast Thru"
+		},
+		"raftWarsMenu": {
+			"name": "Lazy Days",
+			"source": "Reinhold Pohnl"
 		}
     },
 
