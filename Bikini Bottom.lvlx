@@ -784,7 +784,7 @@ LAYERS
 LR:"Default";
 LR:"Destroyed Blocks";HD:1;
 LR:"Spawned NPCs";
-LR:"Spongebob";
+LR:"Spongebob";HD:1;
 LR:"Patrick";HD:1;
 LR:"Squidward";HD:1;
 LR:"Heroes";HD:1;

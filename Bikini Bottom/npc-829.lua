@@ -32,6 +32,7 @@ npcManager.setNpcSettings({
 	noiceball=true,
 	noyoshi=true,
 	nogliding=true, -- The NPC ignores gliding blocks (1f0)
+	nowaterphysics=true,
 	stoponcontact=false,
 	stoponsolids=false,
 	stoponnpcs=false
