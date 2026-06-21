@@ -1,0 +1,7 @@
+priority = -85
+frames = 2
+framespeed = 4
+lightradius = 384
+lightflicker = 1
+lightbrightness = 2
+lightcolor = 0xFFBF3F

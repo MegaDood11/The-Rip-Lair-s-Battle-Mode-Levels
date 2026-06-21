@@ -30,8 +30,13 @@ local function initSection(id)
 end
 
 function ultimateSlip(p)
+	p.speedX = math.clamp(p.speedX, -14, 14)
     p:mem(0x138, FIELD_FLOAT, p.speedX)
     p.speedX = 0
+	
+	if p.tanookiStatueTimer == 1 then
+		p.speedX = p.data.bouncyLavaStatueSpeedX
+	end
 end
 
 -- set up settings for section specified
@@ -191,7 +196,9 @@ function bouncyLava.onTick()
         if  not (bouncyLava.enabled or bouncyLava.getConfig(p.section, "enabledOverride")) then
             return
         end
-
+		
+		if not p.isTanookiStatue then p.data.bouncyLavaStatueSpeedX = p.speedX end
+		
         -- setup player data
         local harmedPlayer = p
         pData[harmedPlayer.idx] = pData[harmedPlayer.idx] or {launchTimer = 0}
@@ -362,7 +369,7 @@ function bouncyLava.onTick()
 
                         harmedPlayer:mem(processTable.y[tostring(math.sign(normal.y))].pinchAddress, FIELD_WORD, 2) -- pinch address. meant to work with layer crushing, barely works
 						
-						if harmedPlayer.rawKeys.jump == KEYS_DOWN or harmedPlayer.rawKeys.altJump == KEYS_DOWN then
+						if harmedPlayer.keys.jump == KEYS_DOWN or harmedPlayer.keys.altJump == KEYS_DOWN then
 							harmedPlayer.speedY = processSpeed*normal.y
 						else
 							harmedPlayer.speedY = -5
@@ -434,8 +441,14 @@ function bouncyLava.onTick()
                 harmedPlayer:mem(0x172, FIELD_BOOL, false)
 				SFX.play(Misc.resolveSoundFile("nitro-bounce.ogg"))
 				
-				harmedPlayer.speedX = math.clamp(harmedPlayer.speedX * 2, -12, 12)
-
+				if not p.isTanookiStatue then
+					if harmedPlayer.keys.left == KEYS_DOWN then
+						harmedPlayer.speedX = math.clamp(harmedPlayer.speedX - 3, -14, 14)
+					elseif harmedPlayer.keys.right == KEYS_DOWN then
+						harmedPlayer.speedX = math.clamp(harmedPlayer.speedX + 3, -14, 14)
+					end
+				end
+				
                 -- print debug info for some frames
                 -- Routine.run(function()
                 --     for i=1, 120  do

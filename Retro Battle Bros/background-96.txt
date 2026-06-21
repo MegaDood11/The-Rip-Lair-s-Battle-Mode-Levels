@@ -1,0 +1,2 @@
+lightradius=100
+lightcolor=0xf8e0a0

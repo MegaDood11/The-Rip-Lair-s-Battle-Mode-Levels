@@ -122,10 +122,7 @@ ID:4;X:-198592;Y:-200288;W:32;H:32;
 ID:4;X:-198560;Y:-200288;W:32;H:32;LR:"\[Classic\, Stars\, Phanto\] Default";
 ID:4;X:-198528;Y:-200288;W:32;H:32;
 ID:88;X:-199616;Y:-200288;W:32;H:32;CN:964;LR:"\[Bombs\] Default";
-ID:4;X:-198560;Y:-200288;W:32;H:32;CN:964;LR:"\[Bombs\] Default";
-ID:4;X:-198720;Y:-200288;W:32;H:32;CN:964;LR:"\[Bombs\] Default";
 ID:88;X:-199168;Y:-200160;W:32;H:32;CN:964;LR:"\[Bombs\] Default";
-ID:88;X:-198304;Y:-200160;W:32;H:32;CN:964;LR:"\[Bombs\] Default";
 ID:88;X:-198272;Y:-200160;W:32;H:32;CN:964;LR:"\[Bombs\] Default";
 ID:1;X:-198624;Y:-200128;W:32;H:32;LR:"\[Bombs\] Default";
 ID:1;X:-198624;Y:-200096;W:32;H:32;LR:"\[Bombs\] Default";
@@ -161,6 +158,8 @@ ID:4;X:-198176;Y:-200384;W:32;H:32;LR:"\[Phanto\] Default";
 ID:138;X:-198240;Y:-200480;W:64;H:32;LR:"\[Phanto\] Default";
 ID:143;X:-199072;Y:-200448;W:64;H:32;LR:"\[Phanto\] Default";
 ID:143;X:-199072;Y:-200416;W:64;H:32;LR:"\[Phanto\] Default";
+ID:4;X:-198560;Y:-200288;W:32;H:32;CN:964;LR:"\[Bombs\] Default";
+ID:88;X:-198304;Y:-200160;W:32;H:32;CN:-1;LR:"\[Bombs\] Default";
 BLOCK_END
 BGO
 ID:951;X:-199744;Y:-200256;
