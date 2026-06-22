@@ -11,7 +11,7 @@ battleOptions = require("scripts/battleOptions")
 
 local doormode = onlinePlay.createVariable("doormode","uint16",true,0)
 local doorlay = onlinePlay.createVariable("doorlay","uint16",true,0)
-local doormake = onlinePlay.createVariable("doormake","uint16",true,0)
+local doormake = true
 local dojoe = onlinePlay.createVariable("dojoe","uint16",true,0)
 
 local doorsolidA = {}
@@ -48,8 +48,7 @@ function onStart()
 	
 	joenorm = Layer.get("joenorm")
 	joeahh = Layer.get("joeahh")
-	
-	doormake = true
+
 	dojoe = false
 	
 	crounda1 = Layer.get("crounda1")
@@ -142,17 +141,17 @@ function onTick()
 	for k,v in ipairs(Block.get(283)) do
 		v:setSize(40,40)
 	end
-	if doormake == true then
+	if doormake then
 		Routine.run(function ()
-			doormode = math.random(0, 1)
-			doorlay = math.random(15, 120)
+			doormode.value = math.random(0, 1)
+			doorlay.value = math.random(15, 120)
 			doormake = false
-			Routine.waitSeconds(doorlay)
-			if doormode == 0 then
+			Routine.waitSeconds(doorlay.value)
+			if doormode.value == 0 then
 				doorsolidA:show(true)
 				doorwarpA:show(true)
 			end
-			if doormode == 1 then
+			if doormode.value == 1 then
 				doorsolidB:show(true)
 				doorwarpB:show(true)
 			end

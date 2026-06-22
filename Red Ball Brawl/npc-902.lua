@@ -86,8 +86,12 @@ function sampleNPC.onTickNPC(v)
 	data.timer = data.timer + 1
 	
 	for _,p in ipairs(Player.get()) do
-		if math.abs(p.x - 16 - (v.x - data.tilt * 2)) <= 48 and math.abs(p.y - (v.y + -math.abs(data.tilt) + v.height * 0.8)) <= 48 then
-			p:harm()
+		if math.abs(p.x - 20 - (v.x - data.tilt * 2)) <= 28 and math.abs(p.y - (v.y + -math.abs(data.tilt) + v.height * 0.9)) <= 40 then
+			if p:mem(0x50, FIELD_BOOL) and p.y < v.y + v.height * 0.8 then
+				Colliders.bounceResponse(p)
+			else
+				p:harm()
+			end
 		end
 	end
 	
