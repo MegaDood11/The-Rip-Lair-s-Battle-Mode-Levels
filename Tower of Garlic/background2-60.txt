@@ -1,0 +1,11 @@
+fill-color=0x0B132D
+
+[Layer 1]
+depth=400
+img="bg2_60_layer4.png"
+repeatX=true
+repeatY=false
+alignX=LEFT
+alignY=BOTTOM
+parallaxX=0.5
+parallaxY=0.8

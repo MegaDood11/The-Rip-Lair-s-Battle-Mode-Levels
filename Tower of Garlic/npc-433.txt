@@ -1,0 +1,9 @@
+gfxwidth=64
+gfxheight=64
+width=64
+height=64
+playerblocktop=1
+grabside=0
+grabtop=0
+lightradius=70
+lightbrightness=2

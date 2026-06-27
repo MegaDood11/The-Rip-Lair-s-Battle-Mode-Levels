@@ -1,0 +1,3 @@
+grid = 16
+name = "Spaghetti Connector (Up)"
+description = "Comes with its own set of BGOs, you don't need any for this block. Place between two spaghetti block segments."

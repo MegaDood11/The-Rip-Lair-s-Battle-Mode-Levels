@@ -1,0 +1,6 @@
+frames=1
+framestyle=1
+width=60
+height=58
+gfxwidth=64
+gfxheight=64

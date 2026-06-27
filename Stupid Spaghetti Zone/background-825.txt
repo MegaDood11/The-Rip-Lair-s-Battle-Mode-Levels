@@ -1,0 +1,8 @@
+image = background-825.png
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -20
+grid = 16
+name = "Vertical Spaghetti BGO Piece"
+description = "A piece of a spaghetti BGO. Intended for connecting pieces together to look good."

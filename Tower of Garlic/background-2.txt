@@ -1,0 +1,2 @@
+lightradius=200
+lightbrightness=2

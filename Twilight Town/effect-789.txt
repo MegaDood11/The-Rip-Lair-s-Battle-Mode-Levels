@@ -1,0 +1,8 @@
+[1]
+frames=8
+variants=1
+framespeed=3
+lifetime=24
+xAlign=MID
+yAlign=MID
+rotation=3

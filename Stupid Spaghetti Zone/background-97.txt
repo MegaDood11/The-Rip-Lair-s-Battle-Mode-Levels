@@ -1,0 +1,4 @@
+grid=16
+priority=-20
+name = "Giant Pickle"
+description = "Place next to the Pickle Man."

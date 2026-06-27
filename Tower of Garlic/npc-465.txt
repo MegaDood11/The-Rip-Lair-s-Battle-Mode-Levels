@@ -1,0 +1,5 @@
+height=64
+width=32
+lightradius=60
+lightbrightness=2
+lightflicker=true

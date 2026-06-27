@@ -1,0 +1,22 @@
+{
+	"style" : "groupbox",
+	"title" : "Kingdom Hearts Shadow Settings",
+	"layout": [	
+{
+			"control": "checkbox",
+			"name": "ground",
+			"title": "Always stay in ground?",
+			"tooltip": "If checked, the NPC will return to the ground immediately after jumping out.",
+			"text-visible": true,
+			"value-default": false
+		},
+		{
+			"control": "checkbox",
+			"name": "chase",
+			"title": "Doesn't go in ground?",
+			"tooltip": "Check if you would like the NPC to just chase the player instead.",
+			"text-visible": true,
+			"value-default": false
+		}
+		]
+}

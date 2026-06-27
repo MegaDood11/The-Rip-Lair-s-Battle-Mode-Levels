@@ -1155,8 +1155,8 @@ ID:951;X:-199616;Y:-200184;D:-1;
 ID:951;X:-198160;Y:-200264;D:-1;XTRA:"{\n    \"index\"\: 8\n}\n";
 NPC_END
 DOORS
-IX:-201276;IY:-200190;OX:-198036;OY:-200152;DT:2;ID:1;OD:1;LR:"doorwarpA";
-IX:-198036;IY:-200152;OX:-201276;OY:-200190;DT:2;ID:1;OD:1;LR:"doorwarpB";
+IX:-201276;IY:-200190;OX:-198036;OY:-200152;DT:2;ID:1;OD:1;LR:"doorsolidA";
+IX:-198036;IY:-200152;OX:-201276;OY:-200190;DT:2;ID:1;OD:1;LR:"doorsolidB";
 DOORS_END
 LAYERS
 LR:"Default";
@@ -1165,8 +1165,6 @@ LR:"Spawned NPCs";
 LR:"doorframe";
 LR:"doorsolidA";HD:1;
 LR:"doorsolidB";HD:1;
-LR:"doorwarpA";HD:1;
-LR:"doorwarpB";HD:1;
 LR:"joenorm";
 LR:"joeahh";HD:1;
 LR:"crounda1";HD:1;

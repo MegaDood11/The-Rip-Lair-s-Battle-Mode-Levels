@@ -1,0 +1,115 @@
+{
+	"style" : "groupbox",
+	"title" : "Pianta + Chuckster Settings",
+	"layout": [
+		
+		{
+			"control": "combobox",
+			"name": "hat",
+			"title": "Wears a hat?",
+			"elements": ["None", "Straw Hat", "Fedora", "Wide Hat", "Flat Hat", "Flowers"],
+			"value-default": 0
+		},
+		
+
+		{
+			"control": "checkbox",
+			"name": "glasses",
+			"title": "Wears glasses?",
+			"text-visible": true,
+			"value-default": false
+		},
+		
+		{
+			"control": "checkbox",
+			"name": "moustache",
+			"title": "Has a moustache?",
+			"text-visible": true,
+			"value-default": false
+		},
+		
+		{
+			"control": "combobox",
+			"name": "age",
+			"title": "Pianta age",
+			"elements": ["Adult", "Child"],
+			"value-default": 0
+		},
+		
+		{
+			"control": "combobox",
+			"name": "color",
+			"title": "Pianta color",
+			"elements": ["Light Blue, Male", "Blue, Male", "Dark Blue, Male", "Green, Male", "Tan, Male", "Yellow, Male", "Brown, Male", "Apricot, Male", "Pink, Male", "Purple, Male", "Magenta, Female", "Red, Female", "Orange, Female", "Yellow, Female", "Pink, Female", "Chartreuse, Female"],
+			"value-default": 0
+		},
+		{
+			"control": "combobox",
+			"name": "customColorPick",
+			"title": "Set own color",
+			"elements": ["Do Not Apply", "Custom Color (Male)", "Custom Color (Female)"],
+			"value-default": 0
+		},
+		{
+			"control": "color",
+			"name": "customColor",
+			"title": "Custom color, if applicable",
+			"value-default": "#56c7b2",
+			"alpha-channel": false,
+			"placeholder": "Pick a colour"
+			
+		},
+		{
+			"control": "combobox",
+			"name": "behaviour",
+			"title": "Behaviour",
+			"elements": ["Stand", "Wander", "Patrol", "Sit"],
+			"value-default": 0
+		},
+		{
+			"control": "spinBox",
+			"type": "int",
+			"name": "patrol",
+			"title": "Patrol how many blocks?",
+			"tooltip": "The pianta will walk this many blocks before turning around, and walking the same distance in the other direction. Set to 0 to walk without turning around.",
+			"value-default": 2,
+			"value-min": 0,
+			"value-max": 100,
+			"single-step": 1
+		},
+		{
+			"control": "checkbox",
+			"name": "chuckster",
+			"title": "Is a chuckster?",
+			"text-visible": true,
+			"value-default": false
+		},
+		{
+			"control": "combobox",
+			"name": "throwDirection",
+			"title": "Thrown Direction",
+			"elements": ["Left", "Random", "Right", "Always in Front", "Always Behind"],
+			"value-default": 1
+		},
+		{
+			"control": "spinBox",
+			"type": "double",
+			"name": "ySpeed",
+			"title": "Thrown Y-Speed",
+			"value-default": 7,
+			"value-min": 0.1,
+			"value-max": 1000,
+			"single-step": 0.5
+		},
+		{
+			"control": "spinBox",
+			"type": "double",
+			"name": "xSpeed",
+			"title": "Thrown X-Speed",
+			"value-default": 4,
+			"value-min": 0.1,
+			"value-max": 1000,
+			"single-step": 0.5
+		}
+		]
+}

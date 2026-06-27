@@ -1,0 +1,3 @@
+I couldn't work out how to get the spaghetti to actually work as a proper guideline, so the guidelines you place down will become invisible in game.
+Make sure to place the spaghetti over it to make it look like it's actually the rail.
+The contents of the lunalua file will handle the guideline part so use that.

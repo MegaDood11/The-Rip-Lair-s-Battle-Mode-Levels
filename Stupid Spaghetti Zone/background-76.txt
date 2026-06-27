@@ -1,0 +1,4 @@
+grid=16
+priority=-20
+name = "Spaghetti Corner Piece (Bottom Left)"
+description = "Indended to be placed at the intersection of two spaghetti blocks."

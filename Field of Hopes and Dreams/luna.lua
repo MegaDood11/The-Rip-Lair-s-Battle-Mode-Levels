@@ -16,8 +16,6 @@ local dojoe = onlinePlay.createVariable("dojoe","uint16",true,0)
 
 local doorsolidA = {}
 local doorsolidB = {}
-local doorwarpA = {}
-local doorwarpB = {}
 
 local joenorm = {}
 local joeahh = {}
@@ -43,8 +41,6 @@ local lant = onlinePlay.createVariable("lant","uint16",true,0)
 function onStart()
     doorsolidA = Layer.get("doorsolidA")
 	doorsolidB = Layer.get("doorsolidB")
-	doorwarpA = Layer.get("doorwarpA")
-	doorwarpB = Layer.get("doorwarpB")
 	
 	joenorm = Layer.get("joenorm")
 	joeahh = Layer.get("joeahh")
@@ -149,11 +145,9 @@ function onTick()
 			Routine.waitSeconds(doorlay.value)
 			if doormode.value == 0 then
 				doorsolidA:show(true)
-				doorwarpA:show(true)
 			end
 			if doormode.value == 1 then
 				doorsolidB:show(true)
-				doorwarpB:show(true)
 			end
 		end)
 	end
@@ -179,9 +173,4 @@ function onWarp(w,p)
 	doorsolidB:hide(true)
 	SFX.play("gaster-vanish.mp3")
 	doormake = true
-end
-
-function onWarpEnter(e,w,p)
-	doorwarpA:hide(true)
-	doorwarpB:hide(true)
 end

@@ -1,0 +1,3 @@
+grid = 16
+name = "Spaghetti Block (Horizontal)"
+description = "A block intended to be placed next to block-51 or at an end piece."

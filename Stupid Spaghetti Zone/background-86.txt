@@ -1,0 +1,4 @@
+grid=16
+priority=-20
+name = "Horizontal Spaghetti BGO (Up)"
+description = "Place onto block-51 and block-52 to complete the look."

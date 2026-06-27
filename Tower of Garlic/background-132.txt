@@ -1,0 +1,2 @@
+lightradius=100
+ightbrightness=2

@@ -1,0 +1,4 @@
+grid=16
+priority=-20
+name = "Top Right Corner Spaghetti BGO"
+description = "Place on the corner of intersecting spaghetti pieces."

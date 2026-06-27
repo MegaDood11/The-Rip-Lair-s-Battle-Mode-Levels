@@ -1,0 +1,6 @@
+image = background-810.png
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -62
+grid = 8

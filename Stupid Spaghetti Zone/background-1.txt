@@ -1,0 +1,3 @@
+grid=16
+name = "Sign"
+description = "Indended to be placed with an invisible trigger NPC with text in front of it, in order for there to be dialogue. (npc-465)

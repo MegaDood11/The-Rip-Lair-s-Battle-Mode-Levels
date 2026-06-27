@@ -1,0 +1,36 @@
+fill-color = #000000
+
+[sky]
+img = b_gradient2.png
+repeatX = 0
+color = #FFFFFF
+alignY = BOTTOM
+
+[clouds]
+img = clouds.png
+repeatX = 0
+repeatY = 0
+alignY = BOTTOM
+color = #FFFFFF
+speedY = 0
+speedX = -0.2
+opacity = 0.5
+depth = 300
+
+[wall]
+img = towerwall.png
+repeatX = 0
+repeatY = 0
+alignY = BOTTOM
+color = #FFFFFF
+depth = 250
+
+[arch]
+img = archways.png
+repeatX = 0
+repeatY = 0
+alignY = BOTTOM
+color = #FFFFFF
+depth = 230
+
+

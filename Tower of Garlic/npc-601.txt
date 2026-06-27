@@ -1,0 +1,4 @@
+lightradius=100
+lightbrightness=2
+lightflicker=true
+priority=-10

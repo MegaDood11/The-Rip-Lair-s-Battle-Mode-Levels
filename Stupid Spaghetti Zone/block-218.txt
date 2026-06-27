@@ -1,0 +1,3 @@
+grid = 16
+name = "Spaghetti Block Piece (Horizontal)"
+description = "A piece of a spaghetti block. Intended for connecting pieces together to look good."

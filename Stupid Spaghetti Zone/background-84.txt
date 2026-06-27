@@ -1,0 +1,4 @@
+grid=16
+priority=-20
+name = "Spaghetti End Piece (Right)"
+description = "Indended to be placed at the end of a spaghetti line of blocks, facing right."

@@ -1,0 +1,34 @@
+{
+	"style" : "groupbox",
+	"title" : "Doorman Settings",
+	"layout": [
+		{
+			"control": "lineEdit",
+			"name": "levels",
+			"title": "Levels",
+			"tooltip": "Filenames of levels garlics are needed from.",
+			"value-default": "",
+			"placeholder": "F1-Marigold Massif.lvlx, F1-Rottenroot Woods.lvlx, F1-Sparklepop Coastline.lvlx"
+		},
+		{
+			"control": "spinbox",
+			"name": "requiredCoins",
+			"title": "Coins Needed",
+			"type": "int",
+			"tooltip": "The amount of Wario Coins required to open the doorman.",
+			"value-default": 1,
+			"value-min": 1,
+			"value-max": 1000
+		},
+		{
+			"control": "spinbox",
+			"name": "doorIndex",
+			"title": "Doorman Index",
+			"type": "int",
+			"tooltip": "The index which the doorman will be saved to.",
+			"value-default": 1,
+			"value-min": 1,
+			"value-max": 1000
+		}
+	]
+}
