@@ -1,0 +1,76 @@
+{
+	"style" : "groupbox",
+	"title" : "Spout Settings",
+	"layout": [
+		{
+			"control": "spinBox",
+			"type": "double",
+			"decimals": 2,
+			"name": "speed",
+			"title": "Speed",
+			"tooltip": "The speed at which the spout rises and disappears. Also controls the speed it moves players and NPCs.",
+			"value-default": 1,
+			"value-min": 0,
+			"value-max": 25,
+			"single-step": 0.25
+		},
+		{
+			"control": "spinBox",
+			"type": "int",
+			"name": "startHeight",
+			"title": "starting Height",
+			"tooltip": "starting height in pixels that the spout can reach. 0 means Unlimited.",
+			"value-default": 128,
+			"value-min": 0,
+			"value-max": 9999,
+			"single-step": 16
+		},
+		{
+			"control": "checkBox",
+			"name": "goingDown",
+			"title": "Going Down",
+			"tooltip": "If true the spout going down.",
+			"value-default": false
+		},
+		{
+			"control": "spinBox",
+			"type": "int",
+			"name": "waitTime",
+			"title": "Wait Time (Frames)",
+			"tooltip": "How many frames the spout waits before rising.",
+			"value-default": 65,
+			"value-min": 0,
+			"value-max": 9999,
+			"single-step": 1
+		},
+		{
+			"control": "spinBox",
+			"type": "int",
+			"name": "holdTime",
+			"title": "Hold Time (Frames)",
+			"tooltip": "How many frames the spout waits before disappearing.",
+			"value-default": 65,
+			"value-min": 0,
+			"value-max": 9999,
+			"single-step": 1
+		},
+		{
+			"control": "checkBox",
+			"name": "doEffect",
+			"title": "Pre-rise Effect",
+			"tooltip": "If effects should start to appear 30 frames before rising.",
+			"value-default": true
+		},
+		{
+			"control": "spinBox",
+			"type": "int",
+			"name": "effectOffset",
+			"title": "Effect Offset",
+			"tooltip": "Distance in pixels that the effects should spawn above or below the spout.",
+			"value-default": 0,
+			"value-min": -9999,
+			"value-max": 9999,
+			"single-step": 16
+		}
+	]
+}

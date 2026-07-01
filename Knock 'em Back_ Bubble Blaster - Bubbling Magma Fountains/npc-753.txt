@@ -1,0 +1,7 @@
+effectID=13
+effectoffset=-32
+framespeed=6
+headoffset=-16
+shaftheight=32
+tailoffset=0
+tailheight=24

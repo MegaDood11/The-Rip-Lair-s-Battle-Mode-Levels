@@ -1,0 +1,4 @@
+[1]
+frames=1
+lifetime=3
+priority=-29

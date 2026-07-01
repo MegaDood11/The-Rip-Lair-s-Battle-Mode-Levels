@@ -17,23 +17,18 @@ local pizzatimeimgframe = 0
 local pizzanim = {}
 local pizzanimconcluded = false
 
-local mainmus = onlinePlay.createVariable("mainmus","uint16",true,0)
-local pizzmus = onlinePlay.createVariable("pizzmus","uint16",true,0)
+local mainmus = 0
+local pizzmus = 0
 
 -- Run code on level start
 function onStart()
 	pizzatime = 0
-	mainmus = math.random(0,1)
-	pizzmus = math.random(0,1)
-	Routine.run(function ()
-		Routine.waitFrames(2)
-		if mainmus == 0 then
-			Audio.MusicChange(player.section, "The Pig City/Bite The Crust.mp3", 1)
-		end
-		if mainmus == 1 then
-			Audio.MusicChange(player.section, "The Pig City/Way Of The Pig.mp3", 1)
-		end
-	end)
+	
+	pizzmus = RNG.randomInt(0, 1)
+	mainmus = RNG.randomInt(0, 1)
+	if mainmus == 1 then
+		Audio.MusicChange(player.section, "The Pig City/Way Of The Pig.mp3", 0)
+	end
 end
 
 -- Run code every frame (~1/65 second)

@@ -1,0 +1,4 @@
+This is a configurable custom shooter NPC that shoots out bubbles that push players AND NPCs. It is from Super Mario Bros. Wonder: Nintendo Switch 2 Edition + Meetup at Bellabel Park.
+
+SMW-styled sprites based on SMB1-styled sprites by Crystalika.
+Some bubble code and effects were borrowed from MegaDood's Barney Bubble NPC. Based on the Boom Cannon from The Conquest, by Emral.

@@ -1,0 +1,7 @@
+fill-color=0xEA7372
+
+[Layer1]
+depth = 50
+img = "background2-30.png"
+repeatX = true
+alignY=BOTTOM

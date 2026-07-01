@@ -1,0 +1,5 @@
+[1]
+onTick=TICK_BUBBLE_BURST
+frames=11
+lifetime=39
+priority=-29
