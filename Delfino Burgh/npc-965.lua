@@ -69,13 +69,13 @@ local characterSpeedOffsets = {
 	[2] = vector.v2(0.95, 0.95),
 	
 	--Peach
-	[3] = vector.v2(2.75, 1.05),
+	[3] = vector.v2(2, 1.05),
 	
 	--Toad
-	[4] = vector.v2(2.75, 1.05),
+	[4] = vector.v2(2, 1.05),
 	
 	--Link
-	[5] = vector.v2(1, 1),
+	[5] = vector.v2(2, 1),
 }
 
 
