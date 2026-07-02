@@ -14,6 +14,7 @@ npcManager.setNpcSettings({
 	height = 32,
 	frames = 1,
 	harmlessgrab=true,
+	harmlessthrown=false,
 	ignorethrownnpcs = true,
 	framespeed = 8,
 	framestyle = 0,
@@ -61,7 +62,6 @@ function lightning.onTickNPC(v)
 		or v:mem(0x12A, FIELD_WORD) <= 0 then return end
 
 	local data = v.data._basegame
-	local plr = Player.getNearest(v.x + v.width/2, v.y + v.height)
 	
 	if data.feet == nil then
 		data.feet = Colliders.Box(0,0,v.width,1)
@@ -94,9 +94,9 @@ function lightning.onTickNPC(v)
 			
 		}
 		
-		if #footCollisions > 0 or Colliders.collide(plr, v) then
+		if #footCollisions > 0 then
 			collidesWithSolid = true
-			if Colliders.collide(plr, v) then data.culprit = v else data.culprit = footCollisions[1] end
+			data.culprit = footCollisions[1]
 			if not data.lastFrameCollision then
 				local id = NPC.config[v.id].spawnid
 				local f = NPC.spawn(id, v.x + 0.5 * v.width, data.culprit.y - 0.5 * NPC.config[id].height, v:mem(0x146, FIELD_WORD), false, true)
