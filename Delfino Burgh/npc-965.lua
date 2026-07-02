@@ -75,7 +75,7 @@ local characterSpeedOffsets = {
 	[4] = vector.v2(2, 1.05),
 	
 	--Link
-	[5] = vector.v2(2, 1),
+	[5] = vector.v2(2, 1.05),
 }
 
 

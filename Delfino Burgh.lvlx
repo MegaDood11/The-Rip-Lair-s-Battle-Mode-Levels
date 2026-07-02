@@ -2511,7 +2511,7 @@ ID:10;X:-198654;Y:-201312;D:-1;
 ID:10;X:-199662;Y:-201376;D:-1;
 ID:10;X:-198622;Y:-201280;D:-1;
 ID:10;X:-198814;Y:-201312;D:-1;
-ID:965;X:-196672;Y:-201072;D:-1;XTRA:"{\n    \"chuckster\"\: true\,\n    \"color\"\: 6\,\n    \"glasses\"\: false\,\n    \"hat\"\: 1\,\n    \"moustache\"\: true\,\n    \"throwDirection\"\: 0\,\n    \"xSpeed\"\: 8\,\n    \"ySpeed\"\: 14\n}\n";
+ID:965;X:-196672;Y:-201072;D:-1;XTRA:"{\n    \"chuckster\"\: true\,\n    \"color\"\: 6\,\n    \"glasses\"\: false\,\n    \"hat\"\: 1\,\n    \"moustache\"\: true\,\n    \"throwDirection\"\: 0\,\n    \"xSpeed\"\: 6\,\n    \"ySpeed\"\: 13.5\n}\n";
 ID:965;X:-197824;Y:-200240;D:-1;XTRA:"{\n    \"behaviour\"\: 2\,\n    \"color\"\: 14\,\n    \"hat\"\: 5\,\n    \"patrol\"\: 4\n}\n";
 ID:965;X:-197952;Y:-200240;D:1;XTRA:"{\n    \"behaviour\"\: 2\,\n    \"color\"\: 7\,\n    \"hat\"\: 3\,\n    \"patrol\"\: 2\n}\n";
 ID:965;X:-197664;Y:-200240;D:-1;XTRA:"{\n    \"age\"\: 1\,\n    \"behaviour\"\: 2\,\n    \"color\"\: 9\,\n    \"hat\"\: 0\,\n    \"patrol\"\: 1\n}\n";

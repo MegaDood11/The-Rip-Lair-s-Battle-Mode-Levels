@@ -15,6 +15,8 @@ local sun = {}
 local sunY = -144
 
 local songchoice = 0
+local startingTime
+local dontCount = false
 
 -- Run code on level start
 function onStart()
@@ -25,14 +27,26 @@ function onStart()
 	if songchoice == 1 then
 		Audio.MusicChange(0, "Delfino Burgh/delfinopier.ogg")
 	end
+	
+	startingTime = battleTimer.secondsLeft * 64
+	if startingTime <= 0 then
+		startingTime = 19200
+		dontCount = true
+	end
 end
 
 -- Run code every frame (~1/65 second)
 -- (code will be executed before game logic will be processed)
 function onTick()
-    sunsetskyopacity = sunsetskyopacity + 0.00004628205 --0.00005128205
+
+	if dontCount then
+		sunsetsky.opacity = 0
+		return
+	end
+	
+    sunsetskyopacity = sunsetskyopacity + (0.88861536 / startingTime) --0.00005128205
 	sunsetsky.opacity = sunsetskyopacity
-	sunY = sunY + 0.0088 --0.00004128205
+	sunY = sunY + (168.96 / startingTime) --0.00004128205
 	sun.y = sunY
 end
 
@@ -41,4 +55,3 @@ end
 function onEvent(eventName)
     --Your code here
 end
-
