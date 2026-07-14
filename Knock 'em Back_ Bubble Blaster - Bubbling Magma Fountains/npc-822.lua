@@ -275,7 +275,7 @@ function sampleNPC.onTickEndNPC(v)
 			if data.timer > 0 then
 				data.timer = data.timer - 1
 			else
-				v:kill(9) Effect.spawn(npcID+1, v.x-8, v.y-8, p.section, true)
+				v:kill(9) Effect.spawn(npcID, v.x-8, v.y-8, p.section, true)
 			end
 		end
 	end

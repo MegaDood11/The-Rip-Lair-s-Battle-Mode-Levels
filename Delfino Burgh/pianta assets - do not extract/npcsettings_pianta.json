@@ -51,15 +51,6 @@
 			"value-default": 0
 		},
 		{
-			"control": "color",
-			"name": "customColor",
-			"title": "Custom color, if applicable",
-			"value-default": "#56c7b2",
-			"alpha-channel": false,
-			"placeholder": "Pick a colour"
-			
-		},
-		{
 			"control": "combobox",
 			"name": "behaviour",
 			"title": "Behaviour",

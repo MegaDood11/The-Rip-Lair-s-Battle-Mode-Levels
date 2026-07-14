@@ -94,7 +94,6 @@ walker.register(npcID, {
 function sampleNPC.onInitAPI()
 	npcManager.registerEvent(npcID, sampleNPC, "onTickEndNPC")
 	npcManager.registerEvent(npcID, sampleNPC, "onDrawNPC")
-	registerEvent(sampleNPC, "onTick")
 end
 
 -- Detects if the player is on the ground, the redigit way. Function by MrDoubleA
@@ -104,22 +103,6 @@ local function isOnGround(p)
 		or p:mem(0x176,FIELD_WORD) ~= 0 -- on an NPC
 		or p:mem(0x48,FIELD_WORD) ~= 0 -- on a slope
 	)
-end
-
-function sampleNPC.onTick()
-	for _,p in ipairs(Player.get()) do
-		if not p.data.chuckedByAChuckster then return end
-		if p.character <= 2 then
-			p:mem(0x3C, FIELD_BOOL, true)
-		end
-		p.keys.left = KEYS_UP
-		p.keys.right = KEYS_UP
-		p.keys.jump = KEYS_UP
-		p.keys.altJump = KEYS_UP
-		p.keys.run = KEYS_UP
-		p:mem(0x154, FIELD_WORD, false)
-		if isOnGround(p) then p.data.chuckedByAChuckster = nil end
-	end
 end
 
 function sampleNPC.onTickEndNPC(v)
@@ -154,7 +137,7 @@ function sampleNPC.onTickEndNPC(v)
 			if p.keys.up == KEYS_PRESSED and data.talkTimer <= 0 then
 				data.imAChuckster = true
 				data.victim = Player.getNearest(v.x + v.width * 0.5, v.y + v.height * 0.5)
-				data.victim.current = vector(data.victim.x, data.victim.y)
+				data.victim.data.current = vector(data.victim.x, data.victim.y)
 				data.talkTimer = 192
 			end
 		end
@@ -199,8 +182,8 @@ function sampleNPC.onTickEndNPC(v)
 		--Move to the NPC's position
 		if data.chucksterTimer > 2 then
 			if data.chucksterTimer <= 17 then
-				data.victim.x = easing.outQuad(data.chucksterTimer, data.victim.current.x, (v.x) - data.victim.current.x, 16)
-				data.victim.y = easing.outQuad(data.chucksterTimer, data.victim.current.y, (v.y - (data.victim.height - 48)) - data.victim.current.y, 16)
+				data.victim.x = easing.outQuad(data.chucksterTimer, data.victim.data.current.x, (v.x) - data.victim.data.current.x, 16)
+				data.victim.y = easing.outQuad(data.chucksterTimer, data.victim.data.current.y, (v.y - (data.victim.height - 48)) - data.victim.data.current.y, 16)
 			else
 				data.victim.data.chuckedByAChuckster = true
 				v.animationFrame = math.floor((data.chucksterTimer - 16) / 8) % 2 + 16
@@ -232,6 +215,20 @@ function sampleNPC.onTickEndNPC(v)
 		frame = data.frame,
 		frames = sampleNPCSettings.frames
 	});
+	
+	if data.victim and data.victim.data.chuckedByAChuckster then
+		local p = data.victim
+		if p.character <= 2 then
+			p:mem(0x3C, FIELD_BOOL, true)
+		end
+		p.keys.left = KEYS_UP
+		p.keys.right = KEYS_UP
+		p.keys.jump = KEYS_UP
+		p.keys.altJump = KEYS_UP
+		p.keys.run = KEYS_UP
+		p:mem(0x154, FIELD_WORD, false)
+		if isOnGround(p) then p.data.chuckedByAChuckster = nil end
+	end
 end
 
 local function isDespawned(v)
