@@ -2562,7 +2562,7 @@ ID:965;X:-199136;Y:-200912;D:-1;XTRA:"{\n    \"chuckster\"\: true\,\n    \"color
 ID:965;X:-197088;Y:-200944;D:-1;XTRA:"{\n    \"chuckster\"\: true\,\n    \"color\"\: 7\,\n    \"glasses\"\: false\,\n    \"hat\"\: 1\,\n    \"moustache\"\: true\,\n    \"throwDirection\"\: 0\,\n    \"xSpeed\"\: 3.5\,\n    \"ySpeed\"\: 29\n}\n";
 ID:965;X:-199648;Y:-200624;D:-1;XTRA:"{\n    \"chuckster\"\: true\,\n    \"color\"\: 5\,\n    \"glasses\"\: false\,\n    \"hat\"\: 1\,\n    \"moustache\"\: true\,\n    \"throwDirection\"\: 0\,\n    \"xSpeed\"\: 3.1\,\n    \"ySpeed\"\: 24\n}\n";
 ID:951;X:-199904;Y:-200640;D:-1;XTRA:"{\n    \"index\"\: 5\n}\n";
-ID:951;X:-196928;Y:-200800;D:-1;XTRA:"{\n    \"index\"\: 10\n}\n";
+ID:951;X:-196928;Y:-200800;D:-1;XTRA:"{\n    \"index\"\: 7\n}\n";
 NPC_END
 LAYERS
 LR:"Default";
