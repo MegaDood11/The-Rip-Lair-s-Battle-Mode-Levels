@@ -2,7 +2,7 @@ HEAD
 TL:"retroville-underground";CPID:"SMBX2";
 HEAD_END
 SECTION
-SC:0;L:-200000;R:-197568;T:-201248;B:-200000;MZ:24;MF:"retroville-underground/smb3-hammerbro.mp3";BG:0;
+SC:0;L:-200000;R:-197568;T:-201248;B:-200000;MZ:24;MF:"retroville-underground/Super Mario Bros. 3 (1988-10-23)(Nintendo EAD)(Nintendo).nsf|18\;g=1.5\;e0";BG:0;
 SECTION_END
 STARTPOINT
 ID:1;X:-198876;Y:-200182;D:1;
