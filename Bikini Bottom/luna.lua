@@ -29,10 +29,10 @@ local audioList = {
 	"Aloha.ogg",
 	"Bell Hop (a).ogg",
 	"The Lineman.ogg",
-	"The Bottom 2.ogg"
+	"Those Who Bob.ogg"
 }
 
-local audioLength = {45, 65, 165, 83, 69, 15.5, 81, 170.5, 31, 26, 125, 87, 110, 226, 30, 72, 75, 43, 43, 68, 126, 29, 157, 156, 163}
+local audioLength = {45, 65, 165, 83, 69, 15.5, 81, 170.5, 31, 26, 125, 87, 110, 226, 30, 72, 75, 43, 43, 68, 126, 29, 157, 156, 78}
 
 function onDraw()
 	if not audioValue then
