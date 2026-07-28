@@ -131,7 +131,6 @@ function sampleNPC.onTickEndNPC(v)
 		if data.offGround <= 1 then
 
 			v.animationFrame = 0
-			v.friendly = true
 			v.speedX = 2.5 * v.direction
 			
 			--Launch out at the trapped player!
@@ -175,7 +174,6 @@ function sampleNPC.onTickEndNPC(v)
 		if v.collidesBlockBottom then
 			--Go back into the ground if needs be
 			if data.ground then
-				v.friendly = true
 				if data.timer <= 4 then
 					v.animationFrame = 11
 				else
