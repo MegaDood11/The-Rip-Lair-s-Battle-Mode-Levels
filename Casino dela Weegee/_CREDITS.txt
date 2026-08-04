@@ -1,8 +1,6 @@
-Sethy - Luigi's Casino Tileset
+Gamma V and SanS1m0n - Casino tilesets
 
 Autumnmood - Card NPCs
- - Tweaked by MrNameless and MegaDood to make them Battle Mode usable
+ - Tweaked by MrNameless to make them Battle Mode usable
 
 PixelatedIvan - Casino Luigi NPC
-
-GrabGittare - Decor help
