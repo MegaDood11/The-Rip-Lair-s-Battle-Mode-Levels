@@ -1,0 +1,6 @@
+--- kremling Costume Credits ---
+
+Ported/Edited by Groovy Dee
+Lua assistance by John Nameless
+
+---------------------------------

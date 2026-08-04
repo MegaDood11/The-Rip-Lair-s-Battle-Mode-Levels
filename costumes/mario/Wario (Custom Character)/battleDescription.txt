@@ -1,0 +1,4 @@
+Port by John Nameless
+Original SMBX2 Wario script by Emral, SaturnYoshi, Horikawa Otane & Arabsalmon/Ohmato
+
+"SMBX2 Wario, fully imported to Battle Arena, abilities & all!"

@@ -1,6 +1,6 @@
 --- SMW Vivian Costume Credits ---
 
-Ported/Edited by Sleepy Dee, sprites by clockworkweeble
+Ported/Edited by Groovy Dee, sprites by clockworkweeble
 Extra sprites for powerups sourced from GlacialSiren484
 SMW costume base by MrDoubleA
 

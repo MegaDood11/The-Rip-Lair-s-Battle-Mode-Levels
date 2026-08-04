@@ -6,7 +6,7 @@ Gamma V - Rainbow + Clouds Background
  - Better BG Parallax by SuperAlex (edit by GDKeptr)
 
 h2643 - Relaxing Kirby sprites
- - "Sleepy Dee" edit by Sleepy
+ - "Groovy Dee" edit by Groovy
  
 MegaDood - Flaptor and Biddybuds NPC
 

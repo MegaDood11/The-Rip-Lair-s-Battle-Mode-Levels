@@ -1,6 +1,6 @@
 --- SMW Vacation Luigi Credits ---
 
-Ported with sprite edits by Sleepy Dee, JoseDaBestGamer, FNC2002
+Ported with sprite edits by Groovy Dee, JoseDaBestGamer, FNC2002
 Sprites by AwesomeZack, GlacialSiren484, MauricioN64, TheNintendude64
 SMW costume base by MrDoubleA
 

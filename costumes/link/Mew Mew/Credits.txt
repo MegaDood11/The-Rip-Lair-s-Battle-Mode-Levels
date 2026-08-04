@@ -1,0 +1,7 @@
+--- Mew Mew/Pink Costume Credits ---
+
+Ported/Edited by Groovy Dee
+Sprites ripped by Rayan64_C
+Lua assistance by John Nameless
+
+---------------------------------

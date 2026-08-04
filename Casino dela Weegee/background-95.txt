@@ -1,3 +1,4 @@
-frames=2
-framespeed=12
-grid=16
+frames = 1
+framespeed = 8
+noshadows = false
+priority = -85

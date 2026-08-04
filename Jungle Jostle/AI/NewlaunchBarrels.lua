@@ -624,7 +624,7 @@ function launchBarrel.straight.onTickNPC(npc)
 	end
 end
 
-local npcList = {961, 962, 963}
+local npcList = {961, 963}
 
 onlinePlayNPC.onlineHandlingConfig[#npcList] = {
 	getExtraData = function(v)
