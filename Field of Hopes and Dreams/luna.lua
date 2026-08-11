@@ -37,6 +37,29 @@ local lan5 = {}
 local lan6 = {}
 local lant = onlinePlay.createVariable("lant","uint16",true,0)
 
+local ORIGINAL_STARWALKER_UNDECIDED = 0
+local ORIGINAL_STARWALKER_HIDDEN = 1
+local ORIGINAL_STARWALKER_VISIBLE = 2
+
+local OriginalStarwalkerState = onlinePlay.createVariable("fieldOriginalStarwalkerState","uint8",true,ORIGINAL_STARWALKER_UNDECIDED)
+local OriginalStarwalkerLayer
+local appliedOriginalStarwalkerState = -1
+local starwalkerRNGValue = 0
+
+local function applyOriginalStarwalkerState(state)
+    if state == appliedOriginalStarwalkerState or OriginalStarwalkerLayer == nil then
+        return
+    end
+
+    appliedOriginalStarwalkerState = state
+
+    if state == ORIGINAL_STARWALKER_VISIBLE then
+        OriginalStarwalkerLayer:show(true)
+    else
+        OriginalStarwalkerLayer:hide(true)
+    end
+end
+
 -- Run code on level start
 function onStart()
     doorsolidA = Layer.get("doorsolidA")
@@ -46,6 +69,8 @@ function onStart()
 	joeahh = Layer.get("joeahh")
 
 	dojoe = false
+	OriginalStarwalkerLayer = Layer.get("THE ORIGINAL STARWALKER")
+	applyOriginalStarwalkerState(ORIGINAL_STARWALKER_HIDDEN)
 	
 	crounda1 = Layer.get("crounda1")
 	croundb1 = Layer.get("croundb1")
@@ -137,6 +162,18 @@ function onTick()
 	for k,v in ipairs(Block.get(283)) do
 		v:setSize(40,40)
 	end
+	
+	if OriginalStarwalkerState.value == ORIGINAL_STARWALKER_UNDECIDED then
+		starwalkerRNGValue = RNG.randomInt(1,5)
+		if starwalkerRNGValue == 1 then --5%
+			OriginalStarwalkerState.value = ORIGINAL_STARWALKER_VISIBLE
+		else
+			OriginalStarwalkerState.value = ORIGINAL_STARWALKER_HIDDEN
+		end
+	end
+	
+	applyOriginalStarwalkerState(OriginalStarwalkerState.value)
+	
 	if doormake then
 		Routine.run(function ()
 			doormode.value = math.random(0, 1)

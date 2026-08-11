@@ -1,0 +1,9 @@
+gfxoffsety=2
+gfxwidth=74
+gfxheight=80
+width=32
+height=64
+speed=1.38778e-16
+frames=1
+framestyle=1
+grid=2

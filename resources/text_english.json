@@ -356,6 +356,46 @@
 		"raftWarsMenu": {
 			"name": "Lazy Days",
 			"source": "by Reinhold Pohnl"
+		},
+		"track5": {
+			"name": "Track 5",
+			"source": "Sheep Raider"
+		},
+		"takeCare": {
+			"name": "Take Care",
+			"source": "ULTRAKILL"
+		},
+		"internetSettings": {
+			"name": "Internet Settings",
+			"source": "Nintendo 3DS Settings"
+		},
+		"Django": {
+			"name": "Django django",
+			"source": "GUILTY GEAR Xrd"
+		},
+		"networkUnused": {
+			"name": "Network (Unused)",
+			"source": "Marvel Vs. Capcom 2"
+		},
+		"networkUsed": {
+			"name": "Network",
+			"source": "Marvel Vs. Capcom 3"
+		},
+		"newYou": {
+			"name": "New You",
+			"source": "Rafflesia Channel by Xploshi"
+		},
+		"podLounge": {
+			"name": "Pod Lounge",
+			"source": "Rafflesia Online by Xploshi"
+		},
+		"whineCellar": {
+			"name": "The Whine Cellar",
+			"source": "ANTONBLAST"
+		},
+		"MAGNUMDANCE": {
+			"name": "MAGNUM DANCE",
+			"source": "by Yuji Ohno & friends"
 		}
     },
 

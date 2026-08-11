@@ -1153,6 +1153,7 @@ ID:951;X:-200488;Y:-200144;D:-1;XTRA:"{\n    \"index\"\: 5\n}\n";
 ID:951;X:-202128;Y:-200304;D:-1;XTRA:"{\n    \"index\"\: 7\n}\n";
 ID:951;X:-199616;Y:-200184;D:-1;
 ID:951;X:-198160;Y:-200264;D:-1;XTRA:"{\n    \"index\"\: 8\n}\n";
+ID:165;X:-201178;Y:-200466;D:-1;FD:1;LR:"THE ORIGINAL STARWALKER";
 NPC_END
 DOORS
 IX:-201276;IY:-200190;OX:-198036;OY:-200152;DT:2;ID:1;OD:1;LR:"doorsolidA";
@@ -1181,6 +1182,7 @@ LR:"lan5";HD:1;
 LR:"lan6";HD:1;
 LR:"\[Classic\, Stars\, Bombs\] Default";
 LR:"\[Stone\] Default";
+LR:"THE ORIGINAL STARWALKER";
 LAYERS_END
 EVENTS_CLASSIC
 ET:"Level - Start";AS:0;AX:0;AY:0;

@@ -43,12 +43,22 @@ musicSelect.songPaths = {
 	worldMap2ColorSplash = "resources/hubMusic/World Map 2 - Paper Mario - Color Splash.ogg",
 	areaPlanetWisp = "resources/hubMusic/Area Planet Wisp - Sonic Colors.ogg",
 	raftWarsMenu = "resources/hubMusic/Lazy Days - Reinhold Pöhnl.ogg",
+	track5 = "resources/hubMusic/Track 5 - Sheep Raider.ogg",
+	takeCare = "resources/hubMusic/Take Care - ULTRAKILL.ogg",
+	internetSettings = "resources/hubMusic/Internet Settings - Nintendo 3DS.ogg",
+	Django = "resources/hubMusic/Django django - GUILTY GEAR Xrd.ogg",
+	networkUnused = "resources/hubMusic/Network (Unused) - Marvel Vs. Capcom 2.ogg",
+	networkUsed = "resources/hubMusic/Network - Marvel Vs. Capcom 3.ogg",
+	newYou = "resources/hubMusic/New You - Rafflesia Channel.mp3",
+	podLounge = "resources/hubMusic/Pod Lounge - Rafflesia Online.mp3",
+	whineCellar = "resources/hubMusic/The Whine Cellar - ANTONBLAST.ogg",
+	MAGNUMDANCE = "resources/hubMusic/MAGNUM DANCE - Yuji Ohno.ogg"
 }
 
 musicSelect.songList = {
     "numberlessMoments","abstractMap","alternaSite6","regret","waitingRoom","WFC","dreamyWakeport","flipsideArcade","worldMap2ColorSplash","readyToFight","greenRoom","stickerbrush","velkommen",
 	"reconstruction","drawful","wordspud","pollMine","rosalina","LA","yoshiStar","breakSilence","allStarRestArea","trophy","menuSSF","floodLobby","resonance","sonicExtras","areaPlanetWisp",
-	"airRidersMenu","pokemonGoodbye","organJelly","raftWarsMenu"
+	"airRidersMenu","pokemonGoodbye","organJelly","raftWarsMenu","track5","takeCare","internetSettings","Django","networkUnused","networkUsed","newYou","podLounge","whineCellar","MAGNUMDANCE"
 }
 
 battleGeneral.saveData.hubMusic = battleGeneral.saveData.hubMusic or "random"
@@ -137,7 +147,7 @@ local optionFormatSettings = table.join({textScale = 1.7,boxMarginX = 24,boxMarg
 	
 	menu.options[1].y = -160
 	
-	if (option.y) - y * 0.5 <= -140 or (option.y) - y * 0.5 >= 252 then
+	if (option.y) - y * 0.7 <= -140 or (option.y) - y * 0.7 >= 252 then
 		option.x = 10000
 	else
 		for i = 1, #menu.options do
@@ -171,7 +181,7 @@ local optionFormatSettings = table.join({textScale = 1.7,boxMarginX = 24,boxMarg
 		end
 	end
 	
-	return option.x, math.clamp((option.y) - y*0.5, -140, 252)
+	return option.x, math.clamp((option.y) - y*0.7, -140, 252)
 end},optionFormat)
 
 local textFormatSettings = table.join({hasBox = true,textScale = 2,textMaxWidth = 384,textColor = Color.lightgrey,selectionGap = 21, getGraphicsPosFunc = function(option)
