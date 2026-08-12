@@ -141,13 +141,13 @@ local optionFormatSettings = table.join({textScale = 1.7,boxMarginX = 24,boxMarg
 
 	local selectedOptionNow = menu.options[menu.optionIdx]
 	local selectedOptionOld = menu.options[menu.optionIdxFadeStart]
-	local y = math.lerp(selectedOptionNow.y,selectedOptionOld.y,menu.optionIdxFade)
+	local y = math.lerp(selectedOptionNow.y,selectedOptionOld.y,menu.optionIdxFade) + 40
 	menu.elementsHeight = 512
 	menu.elementsWidth = 720
 	
-	menu.options[1].y = -160
+	menu.options[1].y = -180
 	
-	if (option.y) - y * 0.7 <= -140 or (option.y) - y * 0.7 >= 252 then
+	if (option.y) - y * 0.65 <= -140 or (option.y) - y * 0.65 >= 252 then
 		option.x = 10000
 	else
 		for i = 1, #menu.options do
@@ -162,9 +162,9 @@ local optionFormatSettings = table.join({textScale = 1.7,boxMarginX = 24,boxMarg
 			p.data.keyDelay = 2
 		end
 		
-		if (player.rawKeys.up == KEYS_PRESSED and y <= -160 and (menu.options[menu.optionIdx] == menu.options[1] or menu.options[menu.optionIdx] == menu.options[2])) or (player.rawKeys.down == KEYS_PRESSED and y >= 400 and (menu.options[menu.optionIdx] == menu.options[#menu.options] or menu.options[menu.optionIdx] == menu.options[#menu.options - 1])) then
+		if (player.rawKeys.up == KEYS_PRESSED and y <= -160 + 40 and (menu.options[menu.optionIdx] == menu.options[1] or menu.options[menu.optionIdx] == menu.options[2])) or (player.rawKeys.down == KEYS_PRESSED and y >= 400 and (menu.options[menu.optionIdx] == menu.options[#menu.options] or menu.options[menu.optionIdx] == menu.options[#menu.options - 1])) then
 			if p.data.keyDelay <= 0 then
-				if y <= -160 then
+				if y <= -160 + 40 then
 					if menu.options[menu.optionIdx] == menu.options[1] then
 						menu:changeOptionIdx(#menu.options - 1)
 					else
@@ -181,7 +181,7 @@ local optionFormatSettings = table.join({textScale = 1.7,boxMarginX = 24,boxMarg
 		end
 	end
 	
-	return option.x, math.clamp((option.y) - y*0.7, -140, 252)
+	return option.x, math.clamp((option.y) - y*0.65, -140, 252)
 end},optionFormat)
 
 local textFormatSettings = table.join({hasBox = true,textScale = 2,textMaxWidth = 384,textColor = Color.lightgrey,selectionGap = 21, getGraphicsPosFunc = function(option)
