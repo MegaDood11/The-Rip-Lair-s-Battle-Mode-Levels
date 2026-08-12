@@ -1,0 +1,2 @@
+Uses icantswim.lua by cold soup, and MrDoubleA's monitor NPCs.
+Monitor sprites by Groovy Dee, and tileset by AirShip

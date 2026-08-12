@@ -1,0 +1,5 @@
+gfxwidth=56
+gfxheight=92
+width=42
+height=72
+gridoffsety=32

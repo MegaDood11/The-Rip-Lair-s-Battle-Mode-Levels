@@ -93,7 +93,6 @@ local function handleJumping(p,forceJump,playSFX) -- "replaces" the default SMBX
 			if playSFX then SFX.play(33) end
 		elseif p.mount == 0 then
 			finalHeight = jumpheights[p.character]
-			if playSFX then SFX.play(1) end
 		end
 		
 		Routine.run(function()
