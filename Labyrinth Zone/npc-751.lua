@@ -32,6 +32,8 @@ local monitorSettings = table.join({
 
 	ignorethrownnpcs = true,
 	jumphurt = true,
+	noblockcollision=true,
+	nogravity=true,
 
 	lightradius = 0,
 },ai.sharedSettings)

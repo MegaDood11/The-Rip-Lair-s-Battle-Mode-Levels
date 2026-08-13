@@ -1,5 +1,7 @@
 gfxwidth=56
 gfxheight=92
 width=42
-height=72
+height=64
 gridoffsety=32
+maxhopspeed = 0
+minhopspeed = 0

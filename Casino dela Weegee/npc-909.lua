@@ -3,6 +3,16 @@ local onlinePlayNPC = require("scripts/onlinePlay_npc")
 local npc = {}
 local id = NPC_ID
 
+--Defines NPC config for our NPC. You can remove superfluous definitions.
+local sampleNPCSettings = {
+	id = NPC_ID,
+	nohurt = true,
+	jumphurt = true,
+}
+
+--Applies NPC settings
+npcManager.setNpcSettings(sampleNPCSettings)
+
 function npc.onTickNPC(v)
 	
 	local data = v.data

@@ -259,7 +259,12 @@ do
 
     function monitor.onNPCKill(eventObj,v,reason)
         if not monitor.idMap[v.id] or reason == HARM_TYPE_OFFSCREEN then return end
-
+		
+		if reason ~= HARM_TYPE_JUMP and reason ~= HARM_TYPE_SPINJUMP and reason ~= HARM_TYPE_TAIL then
+			eventObj.cancelled = true
+			return
+		end
+		
         local config = NPC.config[v.id]
         local data = v.data
 
