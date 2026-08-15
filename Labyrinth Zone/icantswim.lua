@@ -94,7 +94,7 @@ local function handleJumping(p,forceJump,playSFX) -- "replaces" the default SMBX
 		elseif p.mount == 0 then
 			finalHeight = jumpheights[p.character]
 		end
-		SFX.play(1)
+		if p.deathTimer <= 0 then SFX.play(1) end
 		Routine.run(function()
 			Routine.skip()
 			p:mem(0x11C,FIELD_WORD, finalHeight) -- this handles jumpheights (this trick doesn't affect springs :[ )
