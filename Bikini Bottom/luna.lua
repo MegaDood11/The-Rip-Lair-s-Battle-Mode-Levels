@@ -29,14 +29,15 @@ local audioList = {
 	"Aloha.ogg",
 	"Bell Hop (a).ogg",
 	"The Lineman.ogg",
-	"Those Who Bob.ogg"
+	"Those Who Bob.ogg",
+	"Octopus's Garden.ogg"
 }
 
-local audioLength = {45, 65, 165, 83, 69, 15.5, 81, 170.5, 31, 26, 125, 87, 110, 226, 30, 72, 75, 43, 43, 68, 126, 29, 157, 156, 76}
+local audioLength = {45, 65, 165, 83, 69, 15.5, 81, 170.5, 31, 26, 125, 87, 110, 226, 30, 72, 75, 43, 43, 68, 126, 29, 157, 156, 76, 168}
 
 function onDraw()
 	if not audioValue then
-		audioValue = RNG.randomInt(0, 24)
+		audioValue = RNG.randomInt(0, 25)
 		if not lastSong then
 			Audio.MusicChange(0, "Bikini Bottom/Music List/" .. audioList[audioValue + 1])
 			timer = audioLength[audioValue + 1]
